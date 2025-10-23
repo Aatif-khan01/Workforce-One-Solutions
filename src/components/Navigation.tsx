@@ -71,7 +71,7 @@ const Navigation = () => {
             to="/"
             className="hover:scale-105 transition-transform duration-300"
           >
-            <img src={logo} alt="Company logo" className="h-10 w-auto" />
+            <img src={logo} alt="Company logo" className="h-15 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
