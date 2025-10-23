@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Shield, Users, Search, CheckCircle, Award, ArrowRight, Target } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import ScheduleMeetingSection from "@/components/ScheduleMeetingSection";
 import GlassCard from "@/components/GlassCard";
 import ImageGridInfo from "@/components/ImageGridInfo";
 import { Button } from "@/components/ui/button";
@@ -289,6 +290,7 @@ const ClearedRecruitment = () => {
         </div>
       </section>
 
+      <ScheduleMeetingSection />
       <Footer />
     </div>
   );
