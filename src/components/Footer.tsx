@@ -51,7 +51,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 pt-8 border-t border-glass-border text-center text-muted-foreground">
-          <p>&copy; 2025 All rights reserved.</p>
+          <p>&copy;© 2025 Workforce One Solutions. All rights reserved.</p>
         </div>
       </div>
     </footer>
