@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { FileText, Target, Pen, Palette, CheckSquare, Calendar, ArrowRight, Lightbulb, Users as UsersIcon, Trophy } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import ScheduleMeetingSection from "@/components/ScheduleMeetingSection";
 import GlassCard from "@/components/GlassCard";
 import ImageGridInfo from "@/components/ImageGridInfo";
 import { Button } from "@/components/ui/button";
@@ -244,6 +245,7 @@ const ProposalDevelopment = () => {
         </div>
       </section>
 
+      <ScheduleMeetingSection />
       <Footer />
     </div>
   );
