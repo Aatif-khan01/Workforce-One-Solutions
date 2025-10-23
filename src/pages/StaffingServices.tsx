@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Briefcase, Zap, Users, Target, Shield, ArrowRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import ScheduleMeetingSection from "@/components/ScheduleMeetingSection";
 import GlassCard from "@/components/GlassCard";
 import ImageGridInfo from "@/components/ImageGridInfo";
 import { Button } from "@/components/ui/button";
@@ -276,6 +277,7 @@ const StaffingServices = () => {
         </div>
       </section>
 
+      <ScheduleMeetingSection />
       <Footer />
     </div>
   );
