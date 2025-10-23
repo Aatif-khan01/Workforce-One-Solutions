@@ -15,6 +15,7 @@ import ClearedRecruitment from "./pages/ClearedRecruitment";
 import StaffingServices from "./pages/StaffingServices";
 import SoftwareDevelopment from "./pages/SoftwareDevelopment";
 import Contact from "./pages/Contact";
+import Booking from "./pages/Booking";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ const AppRoutes = () => {
           <Route path="/services/staffing" element={<StaffingServices />} />
           <Route path="/services/software" element={<SoftwareDevelopment />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/booking" element={<Booking />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </PageTransition>
@@ -56,4 +58,3 @@ const App = () => (
 );
 
 export default App;
-
