@@ -3,21 +3,25 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { Button } from "./ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import logo from "@/assets/WfOS-LOGO.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [showServicesDropdown, setShowServicesDropdown] = useState(false);
   const location = useLocation();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      setIsVisible(currentScrollY < 100 || currentScrollY < lastScrollY);
+      setLastScrollY(currentScrollY);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -55,20 +59,19 @@ const Navigation = () => {
   };
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? "bg-glass/80 backdrop-blur-xl border-b border-glass-border shadow-lg"
-          : "bg-transparent"
-      }`}
+    <motion.nav
+      initial={{ y: 0 }}
+      animate={{ y: isVisible ? 0 : -100 }}
+      transition={{ duration: 0.3 }}
+      className={`fixed top-0 left-0 right-0 z-50 bg-transparent border-b border-glass-border shadow-lg`}
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link
             to="/"
-            className="text-2xl font-bold bg-gradient-to-r from-accent via-accent-glow to-secondary bg-clip-text text-transparent hover:scale-105 transition-transform duration-300"
+            className="hover:scale-105 transition-transform duration-300"
           >
-            Workforce One Solutions
+            <img src={logo} alt="Company logo" className="h-10 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -205,7 +208,7 @@ const Navigation = () => {
           </div>
         )}
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 
