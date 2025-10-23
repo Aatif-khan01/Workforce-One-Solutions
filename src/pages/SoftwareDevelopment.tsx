@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Code, Smartphone, Globe, Cloud, Palette, TestTube, RefreshCw, Wrench, ArrowRight, Layers, Award, Rocket } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import ScheduleMeetingSection from "@/components/ScheduleMeetingSection";
 import AnimatedCard from "@/components/AnimatedCard";
 import AnimatedBox from "@/components/AnimatedBox";
 import StaggeredAnimation from "@/components/StaggeredAnimation";
@@ -274,6 +275,7 @@ const SoftwareDevelopment = () => {
         </div>
       </section>
 
+      <ScheduleMeetingSection />
       <Footer />
     </div>
   );
