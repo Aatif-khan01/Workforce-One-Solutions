@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Shield, Heart, Award, Users, Compass, Rocket, ArrowRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import ScheduleMeetingSection from "@/components/ScheduleMeetingSection";
 import AnimatedCard from "@/components/AnimatedCard";
 import AnimatedBox from "@/components/AnimatedBox";
 import StaggeredAnimation from "@/components/StaggeredAnimation";
@@ -253,6 +254,7 @@ const About = () => {
         </div>
       </section>
 
+      <ScheduleMeetingSection />
       <Footer />
     </div>
   );
