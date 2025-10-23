@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { FileText, Users, Briefcase, Code, ArrowRight, Target, Zap, Shield, Check, Layers, Award, Clock } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import ScheduleMeetingSection from "@/components/ScheduleMeetingSection";
 import AnimatedCard from "@/components/AnimatedCard";
 import AnimatedBox from "@/components/AnimatedBox";
 import StaggeredAnimation from "@/components/StaggeredAnimation";
@@ -292,6 +293,7 @@ const Services = () => {
         </div>
       </section>
 
+      <ScheduleMeetingSection />
       <Footer />
     </div>
   );
