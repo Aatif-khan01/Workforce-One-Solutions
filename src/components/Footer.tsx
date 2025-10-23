@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Linkedin, Facebook, Twitter } from "lucide-react";
+import logo from "@/assets/WfOS-LOGO.png";
 
 const Footer = () => {
   return (
@@ -7,9 +8,9 @@ const Footer = () => {
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
-              Workforce One Solutions
-            </h3>
+            <Link to="/" className="inline-flex items-center">
+              <img src={logo} alt="Company logo" className="h-10 w-auto" />
+            </Link>
             <p className="text-muted-foreground">
               Bridging the gap between opportunity and execution.
             </p>
@@ -50,7 +51,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 pt-8 border-t border-glass-border text-center text-muted-foreground">
-          <p>&copy; 2025 Workforce One Solutions. All rights reserved.</p>
+          <p>&copy; 2025 All rights reserved.</p>
         </div>
       </div>
     </footer>
