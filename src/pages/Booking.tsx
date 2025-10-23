@@ -38,7 +38,7 @@ const Booking = () => {
             <Card className="p-6 bg-card border-border">
               <div className="space-y-6">
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Snow Stag Services</h3>
+                  <h3 className="font-semibold text-lg mb-2">Workforce One Solutions</h3>
                   <p className="text-sm text-muted-foreground">Schedule a consultation</p>
                 </div>
 
