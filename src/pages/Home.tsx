@@ -10,6 +10,7 @@ import StatCounter from "@/components/StatCounter";
 import ImageGridInfo from "@/components/ImageGridInfo";
 import ClientLogos from "@/components/ClientLogos";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/WfOS-LOGO.png";
 import heroImage from "@/assets/hero-home.jpg";
 import clientSuccessImage from "@/assets/client-success.jpg";
 import galleryTechWork from "@/assets/gallery-tech-work-1.jpg";
@@ -87,11 +88,9 @@ const Home = () => {
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <AnimatedBox animation="fadeInUp" delay={50}>
-              <h1 className="text-6xl md:text-8xl font-bold leading-tight">
-                <span className="bg-gradient-to-r from-[#70E3FF] via-[#45A3FF] to-[#3454FF] bg-clip-text text-transparent">
-                  Workforce One Solutions
-                </span>
-              </h1>
+              <div className="flex justify-center">
+                <img src={logo} alt="Workforce One Solutions" className="h-32 md:h-48 w-auto" />
+              </div>
             </AnimatedBox>
             <AnimatedBox animation="fadeInUp" delay={100}>
               <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
