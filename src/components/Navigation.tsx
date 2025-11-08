@@ -10,6 +10,7 @@ const Navigation = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [showServicesDropdown, setShowServicesDropdown] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -17,6 +18,7 @@ const Navigation = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setIsVisible(currentScrollY < 100 || currentScrollY < lastScrollY);
+      setIsScrolled(currentScrollY > 50);
       setLastScrollY(currentScrollY);
     };
     window.addEventListener("scroll", handleScroll);
@@ -63,7 +65,11 @@ const Navigation = () => {
       initial={{ y: 0 }}
       animate={{ y: isVisible ? 0 : -100 }}
       transition={{ duration: 0.3 }}
-      className={`fixed top-0 left-0 right-0 z-50 bg-transparent border-b border-glass-border shadow-lg`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-background/95 backdrop-blur-xl shadow-xl border-b border-border/50"
+          : "bg-background/80 backdrop-blur-md border-b border-border/30"
+      }`}
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -71,7 +77,7 @@ const Navigation = () => {
             to="/"
             className="hover:scale-105 transition-transform duration-300"
           >
-            <img src={logo} alt="Company logo" className="h-12 w-auto" />
+            <img src={logo} alt="Company logo" className="h-10 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -120,7 +126,7 @@ const Navigation = () => {
                         exit="hidden"
                         variants={dropdownVariants}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 mt-2 py-2 w-64 bg-glass/90 backdrop-blur-xl border border-glass-border rounded-lg shadow-lg"
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-2 py-2 w-64 bg-background/95 backdrop-blur-xl border border-border rounded-lg shadow-xl"
                       >
                         {serviceLinks.map((service) => (
                           <Link
@@ -144,7 +150,7 @@ const Navigation = () => {
             <Link to="/contact">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-[#45A3FF] to-[#3454FF] hover:shadow-lg text-white transition-all duration-300 hover:scale-105"
+                className="bg-black hover:bg-black/80 hover:shadow-lg text-white transition-all duration-300 hover:scale-105"
               >
                 Get Started
               </Button>
@@ -161,52 +167,60 @@ const Navigation = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="fixed top-0 left-0 w-full h-screen bg-glass/90 backdrop-blur-lg z-50 flex flex-col px-6 pt-24 space-y-2 animate-fade-in">
-            {navLinks.map((link) => (
-              <div key={link.path}>
-                <Link
-                  to={link.path}
-                  onClick={() => !link.hasDropdown && setIsOpen(false)}
-                  className={`block py-3 text-xl font-semibold rounded transition-colors duration-300 ${
-                    location.pathname === link.path ||
-                    (link.path === "/services" && location.pathname.startsWith("/services"))
-                      ? "text-accent bg-gradient-to-r from-accent/20 to-accent-glow/10"
-                      : "text-foreground hover:text-accent hover:bg-gradient-to-r hover:from-accent/10 hover:to-secondary/10"
-                  }`}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden mt-4 pb-4 space-y-2"
+            >
+              {navLinks.map((link) => (
+                <div key={link.path}>
+                  <Link
+                    to={link.path}
+                    onClick={() => !link.hasDropdown && setIsOpen(false)}
+                    className={`block py-3 px-4 text-base font-medium rounded-lg transition-colors duration-300 ${
+                      location.pathname === link.path ||
+                      (link.path === "/services" && location.pathname.startsWith("/services"))
+                        ? "text-accent bg-accent/10"
+                        : "text-foreground hover:text-accent hover:bg-accent/5"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                  {link.hasDropdown && (
+                    <div className="ml-4 mt-2 space-y-2">
+                      {serviceLinks.map((service) => (
+                        <Link
+                          key={service.path}
+                          to={service.path}
+                          onClick={() => setIsOpen(false)}
+                          className={`block py-2 px-4 text-sm rounded-lg transition-colors duration-200 ${
+                            location.pathname === service.path
+                              ? "text-accent bg-accent/10"
+                              : "text-foreground/80 hover:text-accent hover:bg-accent/5"
+                          }`}
+                        >
+                          {service.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+              <Link to="/contact" onClick={() => setIsOpen(false)}>
+                <Button
+                  size="lg"
+                  className="w-full bg-black hover:bg-black/80 hover:shadow-lg text-white py-3 mt-4"
                 >
-                  {link.label}
-                </Link>
-                {link.hasDropdown && (
-                  <div className="ml-4 mt-2 space-y-2">
-                    {serviceLinks.map((service) => (
-                      <Link
-                        key={service.path}
-                        to={service.path}
-                        onClick={() => setIsOpen(false)}
-                        className={`block py-2 text-lg transition-colors duration-200 ${
-                          location.pathname === service.path
-                            ? "text-accent"
-                            : "text-foreground/80 hover:text-accent"
-                        }`}
-                      >
-                        {service.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-            <Link to="/contact" onClick={() => setIsOpen(false)}>
-              <Button
-                size="lg"
-                className="w-full bg-gradient-to-r from-[#45A3FF] to-[#3454FF] hover:shadow-lg text-white py-3 mt-4"
-              >
-                Get Started
-              </Button>
-            </Link>
-          </div>
-        )}
+                  Get Started
+                </Button>
+              </Link>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.nav>
   );
