@@ -86,17 +86,17 @@ const Services = () => {
     <div className="min-h-screen">
       <Navigation />
       
-      {/* Hero Section - Split Layout with Hexagons */}
+      {/* Hero Section - Split Layout with Hexagons in 2x2 Grid */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20 bg-gradient-to-b from-background to-background/50">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-3 gap-8 items-center max-w-7xl mx-auto">
+          <div className="grid grid-cols-3 gap-12 items-center max-w-7xl mx-auto">
             {/* Left Side - Services */}
             <div className="space-y-12">
               {/* Proposal Development */}
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-[#18cb96] flex items-center justify-center flex-shrink-0">
-                    <span className="w-2 h-2 rounded-full bg-white"></span>
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-[#18cb96] flex items-center justify-center flex-shrink-0">
+                    <span className="w-2.5 h-2.5 rounded-full bg-white"></span>
                   </div>
                   <h3 className="text-xl font-bold">Proposal Development</h3>
                 </div>
@@ -108,8 +108,8 @@ const Services = () => {
               {/* Cleared Recruitment */}
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-[#18cb96] flex items-center justify-center flex-shrink-0">
-                    <span className="w-2 h-2 rounded-full bg-white"></span>
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-[#18cb96] flex items-center justify-center flex-shrink-0">
+                    <span className="w-2.5 h-2.5 rounded-full bg-white"></span>
                   </div>
                   <h3 className="text-xl font-bold">Cleared Recruitment</h3>
                 </div>
@@ -119,27 +119,29 @@ const Services = () => {
               </div>
             </div>
 
-            {/* Center - Hexagonal Icons */}
+            {/* Center - Hexagonal Icons in 2x2 Grid */}
             <div className="flex justify-center items-center">
-              <div className="relative w-96 h-[500px]">
+              <div className="relative w-80 h-96">
+                {/* Top Row */}
                 {/* Top Left - Proposal Development */}
-                <div className="absolute top-8 left-12 w-36 h-36 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <FileText size={48} className="text-white" />
+                <div className="absolute top-0 left-8 w-32 h-32 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-xl">
+                  <FileText size={40} className="text-white" />
                 </div>
 
                 {/* Top Right - Staffing */}
-                <div className="absolute top-8 right-12 w-36 h-36 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <Briefcase size={48} className="text-white" />
+                <div className="absolute top-0 right-8 w-32 h-32 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-xl">
+                  <Briefcase size={40} className="text-white" />
                 </div>
 
-                {/* Middle Left - Cleared Recruitment */}
-                <div className="absolute top-[160px] left-0 w-36 h-36 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <Users size={48} className="text-white" />
+                {/* Bottom Row */}
+                {/* Bottom Left - Cleared Recruitment */}
+                <div className="absolute bottom-0 left-8 w-32 h-32 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-xl">
+                  <Users size={40} className="text-white" />
                 </div>
 
-                {/* Middle Right - Software Development */}
-                <div className="absolute top-[160px] right-0 w-36 h-36 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <Code size={48} className="text-white" />
+                {/* Bottom Right - Software Development */}
+                <div className="absolute bottom-0 right-8 w-32 h-32 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-xl">
+                  <Code size={40} className="text-white" />
                 </div>
               </div>
             </div>
@@ -153,8 +155,8 @@ const Services = () => {
               {/* Workforce Staffing */}
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-[#18cb96] flex items-center justify-center flex-shrink-0">
-                    <span className="w-2 h-2 rounded-full bg-white"></span>
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-[#18cb96] flex items-center justify-center flex-shrink-0">
+                    <span className="w-2.5 h-2.5 rounded-full bg-white"></span>
                   </div>
                   <h3 className="text-xl font-bold">Workforce Staffing</h3>
                 </div>
@@ -166,8 +168,8 @@ const Services = () => {
               {/* Software Development */}
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-[#18cb96] flex items-center justify-center flex-shrink-0">
-                    <span className="w-2 h-2 rounded-full bg-white"></span>
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-[#18cb96] flex items-center justify-center flex-shrink-0">
+                    <span className="w-2.5 h-2.5 rounded-full bg-white"></span>
                   </div>
                   <h3 className="text-xl font-bold">Software Development</h3>
                 </div>
