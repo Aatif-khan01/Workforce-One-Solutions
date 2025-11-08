@@ -75,7 +75,7 @@ const Home = () => {
     <div className="min-h-screen">
       <Navigation />
 
-      {/* Hero Section */}
+      {/* ✅ HERO SECTION */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
           <img
@@ -86,37 +86,49 @@ const Home = () => {
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
+          <div className="max-w-4xl mx-auto text-center space-y-6">
 
-            {/* ✅ LOGO REMOVED */}
-
-            <AnimatedBox animation="fadeInUp" delay={100}>
-              <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-              </p>
-            </AnimatedBox>
-
-            <AnimatedBox animation="fadeInUp" delay={150}>
-              <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
-              </p>
-            </AnimatedBox>
-
+            {/* ✅ HERO TITLE */}
             <AnimatedBox animation="fadeInUp" delay={50}>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                <Link to="/contact">
-                  <Button size="lg" className="group bg-black hover:bg-black/80 hover:shadow-lg text-white text-lg px-8 py-6">
+              <h1 className="text-6xl md:text-7xl font-bold tracking-tight text-white drop-shadow-lg">
+                Workforce One
+              </h1>
+              <h2 className="text-3xl md:text-4xl text-white/90 mt-2 font-light">
+                Solutions
+              </h2>
+            </AnimatedBox>
+
+            {/* ✅ HERO SUBTEXT */}
+            <AnimatedBox animation="fadeInUp" delay={120}>
+              <p className="text-xl md:text-2xl text-white/85 max-w-2xl mx-auto">
+                Empowering Businesses Through Talent and Innovation
+              </p>
+            </AnimatedBox>
+
+            {/* ✅ NEW ORGANIZED BUTTONS */}
+            <AnimatedBox animation="fadeInUp" delay={200}>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4">
+
+                <Link to="/contact" className="w-full sm:w-auto">
+                  <Button
+                    size="lg"
+                    className="group bg-black/90 hover:bg-black text-white text-lg px-10 py-6 w-full sm:w-auto rounded-xl"
+                  >
                     Get Started
                     <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
-                <Link to="/services">
+
+                <Link to="/services" className="w-full sm:w-auto">
                   <Button
                     size="lg"
                     variant="outline"
-                    className="text-lg px-8 py-6 border-2 border-accent text-accent hover:bg-accent hover:text-background transition-colors"
+                    className="text-lg px-10 py-6 w-full sm:w-auto border-2 border-white/80 text-white hover:bg-white hover:text-black rounded-xl transition-all"
                   >
                     Explore Services
                   </Button>
                 </Link>
+
               </div>
             </AnimatedBox>
 
@@ -124,13 +136,13 @@ const Home = () => {
         </div>
 
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 rounded-full border-2 border-accent flex items-start justify-center p-2">
-            <div className="w-1 h-3 bg-accent rounded-full animate-pulse" />
+          <div className="w-6 h-10 rounded-full border-2 border-white/70 flex items-start justify-center p-2">
+            <div className="w-1 h-3 bg-white rounded-full animate-pulse" />
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* ✅ STATS SECTION */}
       <section className="py-20 relative">
         <div className="container mx-auto px-6">
           <StaggeredAnimation className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto" staggerDelay={50}>
@@ -144,10 +156,10 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Client Logos Section */}
+      {/* ✅ CLIENT LOGOS */}
       <ClientLogos />
 
-      {/* Services Section */}
+      {/* ✅ SERVICES SECTION */}
       <section className="py-24 relative">
         <div className="container mx-auto px-6">
           <AnimatedBox animation="fadeInUp" delay={50} className="text-center mb-16">
@@ -208,7 +220,7 @@ const Home = () => {
               <div className="text-5xl font-bold text-accent mb-4 animate-float">01</div>
               <h3 className="text-2xl font-bold mb-4">Human Insight + Data Precision</h3>
               <p className="text-muted-foreground">
-                Technology can optimize processes, but it's people who make them meaningful. We use data-driven targeting and human expertise to deliver results that matter.
+                Technology can optimize processes, but it's people who make them meaningful.
               </p>
             </AnimatedCard>
 
@@ -216,7 +228,7 @@ const Home = () => {
               <div className="text-5xl font-bold text-secondary mb-4 animate-float" style={{ animationDelay: '0.5s' }}>02</div>
               <h3 className="text-2xl font-bold mb-4">Quality Over Quantity</h3>
               <p className="text-muted-foreground">
-                We deliver handpicked candidates, customized proposals, and software that aligns with your exact requirements. Every solution is crafted with precision and care.
+                We deliver handpicked candidates and solutions crafted with precision.
               </p>
             </AnimatedCard>
 
@@ -224,22 +236,17 @@ const Home = () => {
               <div className="text-5xl font-bold text-coral mb-4 animate-float" style={{ animationDelay: '1s' }}>03</div>
               <h3 className="text-2xl font-bold mb-4">Building for the Future</h3>
               <p className="text-muted-foreground">
-                Today, we help you meet deadlines. Tomorrow, we help you expand into new markets and build a future-ready workforce equipped for tomorrow's challenges.
+                Today, we help you meet deadlines. Tomorrow, we help you scale.
               </p>
             </AnimatedCard>
           </StaggeredAnimation>
         </div>
       </section>
 
-      {/* Success Stories Section */}
+      {/* Success Section */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img
-            src={clientSuccessImage}
-            alt="Client Success"
-            className="w-full h-full object-cover"
-          />
-
+          <img src={clientSuccessImage} className="w-full h-full object-cover" />
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
@@ -250,7 +257,7 @@ const Home = () => {
               </span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              From government contractors to innovative startups, we've helped organizations achieve their most ambitious goals.
+              From government contractors to innovative startups.
             </p>
           </div>
 
@@ -258,19 +265,19 @@ const Home = () => {
             <AnimatedCard className="p-8 text-center" animation="scaleIn" delay={50}>
               <div className="text-6xl mb-4 animate-bounce-in">🏆</div>
               <h3 className="text-2xl font-bold mb-3">Award-Winning Proposals</h3>
-              <p className="text-muted-foreground">Helped clients secure over $2B in contract value through strategic proposal development</p>
+              <p className="text-muted-foreground">Secured over $2B in contract value</p>
             </AnimatedCard>
 
             <AnimatedCard className="p-8 text-center" animation="scaleIn" delay={100}>
-              <div className="text-6xl mb-4 animate-bounce-in" style={{ animationDelay: '0.2s' }}>🚀</div>
+              <div className="text-6xl mb-4 animate-bounce-in" style={{ animationDelay: "0.2s" }}>🚀</div>
               <h3 className="text-2xl font-bold mb-3">Rapid Deployment</h3>
-              <p className="text-muted-foreground">Average placement time of 14 days for cleared professionals across all security levels</p>
+              <p className="text-muted-foreground">Average placement time: 14 days</p>
             </AnimatedCard>
 
             <AnimatedCard className="p-8 text-center" animation="scaleIn" delay={150}>
-              <div className="text-6xl mb-4 animate-bounce-in" style={{ animationDelay: '0.4s' }}>💡</div>
+              <div className="text-6xl mb-4 animate-bounce-in" style={{ animationDelay: "0.4s" }}>💡</div>
               <h3 className="text-2xl font-bold mb-3">Innovation Excellence</h3>
-              <p className="text-muted-foreground">Developed mission-critical software platforms serving millions of users</p>
+              <p className="text-muted-foreground">Software serving millions of users</p>
             </AnimatedCard>
           </div>
         </div>
@@ -285,9 +292,15 @@ const Home = () => {
                 What We Believe
               </span>
             </h2>
+
             <div className="space-y-6">
               {values.map((value, index) => (
-                <AnimatedBox key={index} animation="fadeInLeft" delay={400 + (index * 150)} className="flex items-start space-x-4">
+                <AnimatedBox
+                  key={index}
+                  animation="fadeInLeft"
+                  delay={400 + index * 150}
+                  className="flex items-start space-x-4"
+                >
                   <CheckCircle className="text-accent flex-shrink-0 mt-1 animate-pulse-slow" size={24} />
                   <p className="text-lg text-foreground/90">{value}</p>
                 </AnimatedBox>
@@ -297,12 +310,12 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Image Grid Info Section */}
+      {/* Image Grid Info */}
       <ImageGridInfo
         images={[
-          { src: galleryTechWork, alt: "Professional working on technology", label: "What We Deliver" },
-          { src: galleryBuilding, alt: "Modern office building" },
-          { src: galleryTeam, alt: "Team collaboration" },
+          { src: galleryTechWork, label: "What We Deliver" },
+          { src: galleryBuilding },
+          { src: galleryTeam },
         ]}
         title="Workforce One Solution"
         subtitle="Delivering Excellence in Every Engagement"
@@ -310,17 +323,17 @@ const Home = () => {
           {
             title: "About Us",
             icon: <Target size={24} className="text-background" />,
-            content: "We are a trusted partner for organizations seeking to win contracts, build high-performing teams, and develop custom software solutions. With expertise across proposal development, cleared recruitment, staffing, and technology, we deliver end-to-end solutions tailored to your mission.",
+            content: "We help organizations win contracts, hire talent, and build custom software.",
           },
           {
             title: "Our Vision",
             icon: <Zap size={24} className="text-background" />,
-            content: "To be recognized as the premier workforce solutions provider, known for our commitment to excellence, innovation, and measurable results that drive business success.",
+            content: "To be the most trusted workforce and technology partner.",
           },
           {
             title: "Our Mission",
             icon: <Shield size={24} className="text-background" />,
-            content: "To bridge the gap between opportunity and execution by providing specialized talent, strategic insights, and technology solutions that empower our clients to achieve their objectives.",
+            content: "To provide specialized talent and innovative solutions that drive results.",
           },
         ]}
       />
@@ -329,14 +342,15 @@ const Home = () => {
       <section className="py-24 relative">
         <div className="container mx-auto px-6">
           <AnimatedCard className="p-16 text-center" animation="scaleIn" delay={50}>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Ready to Transform Your Business?
-            </h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Transform Your Business?</h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               The future belongs to companies that combine people, process, and technology seamlessly.
             </p>
             <Link to="/contact">
-              <Button size="lg" className="bg-gradient-to-r from-coral to-secondary hover:shadow-glow text-lg px-12 py-6 group animate-glow">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-coral to-secondary hover:shadow-glow text-lg px-12 py-6 group animate-glow"
+              >
                 Start Your Journey
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
