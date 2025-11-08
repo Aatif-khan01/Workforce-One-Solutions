@@ -1,367 +1,283 @@
 import { Link } from "react-router-dom";
-import { FileText, Users, Briefcase, Code, ArrowRight, Target, Zap, Shield, Check, Layers, Award, Clock } from "lucide-react";
+import { ArrowRight, Users, FileText, Briefcase, Code, CheckCircle, Target, Zap, Shield } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScheduleMeetingSection from "@/components/ScheduleMeetingSection";
-import GlassCard from "@/components/GlassCard";
+import AnimatedCard from "@/components/AnimatedCard";
+import AnimatedBox from "@/components/AnimatedBox";
+import StaggeredAnimation from "@/components/StaggeredAnimation";
+import StatCounter from "@/components/StatCounter";
 import ImageGridInfo from "@/components/ImageGridInfo";
+import ClientLogos from "@/components/ClientLogos";
 import { Button } from "@/components/ui/button";
-import technologyNetworkImage from "@/assets/technology-network.jpg";
-import galleryPresentation from "@/assets/gallery-presentation.jpg";
-import galleryDevWork from "@/assets/gallery-dev-work.jpg";
-import galleryConsultation from "@/assets/gallery-consultation.jpg";
+
+import heroImage from "@/assets/hero-home.jpg";
+import clientSuccessImage from "@/assets/client-success.jpg";
+import galleryTechWork from "@/assets/gallery-tech-work-1.jpg";
+import galleryBuilding from "@/assets/gallery-building-1.jpg";
+import galleryTeam from "@/assets/gallery-team-1.jpg";
 import serviceProposal from "@/assets/service-proposal.jpg";
 import serviceRecruitment from "@/assets/service-recruitment.jpg";
 import serviceStaffing from "@/assets/service-staffing.jpg";
 import serviceSoftware from "@/assets/service-software.jpg";
 
-const Services = () => {
+const Home = () => {
+  const stats = [
+    { value: 500, suffix: "+", label: "Successful Proposals" },
+    { value: 1200, suffix: "+", label: "Professionals Recruited" },
+    { value: 50000, suffix: "+", label: "Hours Delivered" },
+    { value: 98, suffix: "%", label: "Client Retention" },
+  ];
+
+  const values = [
+    "Businesses grow faster when talent and strategy align.",
+    "Recruitment isn't about filling positions; it's about building capability.",
+    "Great proposals start with deep understanding and sharp storytelling.",
+    "You don't need more resources; you need the right ones.",
+  ];
+
   const services = [
     {
       icon: FileText,
-      title: "Proposal Development",
-      description: "From concept to submission, our Proposal Development service turns your opportunities into winning bids.",
+      title: "Strategic Proposal Development",
+      description: "From government bids to corporate contracts, we help you craft proposals that win.",
       link: "/services/proposal",
       gradient: "from-accent to-accent-glow",
-      features: ["Market Research", "Capture Strategy", "Compliance Review", "Graphic Design"],
       image: serviceProposal,
     },
     {
       icon: Users,
       title: "Cleared Recruitment",
-      description: "When project success hinges on security-cleared talent, our Cleared Recruitment service delivers.",
+      description: "We specialize in sourcing and vetting security-cleared professionals for sensitive projects.",
       link: "/services/recruitment",
       gradient: "from-secondary to-coral",
-      features: ["Security Clearances", "Vetting Process", "Mission Ready", "Cultural Fit"],
       image: serviceRecruitment,
     },
     {
       icon: Briefcase,
       title: "Workforce Staffing",
-      description: "Flexible, scalable talent solutions to meet your evolving business demands.",
+      description: "Flexible staffing built for today's evolving business needs.",
       link: "/services/staffing",
       gradient: "from-coral to-secondary",
-      features: ["Contract Support", "Direct Hire", "Team Buildouts", "Rapid Deployment"],
       image: serviceStaffing,
     },
     {
       icon: Code,
       title: "Software Development",
-      description: "Custom applications, enterprise systems and integrations tailored to your environment.",
+      description: "We build scalable, secure, and high-performance software solutions tailored to your organization.",
       link: "/services/software",
       gradient: "from-accent-glow to-accent",
-      features: ["Custom Development", "Enterprise Systems", "Cloud Solutions", "Ongoing Support"],
       image: serviceSoftware,
-    },
-  ];
-
-  const processSteps = [
-    {
-      number: "01",
-      title: "Discovery & Strategy",
-      description: "We begin with an in-depth understanding of your needs, goals and constraints.",
-      icon: Target,
-    },
-    {
-      number: "02",
-      title: "Planning & Design",
-      description: "We develop a customised roadmap, whether that's a bid strategy, recruitment campaign, staffing model or software architecture.",
-      icon: Zap,
-    },
-    {
-      number: "03",
-      title: "Execution & Delivery",
-      description: "We activate the plan, carefully managing execution, quality, risk and stakeholder communication.",
-      icon: Shield,
-    },
-    {
-      number: "04",
-      title: "Review & Optimize",
-      description: "We monitor results, gather feedback, and refine the approach to ensure you're set up for sustained success.",
-      icon: Check,
     },
   ];
 
   return (
     <div className="min-h-screen">
       <Navigation />
-      
-      {/* Hero Section - Honeycomb Pattern */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20 bg-gradient-to-b from-background to-background/50">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-3 gap-12 items-center max-w-7xl mx-auto">
-            {/* Left Side - Services */}
-            <div className="space-y-12">
-              {/* Proposal Development */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-[#18cb96] flex items-center justify-center flex-shrink-0">
-                    <span className="w-2.5 h-2.5 rounded-full bg-white"></span>
-                  </div>
-                  <h3 className="text-xl font-bold">Proposal Development</h3>
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  From government bids to corporate contracts, we help you craft proposals that win.
-                </p>
-              </div>
 
-              {/* Cleared Recruitment */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-[#18cb96] flex items-center justify-center flex-shrink-0">
-                    <span className="w-2.5 h-2.5 rounded-full bg-white"></span>
-                  </div>
-                  <h3 className="text-xl font-bold">Cleared Recruitment</h3>
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  We specialize in sourcing and vetting security-cleared professionals for sensitive projects.
-                </p>
-              </div>
-            </div>
+      {/* ✅ NEW PREMIUM HERO SECTION */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={heroImage}
+            alt="Hero Background"
+            className="w-full h-full object-cover opacity-40"
+          />
+        </div>
 
-            {/* Center - Honeycomb Pattern */}
-            <div className="flex justify-center items-center">
-              <div className="relative w-80 h-96">
-                {/* Top Row - Offset Right */}
-                {/* Top Left - Proposal Development */}
-                <div className="absolute top-0 left-16 w-28 h-28 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-xl">
-                  <FileText size={36} className="text-white" />
-                </div>
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
 
-                {/* Top Right - Workforce Staffing */}
-                <div className="absolute top-0 right-16 w-28 h-28 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-xl">
-                  <Briefcase size={36} className="text-white" />
-                </div>
-
-                {/* Bottom Row - Offset Left */}
-                {/* Bottom Left - Cleared Recruitment */}
-                <div className="absolute bottom-0 left-16 w-28 h-28 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-xl">
-                  <Users size={36} className="text-white" />
-                </div>
-
-                {/* Bottom Right - Software Development */}
-                <div className="absolute bottom-0 right-16 w-28 h-28 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-xl">
-                  <Code size={36} className="text-white" />
-                </div>
-              </div>
-            </div>
-
-            {/* Right Side - Title and Services */}
-            <div className="space-y-12">
-              <h1 className="text-5xl md:text-6xl font-bold">
-                Our<br />Services
+            {/* ✅ LEFT SIDE */}
+            <div className="space-y-6 max-w-xl">
+              <h1 className="text-5xl md:text-7xl font-bold leading-tight text-white drop-shadow-lg">
+                Workforce One
+                <br />
+                <span className="text-white/90 text-4xl md:text-5xl font-light">
+                  Solutions
+                </span>
               </h1>
 
-              {/* Workforce Staffing */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-[#18cb96] flex items-center justify-center flex-shrink-0">
-                    <span className="w-2.5 h-2.5 rounded-full bg-white"></span>
-                  </div>
-                  <h3 className="text-xl font-bold">Workforce Staffing</h3>
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Flexible staffing built for today's evolving business needs.
-                </p>
-              </div>
+              <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
+                Empowering businesses through talent, strategy and innovation.
+              </p>
 
-              {/* Software Development */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-[#18cb96] flex items-center justify-center flex-shrink-0">
-                    <span className="w-2.5 h-2.5 rounded-full bg-white"></span>
-                  </div>
-                  <h3 className="text-xl font-bold">Software Development</h3>
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  We build scalable, secure, and high-performance software solutions tailored to your organization.
-                </p>
+              {/* ✅ BUTTONS */}
+              <div className="flex flex-col sm:flex-row items-center gap-6 pt-4">
+
+                <Link to="/contact" className="w-full sm:w-auto">
+                  <Button 
+                    size="lg"
+                    className="group bg-black/90 hover:bg-black text-white text-lg px-10 py-6 w-full sm:w-auto rounded-xl"
+                  >
+                    Get Started
+                    <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+
+                <Link to="/services" className="w-full sm:w-auto">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="text-lg px-10 py-6 w-full sm:w-auto border-2 border-white/80 text-white hover:bg-white hover:text-black rounded-xl"
+                  >
+                    Explore Services
+                  </Button>
+                </Link>
+
               </div>
             </div>
+
+            {/* ✅ RIGHT SIDE — PREMIUM HEXAGONS */}
+            <div className="relative h-[420px] flex items-center justify-center">
+
+              {/* CENTER */}
+              <div className="absolute w-36 h-36 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hex shadow-xl flex items-center justify-center">
+                <Users size={40} className="text-white" />
+              </div>
+
+              {/* TOP LEFT */}
+              <div className="absolute -top-20 -left-12 w-32 h-32 bg-gradient-to-br from-accent to-accent-glow clip-hex shadow-xl flex items-center justify-center">
+                <FileText size={34} className="text-white" />
+              </div>
+
+              {/* TOP RIGHT */}
+              <div className="absolute -top-20 left-36 w-32 h-32 bg-gradient-to-br from-secondary to-coral clip-hex shadow-xl flex items-center justify-center">
+                <Briefcase size={34} className="text-white" />
+              </div>
+
+              {/* BOTTOM LEFT */}
+              <div className="absolute top-44 -left-12 w-32 h-32 bg-gradient-to-br from-coral to-secondary clip-hex shadow-xl flex items-center justify-center">
+                <Code size={34} className="text-white" />
+              </div>
+
+              {/* BOTTOM RIGHT */}
+              <div className="absolute top-44 left-36 w-32 h-32 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hex shadow-xl flex items-center justify-center">
+                <Target size={34} className="text-white" />
+              </div>
+
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* ✅ STATS SECTION */}
+      <section className="py-20 relative">
+        <div className="container mx-auto px-6">
+          <StaggeredAnimation className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+            {stats.map((stat, index) => (
+              <AnimatedCard key={index} className="p-6 text-center border border-accent/20" hover={false}>
+                <StatCounter end={stat.value} suffix={stat.suffix} />
+                <p className="text-muted-foreground mt-2 text-sm">{stat.label}</p>
+              </AnimatedCard>
+            ))}
+          </StaggeredAnimation>
+        </div>
+      </section>
+
+      {/* ✅ CLIENT LOGOS */}
+      <ClientLogos />
+
+      {/* ✅ SERVICES SECTION */}
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
+          <StaggeredAnimation className="grid md:grid-cols-2 gap-8">
             {services.map((service, index) => (
               <Link key={index} to={service.link} className="group">
-                <GlassCard className="p-0 h-full overflow-hidden">
-                  <div className="relative h-72 overflow-hidden">
-                    <img 
-                      src={service.image} 
+                <AnimatedCard className="p-0 h-full overflow-hidden">
+                  <div className="relative h-64 overflow-hidden">
+                    <img
+                      src={service.image}
                       alt={service.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
-                    
-                    <div className={`absolute top-6 left-6 w-16 h-16 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                      <service.icon size={32} className="text-white" />
+                    <div className={`absolute top-6 left-6 w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center`}>
+                      <service.icon size={28} className="text-white" />
                     </div>
                   </div>
+
                   <div className="p-8">
-                    <h3 className="text-3xl font-bold mb-4 group-hover:text-accent transition-colors">
+                    <h3 className="text-2xl font-bold mb-4 group-hover:text-accent transition-colors">
                       {service.title}
                     </h3>
-                    
-                    <p className="text-muted-foreground mb-6 text-lg">
-                      {service.description}
-                    </p>
-
-                    <div className="grid grid-cols-2 gap-3 mb-6">
-                      {service.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center space-x-2">
-                          <Check size={16} className="text-accent flex-shrink-0" />
-                          <span className="text-sm text-foreground/80">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="flex items-center text-accent group-hover:translate-x-2 transition-transform">
-                      <span className="font-semibold">Learn more</span>
-                      <ArrowRight className="ml-2" size={20} />
-                    </div>
+                    <p className="text-muted-foreground mb-6">{service.description}</p>
                   </div>
-                </GlassCard>
+                </AnimatedCard>
               </Link>
             ))}
-          </div>
+          </StaggeredAnimation>
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-24 bg-gradient-to-b from-background/50 to-background">
+      {/* ✅ Values Section */}
+      <section className="py-24">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-secondary to-coral bg-clip-text text-transparent">
-                Why Choose Us
-              </span>
-            </h2>
-          </div>
+          <AnimatedCard className="p-12 max-w-4xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">What We Believe</h2>
 
-          <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            <GlassCard className="p-6 text-center">
-              <div className="text-4xl mb-4">🎯</div>
-              <h3 className="text-lg font-bold mb-2">End-to-End</h3>
-              <p className="text-sm text-muted-foreground">Full lifecycle management from planning through delivery</p>
-            </GlassCard>
-
-            <GlassCard className="p-6 text-center">
-              <div className="text-4xl mb-4">⭐</div>
-              <h3 className="text-lg font-bold mb-2">Specialized Talent</h3>
-              <p className="text-sm text-muted-foreground">Experts in proposal, recruitment, staffing and software</p>
-            </GlassCard>
-
-            <GlassCard className="p-6 text-center">
-              <div className="text-4xl mb-4">✅</div>
-              <h3 className="text-lg font-bold mb-2">Quality Assured</h3>
-              <p className="text-sm text-muted-foreground">Standards, metrics and continuous improvement</p>
-            </GlassCard>
-
-            <GlassCard className="p-6 text-center">
-              <div className="text-4xl mb-4">🤝</div>
-              <h3 className="text-lg font-bold mb-2">Aligned</h3>
-              <p className="text-sm text-muted-foreground">Solutions tailored to your goals and culture</p>
-            </GlassCard>
-          </div>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="py-24 scroll-smooth">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
-                How It Works
-              </span>
-            </h2>
-            <p className="text-xl text-muted-foreground">Our proven 4-phase process</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-            {processSteps.map((step, index) => (
-              <GlassCard key={index} className="p-8 text-center group">
-                <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-accent to-accent-glow flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <step.icon size={28} className="text-background" />
-                </div>
-                <div className="text-5xl font-bold text-accent/20 mb-4">{step.number}</div>
-                <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-                <p className="text-sm text-muted-foreground">{step.description}</p>
-              </GlassCard>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Technology Image Section */}
-      <section className="py-16 relative overflow-hidden">
-        <div className="container mx-auto px-6">
-          <div className="relative rounded-3xl overflow-hidden max-w-6xl mx-auto">
-            <img 
-              src={technologyNetworkImage}
-              alt="Technology Network" 
-              className="w-full h-[400px] object-cover"
-            />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <GlassCard className="p-8 max-w-2xl text-center">
-                <h3 className="text-3xl font-bold mb-4 text-foreground">Powered by Innovation</h3>
-                <p className="text-lg text-muted-foreground">
-                  We leverage cutting-edge technology and proven methodologies to deliver exceptional results for our clients.
-                </p>
-              </GlassCard>
+            <div className="space-y-6">
+              {values.map((value, index) => (
+                <AnimatedBox key={index} animation="slideInLeft" delay={400 + index * 150}>
+                  <div className="flex items-start space-x-4">
+                    <CheckCircle className="text-accent flex-shrink-0 mt-1" size={24} />
+                    <p className="text-lg">{value}</p>
+                  </div>
+                </AnimatedBox>
+              ))}
             </div>
-          </div>
+          </AnimatedCard>
         </div>
       </section>
 
-      {/* Image Grid Info Section */}
+      {/* ✅ IMAGE GRID */}
       <ImageGridInfo
         images={[
-          { src: galleryPresentation, alt: "Business presentation", label: "Excellence in Delivery" },
-          { src: galleryDevWork, alt: "Software development" },
-          { src: galleryConsultation, alt: "Business consultation" },
+          { src: galleryTechWork, alt: "Technology" },
+          { src: galleryBuilding, alt: "Building" },
+          { src: galleryTeam, alt: "Team" },
         ]}
-        title="Service Excellence"
-        subtitle="What Sets Us Apart"
+        title="Workforce One Solution"
+        subtitle="Delivering Excellence in Every Engagement"
         sections={[
           {
-            title: "Integrated Solutions",
-            icon: <Layers size={24} className="text-background" />,
-            content: "Our services work together seamlessly. Whether you need proposal support, staffing solutions, or custom software, we provide coordinated expertise that delivers comprehensive results.",
+            title: "About Us",
+            icon: <Target size={24} />,
+            content:
+              "We help organizations win contracts, hire top talent, and build custom technology solutions.",
           },
           {
-            title: "Proven Track Record",
-            icon: <Award size={24} className="text-background" />,
-            content: "With hundreds of successful projects and satisfied clients, we've demonstrated our ability to deliver quality results consistently across all service lines.",
+            title: "Our Vision",
+            icon: <Zap size={24} />,
+            content:
+              "To be the most trusted workforce and technology partner for mission-critical operations.",
           },
           {
-            title: "Rapid Response",
-            icon: <Clock size={24} className="text-background" />,
-            content: "We understand the urgency of your needs. Our streamlined processes and experienced teams enable us to mobilize quickly without compromising quality.",
+            title: "Our Mission",
+            icon: <Shield size={24} />,
+            content:
+              "To deliver specialized expertise that bridges the gap between opportunity and execution.",
           },
         ]}
       />
 
-      {/* CTA Section */}
+      {/* ✅ CTA */}
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <GlassCard className="p-16 text-center">
+          <AnimatedCard className="p-16 text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Let's Get Started
+              Ready to Transform Your Business?
             </h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Whether you're preparing to win your next contract, staffing up for growth, or building a digital platform for the future, Workforce One Solutions is ready.
+              The future belongs to companies that combine people, process, and technology.
             </p>
             <Link to="/contact">
-              <Button size="lg" className="bg-gradient-to-r from-coral to-secondary hover:shadow-glow text-lg px-12 py-6 group">
-                Get in Touch
+              <Button size="lg" className="bg-gradient-to-r from-coral to-secondary px-12 py-6 group">
+                Start Your Journey
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-          </GlassCard>
+          </AnimatedCard>
         </div>
       </section>
 
@@ -371,4 +287,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default Home;
