@@ -51,10 +51,10 @@ const IconFlipCard = ({
 
         {/* Back Side */}
         <div className="absolute inset-0 backface-hidden rotate-y-180">
-          <div className={`h-full w-full p-6 rounded-2xl bg-gradient-to-br ${gradient} shadow-lg flex flex-col justify-center items-center text-center`}>
-            <Icon className="w-10 h-10 mb-3 text-background" />
-            <h3 className="text-lg font-bold mb-3 text-background">{title}</h3>
-            <p className="text-background/90 text-sm leading-relaxed">
+          <div className={`h-full w-full p-6 rounded-2xl bg-gradient-to-br ${gradient} shadow-lg flex flex-col justify-center items-center text-center overflow-hidden`}>
+            <Icon className="w-10 h-10 mb-3 text-background flex-shrink-0" />
+            <h3 className="text-base font-bold mb-3 text-background flex-shrink-0">{title}</h3>
+            <p className="text-background/90 text-xs leading-relaxed overflow-y-auto max-h-[100px]">
               {backContent || description || "Learn more about our services"}
             </p>
           </div>
@@ -64,7 +64,7 @@ const IconFlipCard = ({
   );
 };
 
-// Process Step Flip Card
+// Process Step Flip Card - FIXED
 const ProcessFlipCard = ({ 
   icon: Icon, 
   title, 
@@ -90,7 +90,7 @@ const ProcessFlipCard = ({
 
   return (
     <div 
-      className="relative h-[240px] perspective-1000"
+      className="relative h-[280px] perspective-1000"
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
     >
@@ -101,19 +101,19 @@ const ProcessFlipCard = ({
       >
         {/* Front Side */}
         <div className="absolute inset-0 backface-hidden">
-          <div className="h-full w-full p-8 rounded-2xl border border-glass-border bg-glass/50 backdrop-blur-sm shadow-lg">
-            <Icon className={`w-16 h-16 mb-6 ${iconColor}`} />
-            <h3 className="text-xl font-bold mb-3">{title}</h3>
-            <p className="text-muted-foreground">{description}</p>
+          <div className="h-full w-full p-8 rounded-2xl border border-glass-border bg-glass/50 backdrop-blur-sm shadow-lg flex flex-col">
+            <Icon className={`w-16 h-16 mb-6 flex-shrink-0 ${iconColor}`} />
+            <h3 className="text-xl font-bold mb-3 flex-shrink-0">{title}</h3>
+            <p className="text-sm text-muted-foreground line-clamp-3">{description}</p>
           </div>
         </div>
 
         {/* Back Side */}
         <div className="absolute inset-0 backface-hidden rotate-y-180">
-          <div className={`h-full w-full p-8 rounded-2xl bg-gradient-to-br ${getGradient()} shadow-lg flex flex-col justify-center`}>
-            <Icon className="w-14 h-14 mb-4 text-background" />
-            <h3 className="text-xl font-bold mb-3 text-background">{title}</h3>
-            <p className="text-background/90 text-sm leading-relaxed">
+          <div className={`h-full w-full p-6 rounded-2xl bg-gradient-to-br ${getGradient()} shadow-lg flex flex-col justify-center items-center text-center overflow-hidden`}>
+            <Icon className="w-12 h-12 mb-3 text-background flex-shrink-0" />
+            <h3 className="text-lg font-bold mb-3 text-background flex-shrink-0">{title}</h3>
+            <p className="text-background/90 text-xs leading-relaxed overflow-y-auto max-h-[150px] px-2">
               {backContent || description}
             </p>
           </div>
@@ -156,8 +156,8 @@ const RoleFlipCard = ({
 
         {/* Back Side */}
         <div className="absolute inset-0 backface-hidden rotate-y-180">
-          <div className="h-full w-full p-6 rounded-2xl bg-gradient-to-br from-secondary to-coral shadow-lg flex items-center justify-center text-center">
-            <p className="text-background font-medium">
+          <div className="h-full w-full p-6 rounded-2xl bg-gradient-to-br from-secondary to-coral shadow-lg flex items-center justify-center text-center overflow-hidden">
+            <p className="text-background font-medium text-sm px-2">
               {backContent || `Specialized ${role.toLowerCase()} recruitment`}
             </p>
           </div>
