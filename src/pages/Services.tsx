@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FileText, Users, Briefcase, Code, ArrowRight, Target, Zap, Shield, Check, Layers, Award, Clock, TrendingUp, Database, Cog } from "lucide-react";
+import { FileText, Users, Briefcase, Code, ArrowRight, Target, Zap, Shield, Check, Layers, Award, Clock } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScheduleMeetingSection from "@/components/ScheduleMeetingSection";
@@ -16,33 +16,6 @@ import serviceStaffing from "@/assets/service-staffing.jpg";
 import serviceSoftware from "@/assets/service-software.jpg";
 
 const Services = () => {
-  const heroServices = [
-    {
-      icon: TrendingUp,
-      title: "Consulting Solutions",
-      description: "Providing expert guidance to help businesses optimize strategies, improve processes, and achieve sustainable growth.",
-      position: "left-top"
-    },
-    {
-      icon: Target,
-      title: "Digital Marketing",
-      description: "Crafting targeted digital campaigns to boost brand visibility, engagement, and conversions across multiple online platforms.",
-      position: "left-bottom"
-    },
-    {
-      icon: Database,
-      title: "Data Analytics",
-      description: "Leveraging data insights to inform decision-making, enhance performance, and drive measurable business results.",
-      position: "right-top"
-    },
-    {
-      icon: Cog,
-      title: "Software Development",
-      description: "Building tailored software solutions designed to meet unique business needs and streamline operations.",
-      position: "right-bottom"
-    },
-  ];
-
   const services = [
     {
       icon: FileText,
@@ -118,88 +91,88 @@ const Services = () => {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-3 gap-8 items-center max-w-7xl mx-auto">
             {/* Left Side - Services */}
-            <div className="space-y-8">
-              {/* Consulting Solutions */}
+            <div className="space-y-12">
+              {/* Proposal Development */}
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-red-500 flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-[#18cb96] flex items-center justify-center flex-shrink-0">
                     <span className="w-2 h-2 rounded-full bg-white"></span>
                   </div>
-                  <h3 className="text-xl font-bold">Consulting Solutions</h3>
+                  <h3 className="text-xl font-bold">Proposal Development</h3>
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Providing expert guidance to help businesses optimize strategies, improve processes, and achieve sustainable growth.
+                  From government bids to corporate contracts, we help you craft proposals that win.
                 </p>
               </div>
 
-              {/* Digital Marketing */}
+              {/* Cleared Recruitment */}
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-red-500 flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-[#18cb96] flex items-center justify-center flex-shrink-0">
                     <span className="w-2 h-2 rounded-full bg-white"></span>
                   </div>
-                  <h3 className="text-xl font-bold">Digital Marketing</h3>
+                  <h3 className="text-xl font-bold">Cleared Recruitment</h3>
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Crafting targeted digital campaigns to boost brand visibility, engagement, and conversions across multiple online platforms.
+                  We specialize in sourcing and vetting security-cleared professionals for sensitive projects.
                 </p>
               </div>
             </div>
 
             {/* Center - Hexagonal Icons */}
-            <div className="flex justify-center">
-              <div className="relative w-80 h-96">
-                {/* Hexagon 1 - Top Left */}
-                <div className="absolute top-0 left-8 w-32 h-32 bg-gradient-to-br from-pink-500 to-purple-600 clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
-                  <TrendingUp size={40} className="text-white" />
+            <div className="flex justify-center items-center">
+              <div className="relative w-96 h-[500px]">
+                {/* Top Left - Proposal Development */}
+                <div className="absolute top-8 left-12 w-36 h-36 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <FileText size={48} className="text-white" />
                 </div>
 
-                {/* Hexagon 2 - Top Right */}
-                <div className="absolute top-0 right-8 w-32 h-32 bg-gradient-to-br from-pink-500 to-purple-600 clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
-                  <Database size={40} className="text-white" />
+                {/* Top Right - Staffing */}
+                <div className="absolute top-8 right-12 w-36 h-36 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Briefcase size={48} className="text-white" />
                 </div>
 
-                {/* Hexagon 3 - Middle Left */}
-                <div className="absolute top-24 left-0 w-32 h-32 bg-gradient-to-br from-pink-500 to-purple-600 clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
-                  <Target size={40} className="text-white" />
+                {/* Middle Left - Cleared Recruitment */}
+                <div className="absolute top-[160px] left-0 w-36 h-36 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Users size={48} className="text-white" />
                 </div>
 
-                {/* Hexagon 4 - Middle Right */}
-                <div className="absolute top-24 right-0 w-32 h-32 bg-gradient-to-br from-pink-500 to-purple-600 clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
-                  <Cog size={40} className="text-white" />
+                {/* Middle Right - Software Development */}
+                <div className="absolute top-[160px] right-0 w-36 h-36 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Code size={48} className="text-white" />
                 </div>
               </div>
             </div>
 
             {/* Right Side - Title and Services */}
-            <div className="space-y-8">
-              <h1 className="text-5xl md:text-6xl font-bold mb-8">
+            <div className="space-y-12">
+              <h1 className="text-5xl md:text-6xl font-bold">
                 Our<br />Services
               </h1>
 
-              {/* Data Analytics */}
+              {/* Workforce Staffing */}
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-red-500 flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-[#18cb96] flex items-center justify-center flex-shrink-0">
                     <span className="w-2 h-2 rounded-full bg-white"></span>
                   </div>
-                  <h3 className="text-xl font-bold">Data Analytics</h3>
+                  <h3 className="text-xl font-bold">Workforce Staffing</h3>
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Leveraging data insights to inform decision-making, enhance performance, and drive measurable business results.
+                  Flexible staffing built for today's evolving business needs.
                 </p>
               </div>
 
               {/* Software Development */}
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-red-500 flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-[#18cb96] flex items-center justify-center flex-shrink-0">
                     <span className="w-2 h-2 rounded-full bg-white"></span>
                   </div>
                   <h3 className="text-xl font-bold">Software Development</h3>
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Building tailored software solutions designed to meet unique business needs and streamline operations.
+                  We build scalable, secure, and high-performance software solutions tailored to your organization.
                 </p>
               </div>
             </div>
