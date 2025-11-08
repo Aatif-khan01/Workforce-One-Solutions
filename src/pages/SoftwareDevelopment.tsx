@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import { Code, Smartphone, Globe, Cloud, Palette, TestTube, RefreshCw, Wrench, ArrowRight, Layers, Award, Rocket } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScheduleMeetingSection from "@/components/ScheduleMeetingSection";
-import AnimatedCard from "@/components/AnimatedCard";
-import AnimatedBox from "@/components/AnimatedBox";
-import StaggeredAnimation from "@/components/StaggeredAnimation";
 import ImageGridInfo from "@/components/ImageGridInfo";
 import GlassCard from "@/components/GlassCard";
 import { Button } from "@/components/ui/button";
@@ -15,16 +13,166 @@ import galleryDevWork from "@/assets/gallery-dev-work.jpg";
 import galleryDatacenter from "@/assets/gallery-datacenter.jpg";
 import galleryTechWork from "@/assets/gallery-tech-work-1.jpg";
 
+// Service Flip Card Component
+const ServiceFlipCard = ({ 
+  icon: Icon, 
+  title, 
+  description,
+  backContent
+}: { 
+  icon: any;
+  title: string;
+  description: string;
+  backContent?: string;
+}) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  return (
+    <div 
+      className="relative h-[200px] perspective-1000"
+      onMouseEnter={() => setIsFlipped(true)}
+      onMouseLeave={() => setIsFlipped(false)}
+    >
+      <div 
+        className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${
+          isFlipped ? 'rotate-y-180' : ''
+        }`}
+      >
+        {/* Front Side */}
+        <div className="absolute inset-0 backface-hidden">
+          <div className="h-full w-full p-6 rounded-2xl border border-glass-border bg-glass/50 backdrop-blur-sm shadow-lg flex flex-col">
+            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-accent to-accent-glow flex items-center justify-center mb-4 flex-shrink-0">
+              <Icon size={28} className="text-background" />
+            </div>
+            <h3 className="text-lg font-bold mb-2 flex-shrink-0">{title}</h3>
+            <p className="text-sm text-muted-foreground line-clamp-2">{description}</p>
+          </div>
+        </div>
+
+        {/* Back Side */}
+        <div className="absolute inset-0 backface-hidden rotate-y-180">
+          <div className="h-full w-full p-5 rounded-2xl bg-gradient-to-br from-accent to-accent-glow shadow-lg flex flex-col justify-center items-center text-center overflow-hidden">
+            <Icon size={32} className="text-background mb-2 flex-shrink-0" />
+            <h3 className="text-base font-bold mb-2 text-background flex-shrink-0">{title}</h3>
+            <p className="text-background/90 text-xs leading-tight line-clamp-4">
+              {backContent || description}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Process Step Flip Card
+const ProcessStepFlipCard = ({ 
+  number, 
+  title, 
+  description,
+  backContent
+}: { 
+  number: string;
+  title: string;
+  description: string;
+  backContent?: string;
+}) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  // Gradient based on number
+  const getGradient = () => {
+    const num = parseInt(number);
+    if (num === 1) return 'from-accent to-accent-glow';
+    if (num === 2) return 'from-secondary to-coral';
+    if (num === 3) return 'from-coral to-accent';
+    if (num === 4) return 'from-accent-glow to-secondary';
+    return 'from-secondary to-accent';
+  };
+
+  return (
+    <div 
+      className="relative h-[220px] perspective-1000"
+      onMouseEnter={() => setIsFlipped(true)}
+      onMouseLeave={() => setIsFlipped(false)}
+    >
+      <div 
+        className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${
+          isFlipped ? 'rotate-y-180' : ''
+        }`}
+      >
+        {/* Front Side */}
+        <div className="absolute inset-0 backface-hidden">
+          <div className="h-full w-full p-6 rounded-2xl border border-glass-border bg-glass/50 backdrop-blur-sm shadow-lg text-center flex flex-col">
+            <div className="text-5xl font-bold text-accent/20 mb-4 flex-shrink-0">{number}</div>
+            <h3 className="text-lg font-bold mb-3 flex-shrink-0">{title}</h3>
+            <p className="text-xs text-muted-foreground line-clamp-3">{description}</p>
+          </div>
+        </div>
+
+        {/* Back Side */}
+        <div className="absolute inset-0 backface-hidden rotate-y-180">
+          <div className={`h-full w-full p-5 rounded-2xl bg-gradient-to-br ${getGradient()} shadow-lg flex flex-col justify-center items-center text-center overflow-hidden`}>
+            <div className="text-4xl font-bold text-background/30 mb-2 flex-shrink-0">{number}</div>
+            <h3 className="text-base font-bold mb-2 text-background flex-shrink-0">{title}</h3>
+            <p className="text-background/90 text-xs leading-tight line-clamp-5">
+              {backContent || description}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const SoftwareDevelopment = () => {
   const services = [
-    { icon: Code, title: "Custom Software Development", description: "Bespoke solutions tailored to your business needs" },
-    { icon: Smartphone, title: "Mobile App Development", description: "iOS and Android apps with seamless experiences" },
-    { icon: Globe, title: "Web Development", description: "Dynamic websites and complex web applications" },
-    { icon: Cloud, title: "SaaS Development", description: "Scalable, multi-tenant cloud platforms" },
-    { icon: Palette, title: "UI/UX Design", description: "Intuitive interfaces that enhance engagement" },
-    { icon: TestTube, title: "Software Testing", description: "Comprehensive quality assurance and testing" },
-    { icon: RefreshCw, title: "Legacy Modernization", description: "Upgrade systems to current standards" },
-    { icon: Wrench, title: "DevOps as a Service", description: "Streamline development and operations" },
+    { 
+      icon: Code, 
+      title: "Custom Software Development", 
+      description: "Bespoke solutions tailored to your business needs",
+      backContent: "End-to-end custom software development from requirements analysis to deployment, creating solutions that perfectly align with your business processes and objectives."
+    },
+    { 
+      icon: Smartphone, 
+      title: "Mobile App Development", 
+      description: "iOS and Android apps with seamless experiences",
+      backContent: "Native and cross-platform mobile applications with intuitive interfaces, robust functionality, and seamless user experiences across all devices."
+    },
+    { 
+      icon: Globe, 
+      title: "Web Development", 
+      description: "Dynamic websites and complex web applications",
+      backContent: "Modern, responsive web applications built with cutting-edge frameworks, optimized for performance, security, and scalability."
+    },
+    { 
+      icon: Cloud, 
+      title: "SaaS Development", 
+      description: "Scalable, multi-tenant cloud platforms",
+      backContent: "Cloud-native SaaS solutions with multi-tenancy, subscription management, and enterprise-grade security for scalable business growth."
+    },
+    { 
+      icon: Palette, 
+      title: "UI/UX Design", 
+      description: "Intuitive interfaces that enhance engagement",
+      backContent: "User-centered design approach creating beautiful, accessible interfaces that drive engagement and deliver exceptional user experiences."
+    },
+    { 
+      icon: TestTube, 
+      title: "Software Testing", 
+      description: "Comprehensive quality assurance and testing",
+      backContent: "Rigorous testing methodologies including automated testing, performance testing, and security testing to ensure flawless software delivery."
+    },
+    { 
+      icon: RefreshCw, 
+      title: "Legacy Modernization", 
+      description: "Upgrade systems to current standards",
+      backContent: "Transform outdated systems into modern, efficient applications while preserving critical business logic and ensuring smooth migration."
+    },
+    { 
+      icon: Wrench, 
+      title: "DevOps as a Service", 
+      description: "Streamline development and operations",
+      backContent: "Implement CI/CD pipelines, infrastructure automation, and monitoring solutions to accelerate delivery and improve reliability."
+    },
   ];
 
   const technologies = {
@@ -37,11 +185,36 @@ const SoftwareDevelopment = () => {
   };
 
   const process = [
-    { number: "01", title: "Discovery & Planning", description: "Understanding business objectives and defining project roadmap" },
-    { number: "02", title: "Design & Prototyping", description: "Creating wireframes and prototypes to visualize the solution" },
-    { number: "03", title: "Development & Implementation", description: "Building the software using agile methodologies" },
-    { number: "04", title: "Testing & QA", description: "Rigorous testing to ensure quality and reliability" },
-    { number: "05", title: "Deployment & Support", description: "Launch and ongoing maintenance for continued success" },
+    { 
+      number: "01", 
+      title: "Discovery & Planning", 
+      description: "Understanding business objectives and defining project roadmap",
+      backContent: "Comprehensive discovery phase including stakeholder interviews, requirements gathering, technical feasibility analysis, and detailed project planning with clear milestones."
+    },
+    { 
+      number: "02", 
+      title: "Design & Prototyping", 
+      description: "Creating wireframes and prototypes to visualize the solution",
+      backContent: "Collaborative design process creating wireframes, mockups, and interactive prototypes to validate concepts and ensure alignment before development begins."
+    },
+    { 
+      number: "03", 
+      title: "Development & Implementation", 
+      description: "Building the software using agile methodologies",
+      backContent: "Agile development sprints with continuous integration, regular demos, and iterative refinement to build high-quality software efficiently."
+    },
+    { 
+      number: "04", 
+      title: "Testing & QA", 
+      description: "Rigorous testing to ensure quality and reliability",
+      backContent: "Multi-layered testing approach including unit tests, integration tests, user acceptance testing, and performance validation to ensure production-ready quality."
+    },
+    { 
+      number: "05", 
+      title: "Deployment & Support", 
+      description: "Launch and ongoing maintenance for continued success",
+      backContent: "Smooth deployment to production with comprehensive documentation, training, and ongoing support to ensure long-term success and continuous improvement."
+    },
   ];
 
   return (
@@ -52,31 +225,24 @@ const SoftwareDevelopment = () => {
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
           <img src={heroImage} alt="Software Development" className="w-full h-full object-cover" />
-          
         </div>
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <AnimatedBox animation="fadeInUp" delay={50}>
-              <div className="inline-block p-4 rounded-2xl bg-gradient-to-br from-accent-glow to-accent mb-4 animate-bounce-in">
-                <Code size={48} className="text-background" />
-              </div>
-              <h1 className="text-6xl md:text-7xl font-bold">
-                <span className="bg-gradient-to-r from-accent-glow via-accent to-secondary bg-clip-text text-transparent">
-                  Software Development
-                </span>
-              </h1>
-            </AnimatedBox>
-            <AnimatedBox animation="fadeInUp" delay={100}>
-              <p className="text-2xl md:text-3xl font-semibold text-foreground">
-                Innovative Solutions. Scalable Impact.
-              </p>
-            </AnimatedBox>
-            <AnimatedBox animation="fadeInUp" delay={150}>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                We specialize in delivering custom software solutions that drive efficiency, enhance user experiences, and align with your strategic goals.
-              </p>
-            </AnimatedBox>
+            <div className="inline-block p-4 rounded-2xl bg-gradient-to-br from-accent-glow to-accent mb-4">
+              <Code size={48} className="text-background" />
+            </div>
+            <h1 className="text-6xl md:text-7xl font-bold">
+              <span className="bg-gradient-to-r from-accent-glow via-accent to-secondary bg-clip-text text-transparent">
+                Software Development
+              </span>
+            </h1>
+            <p className="text-2xl md:text-3xl font-semibold text-foreground">
+              Innovative Solutions. Scalable Impact.
+            </p>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              We specialize in delivering custom software solutions that drive efficiency, enhance user experiences, and align with your strategic goals.
+            </p>
           </div>
         </div>
       </section>
@@ -84,52 +250,49 @@ const SoftwareDevelopment = () => {
       {/* Introduction */}
       <section className="py-16 scroll-smooth">
         <div className="container mx-auto px-6">
-          <AnimatedCard className="p-12 max-w-5xl mx-auto" animation="fadeInUp" delay={50}>
+          <GlassCard className="p-12 max-w-5xl mx-auto">
             <p className="text-lg text-foreground/90 leading-relaxed">
               Whether you're looking to modernize legacy systems, develop new applications, or integrate advanced technologies, our team is equipped to turn your vision into reality. From concept to deployment, we provide end-to-end product engineering services, ensuring your software meets market demands and user expectations.
             </p>
-          </AnimatedCard>
+          </GlassCard>
         </div>
       </section>
 
       {/* Development Workspace Image Section */}
       <section className="py-16 relative overflow-hidden">
         <div className="container mx-auto px-6">
-          <AnimatedBox animation="scaleIn" delay={50}>
-            <div className="relative rounded-3xl overflow-hidden max-w-6xl mx-auto">
-              <img 
-                src={developmentWorkspaceImage}
-                alt="Development Workspace" 
-                className="w-full h-[500px] object-cover"
-              />
-              
-            </div>
-          </AnimatedBox>
+          <div className="relative rounded-3xl overflow-hidden max-w-6xl mx-auto">
+            <img 
+              src={developmentWorkspaceImage}
+              alt="Development Workspace" 
+              className="w-full h-[500px] object-cover"
+            />
+          </div>
         </div>
       </section>
 
       {/* Services Grid */}
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <AnimatedBox animation="fadeInUp" delay={50} className="text-center mb-16">
+          <div className="text-center mb-16">
             <h2 className="text-5xl font-bold mb-6">
               <span className="bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
                 Our Software Development Services
               </span>
             </h2>
-          </AnimatedBox>
+          </div>
 
-          <StaggeredAnimation className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto" staggerDelay={50}>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {services.map((service, index) => (
-              <AnimatedCard key={index} className="p-6 group" animation="fadeInUp" delay={index * 50}>
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-accent to-accent-glow flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <service.icon size={28} className="text-background" />
-                </div>
-                <h3 className="text-lg font-bold mb-2 group-hover:text-accent transition-colors">{service.title}</h3>
-                <p className="text-sm text-muted-foreground">{service.description}</p>
-              </AnimatedCard>
+              <ServiceFlipCard
+                key={index}
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                backContent={service.backContent}
+              />
             ))}
-          </StaggeredAnimation>
+          </div>
         </div>
       </section>
 
@@ -146,11 +309,13 @@ const SoftwareDevelopment = () => {
 
           <div className="grid md:grid-cols-5 gap-6 max-w-7xl mx-auto">
             {process.map((step, index) => (
-              <GlassCard key={index} className="p-6 text-center">
-                <div className="text-5xl font-bold text-accent/20 mb-4">{step.number}</div>
-                <h3 className="text-lg font-bold mb-3">{step.title}</h3>
-                <p className="text-xs text-muted-foreground">{step.description}</p>
-              </GlassCard>
+              <ProcessStepFlipCard
+                key={index}
+                number={step.number}
+                title={step.title}
+                description={step.description}
+                backContent={step.backContent}
+              />
             ))}
           </div>
         </div>
@@ -260,18 +425,18 @@ const SoftwareDevelopment = () => {
       {/* CTA */}
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <AnimatedCard className="p-16 text-center" animation="scaleIn" delay={50}>
+          <GlassCard className="p-16 text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Build Your Solution?</h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               Let's discuss your software development needs and create something exceptional.
             </p>
             <Link to="/contact">
-              <Button size="lg" className="bg-gradient-to-r from-coral to-secondary hover:shadow-glow text-lg px-12 py-6 group animate-glow">
+              <Button size="lg" className="bg-gradient-to-r from-coral to-secondary hover:shadow-glow text-lg px-12 py-6 group">
                 Start Your Project
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-          </AnimatedCard>
+          </GlassCard>
         </div>
       </section>
 
