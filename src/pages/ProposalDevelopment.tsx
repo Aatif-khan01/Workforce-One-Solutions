@@ -53,10 +53,34 @@ const ProposalDevelopment = () => {
   ];
 
   const phases = [
-    { number: "01", title: "Discovery & Planning", description: "Understanding goals, capture data, and establishing win themes." },
-    { number: "02", title: "Development & Drafting", description: "Combining technical, management, and pricing inputs." },
-    { number: "03", title: "Review & Refinement", description: "Iterative reviews to enhance clarity and compliance." },
-    { number: "04", title: "Finalization & Submit", description: "Quality checks, formatting, packaging and submission." },
+    { 
+      number: "01", 
+      title: "Discovery & Planning", 
+      description: "Understanding goals, capture data, and establishing win themes.",
+      backContent: "We begin by thoroughly understanding your objectives, analyzing capture intelligence, competitive landscape, and collaboratively establishing powerful win themes that differentiate your proposal.",
+      gradient: "from-accent to-secondary",
+    },
+    { 
+      number: "02", 
+      title: "Development & Drafting", 
+      description: "Combining technical, management, and pricing inputs.",
+      backContent: "Our team synthesizes technical expertise, management strategies, and pricing models into cohesive, compelling content that addresses all evaluation criteria and stakeholder requirements.",
+      gradient: "from-secondary to-coral",
+    },
+    { 
+      number: "03", 
+      title: "Review & Refinement", 
+      description: "Iterative reviews to enhance clarity and compliance.",
+      backContent: "Through multiple review cycles including Red/Pink/Gold team assessments, we refine every element to enhance clarity, strengthen messaging, and ensure complete compliance.",
+      gradient: "from-coral to-accent-glow",
+    },
+    { 
+      number: "04", 
+      title: "Finalization & Submit", 
+      description: "Quality checks, formatting, packaging and submission.",
+      backContent: "Final quality assurance, professional formatting, meticulous packaging, and timely submission ensure your proposal is delivered flawlessly and makes the strongest possible impression.",
+      gradient: "from-accent-glow to-accent",
+    },
   ];
 
   return (
@@ -155,11 +179,14 @@ const ProposalDevelopment = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {phases.map((phase, index) => (
-              <GlassCard key={index} className="p-8 text-center">
-                <div className="text-6xl font-bold text-accent/20 mb-4">{phase.number}</div>
-                <h3 className="text-xl font-bold mb-3">{phase.title}</h3>
-                <p className="text-sm text-muted-foreground">{phase.description}</p>
-              </GlassCard>
+              <PhaseFlipCard
+                key={index}
+                number={phase.number}
+                title={phase.title}
+                description={phase.description}
+                backContent={phase.backContent}
+                gradient={phase.gradient}
+              />
             ))}
           </div>
         </div>
@@ -260,5 +287,59 @@ const ProposalDevelopment = () => {
     </div>
   );
 };
+
+// Phase Flip Card Component for the numbered phases
+const PhaseFlipCard = ({ 
+  number, 
+  title, 
+  description, 
+  backContent,
+  gradient = "from-accent to-secondary"
+}: { 
+  number: string;
+  title: string;
+  description: string;
+  backContent?: string;
+  gradient?: string;
+}) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  return (
+    <div 
+      className="relative h-[280px] perspective-1000"
+      onMouseEnter={() => setIsFlipped(true)}
+      onMouseLeave={() => setIsFlipped(false)}
+    >
+      <div 
+        className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${
+          isFlipped ? 'rotate-y-180' : ''
+        }`}
+      >
+        {/* Front Side */}
+        <div className="absolute inset-0 backface-hidden">
+          <div className="h-full w-full p-8 rounded-2xl border border-glass-border bg-glass/50 backdrop-blur-sm shadow-lg text-center">
+            <div className="text-6xl font-bold text-accent/20 mb-4">{number}</div>
+            <h3 className="text-xl font-bold mb-3">{title}</h3>
+            <p className="text-sm text-muted-foreground">{description}</p>
+          </div>
+        </div>
+
+        {/* Back Side */}
+        <div className="absolute inset-0 backface-hidden rotate-y-180">
+          <div className={`h-full w-full p-8 rounded-2xl bg-gradient-to-br ${gradient} shadow-lg flex flex-col justify-center items-center text-center`}>
+            <div className="text-5xl font-bold text-background/30 mb-3">{number}</div>
+            <h3 className="text-xl font-bold mb-4 text-background">{title}</h3>
+            <p className="text-background/90 text-sm leading-relaxed">
+              {backContent || description}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Add useState import at the top
+import { useState } from "react";
 
 export default ProposalDevelopment;
