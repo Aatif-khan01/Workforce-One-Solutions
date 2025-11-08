@@ -10,7 +10,7 @@ import StatCounter from "@/components/StatCounter";
 import ImageGridInfo from "@/components/ImageGridInfo";
 import ClientLogos from "@/components/ClientLogos";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/WfOS-LOGO.png";
+
 import heroImage from "@/assets/hero-home.jpg";
 import clientSuccessImage from "@/assets/client-success.jpg";
 import galleryTechWork from "@/assets/gallery-tech-work-1.jpg";
@@ -78,7 +78,7 @@ const Home = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
-            <img
+          <img
             src={heroImage}
             alt="Hero Background"
             className="w-full h-full object-cover"
@@ -87,19 +87,19 @@ const Home = () => {
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
-            <AnimatedBox animation="fadeInUp" delay={50}>
-              <div className="flex justify-center">
-                <img src={logo} alt="Workforce One Solutions" className="h-24 md:h-36 w-auto" />
-              </div>
-            </AnimatedBox>
+
+            {/* ✅ LOGO REMOVED */}
+
             <AnimatedBox animation="fadeInUp" delay={100}>
               <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
               </p>
             </AnimatedBox>
+
             <AnimatedBox animation="fadeInUp" delay={150}>
               <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
               </p>
             </AnimatedBox>
+
             <AnimatedBox animation="fadeInUp" delay={50}>
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                 <Link to="/contact">
@@ -119,6 +119,7 @@ const Home = () => {
                 </Link>
               </div>
             </AnimatedBox>
+
           </div>
         </div>
 
@@ -238,7 +239,7 @@ const Home = () => {
             alt="Client Success"
             className="w-full h-full object-cover"
           />
-          
+
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
