@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Shield, Heart, Award, Users, Compass, Rocket, ArrowRight } from "lucide-react";
+import { Shield, Heart, Award, Users, Rocket, ArrowRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScheduleMeetingSection from "@/components/ScheduleMeetingSection";
@@ -37,8 +37,8 @@ const About = () => {
   ];
 
   const stats = [
-    { value: "84%", label: "Operating Profit" },
-    { value: "66%", label: "Net Profit" },
+    { value: "84", label: "Operating Profit" },
+    { value: "66", label: "Net Profit" },
   ];
 
   return (
@@ -46,12 +46,12 @@ const About = () => {
       <Navigation />
       
       {/* Hero Section - Split Layout */}
-      <section className="relative min-h-[80vh] flex items-center overflow-hidden pt-20">
+      <section className="relative min-h-[80vh] flex items-center overflow-hidden pt-20 bg-gradient-to-b from-background to-background/50">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
             {/* Left Side - Image */}
             <div className="relative">
-              <div className="absolute -left-20 top-0 w-64 h-full bg-gradient-to-r from-accent to-accent-glow rounded-r-3xl opacity-20" />
+              <div className="absolute -left-20 top-0 w-64 h-full bg-gradient-to-r from-purple-500 via-pink-500 to-purple-600 rounded-r-3xl opacity-20" />
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img 
                   src={heroImage} 
@@ -64,7 +64,7 @@ const About = () => {
             {/* Right Side - Content */}
             <div className="space-y-8">
               <div className="space-y-6">
-                <h1 className="text-5xl md:text-6xl font-bold">
+                <h1 className="text-5xl md:text-6xl font-bold text-foreground">
                   About us
                 </h1>
                 <p className="text-lg text-muted-foreground leading-relaxed">
@@ -73,44 +73,50 @@ const About = () => {
               </div>
 
               {/* Stats */}
-              <div className="flex gap-8 pt-4">
+              <div className="flex gap-6 pt-4">
                 {stats.map((stat, index) => (
-                  <div key={index} className="flex items-center gap-4">
+                  <div key={index} className="bg-background rounded-2xl p-6 shadow-lg border border-border flex items-center gap-4">
                     <div className="relative">
-                      <svg className="w-20 h-20 transform -rotate-90">
+                      <svg className="w-24 h-24 transform -rotate-90">
                         <circle
-                          cx="40"
-                          cy="40"
-                          r="35"
+                          cx="48"
+                          cy="48"
+                          r="40"
                           stroke="currentColor"
-                          strokeWidth="8"
+                          strokeWidth="6"
                           fill="none"
-                          className="text-muted-foreground/20"
+                          className="text-muted-foreground/10"
                         />
                         <circle
-                          cx="40"
-                          cy="40"
-                          r="35"
-                          stroke="url(#gradient)"
-                          strokeWidth="8"
+                          cx="48"
+                          cy="48"
+                          r="40"
+                          stroke={index === 0 ? "url(#gradient1)" : "url(#gradient2)"}
+                          strokeWidth="6"
                           fill="none"
-                          strokeDasharray={`${parseInt(stat.value)} ${100 - parseInt(stat.value)}`}
+                          strokeDasharray={`${(parseInt(stat.value) / 100) * 251.2} 251.2`}
                           strokeLinecap="round"
                           className="transition-all duration-1000"
                         />
                         <defs>
-                          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="hsl(var(--accent))" />
-                            <stop offset="100%" stopColor="hsl(var(--secondary))" />
+                          <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#a855f7" />
+                            <stop offset="100%" stopColor="#ec4899" />
+                          </linearGradient>
+                          <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#ec4899" />
+                            <stop offset="100%" stopColor="#f97316" />
                           </linearGradient>
                         </defs>
                       </svg>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-xl font-bold">{stat.value}</span>
+                        <span className="text-2xl font-bold bg-gradient-to-br from-purple-500 to-pink-500 bg-clip-text text-transparent">
+                          {stat.value}%
+                        </span>
                       </div>
                     </div>
                     <div>
-                      <p className="font-semibold text-foreground">{stat.label}</p>
+                      <p className="font-bold text-foreground text-lg whitespace-nowrap">{stat.label}</p>
                     </div>
                   </div>
                 ))}
