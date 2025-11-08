@@ -105,7 +105,7 @@ const Home = () => {
             <AnimatedBox animation="fadeInUp" delay={50}>
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                 <Link to="/contact">
-                  <Button size="lg" className="group bg-gradient-to-r from-[#45A3FF] to-[#3454FF] hover:shadow-lg text-white text-lg px-8 py-6">
+                  <Button size="lg" className="group bg-black hover:bg-black/80 hover:shadow-lg text-white text-lg px-8 py-6">
                     Get Started
                     <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
