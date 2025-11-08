@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import { FileText, Target, Pen, Palette, CheckSquare, Calendar, ArrowRight, Lightbulb, Users as UsersIcon, Trophy } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -12,6 +13,57 @@ import businessMeetingImage from "@/assets/business-meeting.jpg";
 import galleryPresentation from "@/assets/gallery-presentation.jpg";
 import galleryTeam from "@/assets/gallery-team-1.jpg";
 import galleryBuilding from "@/assets/gallery-building-1.jpg";
+
+// Phase Flip Card Component for the numbered phases
+const PhaseFlipCard = ({ 
+  number, 
+  title, 
+  description, 
+  backContent,
+  gradient = "from-accent to-secondary"
+}: { 
+  number: string;
+  title: string;
+  description: string;
+  backContent?: string;
+  gradient?: string;
+}) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  return (
+    <div 
+      className="relative h-[280px] perspective-1000"
+      onMouseEnter={() => setIsFlipped(true)}
+      onMouseLeave={() => setIsFlipped(false)}
+    >
+      <div 
+        className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${
+          isFlipped ? 'rotate-y-180' : ''
+        }`}
+      >
+        {/* Front Side */}
+        <div className="absolute inset-0 backface-hidden">
+          <div className="h-full w-full p-8 rounded-2xl border border-glass-border bg-glass/50 backdrop-blur-sm shadow-lg text-center">
+            <div className="text-6xl font-bold text-foreground/40 mb-4">{number}</div>
+            <h3 className="text-xl font-bold mb-3 text-foreground">{title}</h3>
+            <p className="text-sm text-muted-foreground">{description}</p>
+          </div>
+        </div>
+
+        {/* Back Side */}
+        <div className="absolute inset-0 backface-hidden rotate-y-180">
+          <div className={`h-full w-full p-8 rounded-2xl bg-gradient-to-br ${gradient} shadow-lg flex flex-col justify-center items-center text-center`}>
+            <div className="text-5xl font-bold text-background/40 mb-3">{number}</div>
+            <h3 className="text-xl font-bold mb-4 text-background">{title}</h3>
+            <p className="text-background/90 text-sm leading-relaxed">
+              {backContent || description}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const ProposalDevelopment = () => {
   const services = [
@@ -287,59 +339,5 @@ const ProposalDevelopment = () => {
     </div>
   );
 };
-
-// Phase Flip Card Component for the numbered phases
-const PhaseFlipCard = ({ 
-  number, 
-  title, 
-  description, 
-  backContent,
-  gradient = "from-accent to-secondary"
-}: { 
-  number: string;
-  title: string;
-  description: string;
-  backContent?: string;
-  gradient?: string;
-}) => {
-  const [isFlipped, setIsFlipped] = useState(false);
-
-  return (
-    <div 
-      className="relative h-[280px] perspective-1000"
-      onMouseEnter={() => setIsFlipped(true)}
-      onMouseLeave={() => setIsFlipped(false)}
-    >
-      <div 
-        className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${
-          isFlipped ? 'rotate-y-180' : ''
-        }`}
-      >
-        {/* Front Side */}
-        <div className="absolute inset-0 backface-hidden">
-          <div className="h-full w-full p-8 rounded-2xl border border-glass-border bg-glass/50 backdrop-blur-sm shadow-lg text-center">
-            <div className="text-6xl font-bold text-accent/20 mb-4">{number}</div>
-            <h3 className="text-xl font-bold mb-3">{title}</h3>
-            <p className="text-sm text-muted-foreground">{description}</p>
-          </div>
-        </div>
-
-        {/* Back Side */}
-        <div className="absolute inset-0 backface-hidden rotate-y-180">
-          <div className={`h-full w-full p-8 rounded-2xl bg-gradient-to-br ${gradient} shadow-lg flex flex-col justify-center items-center text-center`}>
-            <div className="text-5xl font-bold text-background/30 mb-3">{number}</div>
-            <h3 className="text-xl font-bold mb-4 text-background">{title}</h3>
-            <p className="text-background/90 text-sm leading-relaxed">
-              {backContent || description}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-// Add useState import at the top
-import { useState } from "react";
 
 export default ProposalDevelopment;
