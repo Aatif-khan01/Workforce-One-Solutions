@@ -123,7 +123,7 @@ const Services = () => {
             <div className="flex justify-center items-center">
               <div className="relative w-64 h-[550px]">
                 {/* Top Left - Proposal Development */}
-                <div className="absolute top-20 left-8 w-32 h-32 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-xl">
+                <div className="absolute top-19 left-8 w-32 h-32 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-xl">
                   <FileText size={40} className="text-white" />
                 </div>
 
