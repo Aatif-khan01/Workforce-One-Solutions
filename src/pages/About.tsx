@@ -37,8 +37,8 @@ const About = () => {
   ];
 
   const stats = [
-    { value: "84", label: "Operating Profit" },
-    { value: "66", label: "Net Profit" },
+    { value: "10+", label: "Years of Expertise", percentage: 50 },
+    { value: "100%", label: "Tailored Solutions", percentage: 100 },
   ];
 
   return (
@@ -93,7 +93,7 @@ const About = () => {
                           stroke="url(#greenGradient)"
                           strokeWidth="6"
                           fill="none"
-                          strokeDasharray={`${(parseInt(stat.value) / 100) * 251.2} 251.2`}
+                          strokeDasharray={`${(stat.percentage / 100) * 251.2} 251.2`}
                           strokeLinecap="round"
                           className="transition-all duration-1000"
                         />
@@ -106,7 +106,7 @@ const About = () => {
                       </svg>
                       <div className="absolute inset-0 flex items-center justify-center">
                         <span className="text-2xl font-bold bg-gradient-to-br from-emerald-500 to-[#18cb96] bg-clip-text text-transparent">
-                          {stat.value}%
+                          {stat.value}
                         </span>
                       </div>
                     </div>
