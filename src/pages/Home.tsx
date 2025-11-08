@@ -87,47 +87,39 @@ const Home = () => {
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
-
-            {/* ✅ LOGO REMOVED */}
-
             <AnimatedBox animation="fadeInUp" delay={100}>
               <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-
-
-
-                
               </p>
             </AnimatedBox>
 
             <AnimatedBox animation="fadeInUp" delay={150}>
               <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
-
-
-                
               </p>
             </AnimatedBox>
-
-            <AnimatedBox animation="fadeInUp" delay={50}>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                <Link to="/contact">
-                  <Button size="lg" className="group bg-black hover:bg-black/80 hover:shadow-lg text-white text-lg px-8 py-6">
-                    Get Started
-                    <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
-                <Link to="/services">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="text-lg px-8 py-6 border-2 border-accent text-accent hover:bg-accent hover:text-background transition-colors"
-                  >
-                    Explore Services
-                  </Button>
-                </Link>
-              </div>
-            </AnimatedBox>
-
           </div>
+        </div>
+
+        {/* Buttons positioned at the bottom */}
+        <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 z-20 w-full px-6">
+          <AnimatedBox animation="fadeInUp" delay={50}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
+              <Link to="/contact" className="flex-1">
+                <Button size="lg" className="w-full group bg-black hover:bg-black/80 hover:shadow-lg text-white text-lg px-8 py-6">
+                  Get Started
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              <Link to="/services" className="flex-1">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="w-full text-lg px-8 py-6 border-2 border-accent text-accent hover:bg-accent hover:text-background transition-colors"
+                >
+                  Explore Services
+                </Button>
+              </Link>
+            </div>
+          </AnimatedBox>
         </div>
 
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
@@ -246,7 +238,6 @@ const Home = () => {
             alt="Client Success"
             className="w-full h-full object-cover"
           />
-
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
