@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
-import { FileText, Users, Briefcase, Code, ArrowRight, Target, Zap, Shield, Check, Layers, Award, Clock } from "lucide-react";
+import { FileText, Users, Briefcase, Code, ArrowRight, Target, Zap, Shield, Check, Layers, Award, Clock, TrendingUp, Database, Cog } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScheduleMeetingSection from "@/components/ScheduleMeetingSection";
-import AnimatedCard from "@/components/AnimatedCard";
-import AnimatedBox from "@/components/AnimatedBox";
-import StaggeredAnimation from "@/components/StaggeredAnimation";
+import GlassCard from "@/components/GlassCard";
 import ImageGridInfo from "@/components/ImageGridInfo";
 import { Button } from "@/components/ui/button";
 import technologyNetworkImage from "@/assets/technology-network.jpg";
@@ -18,6 +16,33 @@ import serviceStaffing from "@/assets/service-staffing.jpg";
 import serviceSoftware from "@/assets/service-software.jpg";
 
 const Services = () => {
+  const heroServices = [
+    {
+      icon: TrendingUp,
+      title: "Consulting Solutions",
+      description: "Providing expert guidance to help businesses optimize strategies, improve processes, and achieve sustainable growth.",
+      position: "left-top"
+    },
+    {
+      icon: Target,
+      title: "Digital Marketing",
+      description: "Crafting targeted digital campaigns to boost brand visibility, engagement, and conversions across multiple online platforms.",
+      position: "left-bottom"
+    },
+    {
+      icon: Database,
+      title: "Data Analytics",
+      description: "Leveraging data insights to inform decision-making, enhance performance, and drive measurable business results.",
+      position: "right-top"
+    },
+    {
+      icon: Cog,
+      title: "Software Development",
+      description: "Building tailored software solutions designed to meet unique business needs and streamline operations.",
+      position: "right-bottom"
+    },
+  ];
+
   const services = [
     {
       icon: FileText,
@@ -88,24 +113,96 @@ const Services = () => {
     <div className="min-h-screen">
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/20 to-background" />
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-6">
-            <AnimatedBox animation="fadeInUp" delay={200}>
-              <h1 className="text-6xl md:text-7xl font-bold">
-                <span className="bg-gradient-to-r from-accent via-accent-glow to-secondary bg-clip-text text-transparent">
-                  Our Services
-                </span>
+      {/* Hero Section - Split Layout with Hexagons */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20 bg-gradient-to-b from-background to-background/50">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-3 gap-8 items-center max-w-7xl mx-auto">
+            {/* Left Side - Services */}
+            <div className="space-y-8">
+              {/* Consulting Solutions */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-red-500 flex items-center justify-center flex-shrink-0">
+                    <span className="w-2 h-2 rounded-full bg-white"></span>
+                  </div>
+                  <h3 className="text-xl font-bold">Consulting Solutions</h3>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Providing expert guidance to help businesses optimize strategies, improve processes, and achieve sustainable growth.
+                </p>
+              </div>
+
+              {/* Digital Marketing */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-red-500 flex items-center justify-center flex-shrink-0">
+                    <span className="w-2 h-2 rounded-full bg-white"></span>
+                  </div>
+                  <h3 className="text-xl font-bold">Digital Marketing</h3>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Crafting targeted digital campaigns to boost brand visibility, engagement, and conversions across multiple online platforms.
+                </p>
+              </div>
+            </div>
+
+            {/* Center - Hexagonal Icons */}
+            <div className="flex justify-center">
+              <div className="relative w-80 h-96">
+                {/* Hexagon 1 - Top Left */}
+                <div className="absolute top-0 left-8 w-32 h-32 bg-gradient-to-br from-pink-500 to-purple-600 clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
+                  <TrendingUp size={40} className="text-white" />
+                </div>
+
+                {/* Hexagon 2 - Top Right */}
+                <div className="absolute top-0 right-8 w-32 h-32 bg-gradient-to-br from-pink-500 to-purple-600 clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
+                  <Database size={40} className="text-white" />
+                </div>
+
+                {/* Hexagon 3 - Middle Left */}
+                <div className="absolute top-24 left-0 w-32 h-32 bg-gradient-to-br from-pink-500 to-purple-600 clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
+                  <Target size={40} className="text-white" />
+                </div>
+
+                {/* Hexagon 4 - Middle Right */}
+                <div className="absolute top-24 right-0 w-32 h-32 bg-gradient-to-br from-pink-500 to-purple-600 clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
+                  <Cog size={40} className="text-white" />
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side - Title and Services */}
+            <div className="space-y-8">
+              <h1 className="text-5xl md:text-6xl font-bold mb-8">
+                Our<br />Services
               </h1>
-            </AnimatedBox>
-            <AnimatedBox animation="fadeInUp" delay={400}>
-              <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-                End-to-end execution with specialized talent and quality assurance built-in
-              </p>
-            </AnimatedBox>
+
+              {/* Data Analytics */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-red-500 flex items-center justify-center flex-shrink-0">
+                    <span className="w-2 h-2 rounded-full bg-white"></span>
+                  </div>
+                  <h3 className="text-xl font-bold">Data Analytics</h3>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Leveraging data insights to inform decision-making, enhance performance, and drive measurable business results.
+                </p>
+              </div>
+
+              {/* Software Development */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-red-500 flex items-center justify-center flex-shrink-0">
+                    <span className="w-2 h-2 rounded-full bg-white"></span>
+                  </div>
+                  <h3 className="text-xl font-bold">Software Development</h3>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Building tailored software solutions designed to meet unique business needs and streamline operations.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -113,11 +210,11 @@ const Services = () => {
       {/* Services Grid */}
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <StaggeredAnimation className="grid md:grid-cols-2 gap-8 mb-16" staggerDelay={200}>
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
             {services.map((service, index) => (
               <Link key={index} to={service.link} className="group">
-                <AnimatedCard className="p-0 h-full overflow-hidden" animation="fadeInUp" delay={index * 200}>
-                    <div className="relative h-72 overflow-hidden">
+                <GlassCard className="p-0 h-full overflow-hidden">
+                  <div className="relative h-72 overflow-hidden">
                     <img 
                       src={service.image} 
                       alt={service.title}
@@ -140,7 +237,7 @@ const Services = () => {
                     <div className="grid grid-cols-2 gap-3 mb-6">
                       {service.features.map((feature, idx) => (
                         <div key={idx} className="flex items-center space-x-2">
-                          <Check size={16} className="text-accent flex-shrink-0 animate-pulse-slow" />
+                          <Check size={16} className="text-accent flex-shrink-0" />
                           <span className="text-sm text-foreground/80">{feature}</span>
                         </div>
                       ))}
@@ -151,97 +248,97 @@ const Services = () => {
                       <ArrowRight className="ml-2" size={20} />
                     </div>
                   </div>
-                </AnimatedCard>
+                </GlassCard>
               </Link>
             ))}
-          </StaggeredAnimation>
+          </div>
         </div>
       </section>
 
       {/* Why Choose Us */}
       <section className="py-24 bg-gradient-to-b from-background/50 to-background">
         <div className="container mx-auto px-6">
-          <AnimatedBox animation="fadeInUp" delay={200} className="text-center mb-16">
+          <div className="text-center mb-16">
             <h2 className="text-5xl font-bold mb-6">
               <span className="bg-gradient-to-r from-secondary to-coral bg-clip-text text-transparent">
                 Why Choose Us
               </span>
             </h2>
-          </AnimatedBox>
+          </div>
 
-          <StaggeredAnimation className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto" staggerDelay={150}>
-            <AnimatedCard className="p-6 text-center" animation="scaleIn" delay={0}>
-              <div className="text-4xl mb-4 animate-bounce-in">🎯</div>
+          <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            <GlassCard className="p-6 text-center">
+              <div className="text-4xl mb-4">🎯</div>
               <h3 className="text-lg font-bold mb-2">End-to-End</h3>
               <p className="text-sm text-muted-foreground">Full lifecycle management from planning through delivery</p>
-            </AnimatedCard>
+            </GlassCard>
 
-            <AnimatedCard className="p-6 text-center" animation="scaleIn" delay={150}>
-              <div className="text-4xl mb-4 animate-bounce-in" style={{ animationDelay: '0.2s' }}>⭐</div>
+            <GlassCard className="p-6 text-center">
+              <div className="text-4xl mb-4">⭐</div>
               <h3 className="text-lg font-bold mb-2">Specialized Talent</h3>
               <p className="text-sm text-muted-foreground">Experts in proposal, recruitment, staffing and software</p>
-            </AnimatedCard>
+            </GlassCard>
 
-            <AnimatedCard className="p-6 text-center" animation="scaleIn" delay={300}>
-              <div className="text-4xl mb-4 animate-bounce-in" style={{ animationDelay: '0.4s' }}>✅</div>
+            <GlassCard className="p-6 text-center">
+              <div className="text-4xl mb-4">✅</div>
               <h3 className="text-lg font-bold mb-2">Quality Assured</h3>
               <p className="text-sm text-muted-foreground">Standards, metrics and continuous improvement</p>
-            </AnimatedCard>
+            </GlassCard>
 
-            <AnimatedCard className="p-6 text-center" animation="scaleIn" delay={450}>
-              <div className="text-4xl mb-4 animate-bounce-in" style={{ animationDelay: '0.6s' }}>🤝</div>
+            <GlassCard className="p-6 text-center">
+              <div className="text-4xl mb-4">🤝</div>
               <h3 className="text-lg font-bold mb-2">Aligned</h3>
               <p className="text-sm text-muted-foreground">Solutions tailored to your goals and culture</p>
-            </AnimatedCard>
-          </StaggeredAnimation>
+            </GlassCard>
+          </div>
         </div>
       </section>
 
       {/* Process Section */}
       <section className="py-24 scroll-smooth">
         <div className="container mx-auto px-6">
-          <AnimatedBox animation="fadeInUp" delay={200} className="text-center mb-16">
+          <div className="text-center mb-16">
             <h2 className="text-5xl font-bold mb-6">
               <span className="bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
                 How It Works
               </span>
             </h2>
             <p className="text-xl text-muted-foreground">Our proven 4-phase process</p>
-          </AnimatedBox>
+          </div>
 
-          <StaggeredAnimation className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto" staggerDelay={200}>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {processSteps.map((step, index) => (
-              <AnimatedCard key={index} className="p-8 text-center group" animation="fadeInUp" delay={index * 200}>
+              <GlassCard key={index} className="p-8 text-center group">
                 <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-accent to-accent-glow flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <step.icon size={28} className="text-background" />
                 </div>
-                <div className="text-5xl font-bold text-accent/20 mb-4 animate-float">{step.number}</div>
+                <div className="text-5xl font-bold text-accent/20 mb-4">{step.number}</div>
                 <h3 className="text-xl font-bold mb-3">{step.title}</h3>
                 <p className="text-sm text-muted-foreground">{step.description}</p>
-              </AnimatedCard>
+              </GlassCard>
             ))}
-          </StaggeredAnimation>
+          </div>
         </div>
       </section>
 
       {/* Technology Image Section */}
       <section className="py-16 relative overflow-hidden">
         <div className="container mx-auto px-6">
-          <AnimatedBox animation="scaleIn" delay={200} className="relative rounded-3xl overflow-hidden max-w-6xl mx-auto">
+          <div className="relative rounded-3xl overflow-hidden max-w-6xl mx-auto">
             <img 
               src={technologyNetworkImage}
               alt="Technology Network" 
               className="w-full h-[400px] object-cover"
             />
             <div className="absolute inset-0 flex items-center justify-center">
-              <AnimatedCard className="p-8 max-w-2xl text-center backdrop-blur-sm bg-white/80" animation="fadeInUp" delay={400}>
+              <GlassCard className="p-8 max-w-2xl text-center">
                 <h3 className="text-3xl font-bold mb-4 text-foreground">Powered by Innovation</h3>
                 <p className="text-lg text-muted-foreground">
                   We leverage cutting-edge technology and proven methodologies to deliver exceptional results for our clients.
                 </p>
-              </AnimatedCard>
+              </GlassCard>
             </div>
-          </AnimatedBox>
+          </div>
         </div>
       </section>
 
@@ -276,7 +373,7 @@ const Services = () => {
       {/* CTA Section */}
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <AnimatedCard className="p-16 text-center" animation="scaleIn" delay={200}>
+          <GlassCard className="p-16 text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Let's Get Started
             </h2>
@@ -284,12 +381,12 @@ const Services = () => {
               Whether you're preparing to win your next contract, staffing up for growth, or building a digital platform for the future, Workforce One Solutions is ready.
             </p>
             <Link to="/contact">
-              <Button size="lg" className="bg-gradient-to-r from-coral to-secondary hover:shadow-glow text-lg px-12 py-6 group animate-glow">
+              <Button size="lg" className="bg-gradient-to-r from-coral to-secondary hover:shadow-glow text-lg px-12 py-6 group">
                 Get in Touch
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-          </AnimatedCard>
+          </GlassCard>
         </div>
       </section>
 
