@@ -128,7 +128,7 @@ const Services = () => {
                 </div>
 
                 {/* Middle Right Offset - Staffing */}
-                <div className="absolute top-10 right-0 w-32 h-32 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-xl">
+                <div className="absolute top-32 right-0 w-32 h-32 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-xl">
                   <Briefcase size={40} className="text-white" />
                 </div>
 
