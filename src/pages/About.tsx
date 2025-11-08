@@ -3,9 +3,7 @@ import { Shield, Heart, Award, Users, Compass, Rocket, ArrowRight } from "lucide
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScheduleMeetingSection from "@/components/ScheduleMeetingSection";
-import AnimatedCard from "@/components/AnimatedCard";
-import AnimatedBox from "@/components/AnimatedBox";
-import StaggeredAnimation from "@/components/StaggeredAnimation";
+import GlassCard from "@/components/GlassCard";
 import ImageGridInfo from "@/components/ImageGridInfo";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-about.jpg";
@@ -38,35 +36,86 @@ const About = () => {
     },
   ];
 
+  const stats = [
+    { value: "84%", label: "Operating Profit" },
+    { value: "66%", label: "Net Profit" },
+  ];
+
   return (
     <div className="min-h-screen">
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-20">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src={heroImage} 
-            alt="About Us" 
-            className="w-full h-full object-cover"
-          />
-          
-        </div>
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-6">
-            <AnimatedBox animation="fadeInUp" delay={200}>
-              <h1 className="text-6xl md:text-7xl font-bold">
-                <span className="bg-gradient-to-r from-accent via-accent-glow to-secondary bg-clip-text text-transparent">
-                  About Us
-                </span>
-              </h1>
-            </AnimatedBox>
-            <AnimatedBox animation="fadeInUp" delay={400}>
-              <p className="text-xl md:text-2xl text-muted-foreground">
-                Empowering organizations to navigate today's fast-moving business landscape
-              </p>
-            </AnimatedBox>
+      {/* Hero Section - Split Layout */}
+      <section className="relative min-h-[80vh] flex items-center overflow-hidden pt-20">
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+            {/* Left Side - Image */}
+            <div className="relative">
+              <div className="absolute -left-20 top-0 w-64 h-full bg-gradient-to-r from-accent to-accent-glow rounded-r-3xl opacity-20" />
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <img 
+                  src={heroImage} 
+                  alt="About Us" 
+                  className="w-full h-[500px] object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Right Side - Content */}
+            <div className="space-y-8">
+              <div className="space-y-6">
+                <h1 className="text-5xl md:text-6xl font-bold">
+                  About us
+                </h1>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Founded to help organisations navigate today's fast-moving business and technology landscape, Workforce One Solutions is a trusted partner for enterprises that demand speed, expertise and results. We specialize in Proposal Development, Cleared Recruitment, Flexible Staffing, and Custom Software Development, all under one roof.
+                </p>
+              </div>
+
+              {/* Stats */}
+              <div className="flex gap-8 pt-4">
+                {stats.map((stat, index) => (
+                  <div key={index} className="flex items-center gap-4">
+                    <div className="relative">
+                      <svg className="w-20 h-20 transform -rotate-90">
+                        <circle
+                          cx="40"
+                          cy="40"
+                          r="35"
+                          stroke="currentColor"
+                          strokeWidth="8"
+                          fill="none"
+                          className="text-muted-foreground/20"
+                        />
+                        <circle
+                          cx="40"
+                          cy="40"
+                          r="35"
+                          stroke="url(#gradient)"
+                          strokeWidth="8"
+                          fill="none"
+                          strokeDasharray={`${parseInt(stat.value)} ${100 - parseInt(stat.value)}`}
+                          strokeLinecap="round"
+                          className="transition-all duration-1000"
+                        />
+                        <defs>
+                          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="hsl(var(--accent))" />
+                            <stop offset="100%" stopColor="hsl(var(--secondary))" />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-xl font-bold">{stat.value}</span>
+                      </div>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground">{stat.label}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -74,114 +123,105 @@ const About = () => {
       {/* Story Section */}
       <section className="py-24 scroll-smooth">
         <div className="container mx-auto px-6">
-          <AnimatedCard className="p-12 max-w-5xl mx-auto" animation="fadeInUp" delay={200}>
+          <GlassCard className="p-12 max-w-5xl mx-auto">
             <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
               Our Story
             </h2>
             <div className="space-y-6 text-lg text-foreground/90 leading-relaxed">
-              <AnimatedBox animation="fadeInLeft" delay={400}>
-                <p>
-                  Founded to help organisations navigate today's fast-moving business and technology landscape, <span className="text-accent font-semibold">Workforce One Solutions</span> is a trusted partner for enterprises that demand speed, expertise and results.
-                </p>
-              </AnimatedBox>
-              <AnimatedBox animation="fadeInLeft" delay={600}>
-                <p>
-                  We specialize in Proposal Development, Cleared Recruitment, Flexible Staffing, and Custom Software Development, all under one roof. Our mission is to enable your success: we bring together human insight, operational discipline and emerging technology so that you can focus on growth and mission-critical work.
-                </p>
-              </AnimatedBox>
-              <AnimatedBox animation="fadeInLeft" delay={800}>
-                <p>
-                  Over the years, we have supported a broad spectrum of clients, from large enterprises and government contractors to disruptive startups, delivering solutions that help them win contracts, secure high-performing teams and build software that scales.
-                </p>
-              </AnimatedBox>
-              <AnimatedBox animation="fadeInLeft" delay={1000}>
-                <p>
-                  We are proud of our record: delivering excellence while upholding the highest standards of service, integrity and quality. We partner with cutting-edge technology platforms, deploy rigorous processes and maintain a committed team of professionals who understand how to turn potential into performance.
-                </p>
-              </AnimatedBox>
+              <p>
+                Founded to help organisations navigate today's fast-moving business and technology landscape, <span className="text-accent font-semibold">Workforce One Solutions</span> is a trusted partner for enterprises that demand speed, expertise and results.
+              </p>
+              <p>
+                We specialize in Proposal Development, Cleared Recruitment, Flexible Staffing, and Custom Software Development, all under one roof. Our mission is to enable your success: we bring together human insight, operational discipline and emerging technology so that you can focus on growth and mission-critical work.
+              </p>
+              <p>
+                Over the years, we have supported a broad spectrum of clients, from large enterprises and government contractors to disruptive startups, delivering solutions that help them win contracts, secure high-performing teams and build software that scales.
+              </p>
+              <p>
+                We are proud of our record: delivering excellence while upholding the highest standards of service, integrity and quality. We partner with cutting-edge technology platforms, deploy rigorous processes and maintain a committed team of professionals who understand how to turn potential into performance.
+              </p>
             </div>
-          </AnimatedCard>
+          </GlassCard>
         </div>
       </section>
 
       {/* Team Collaboration Image Section */}
       <section className="py-16 relative overflow-hidden">
         <div className="container mx-auto px-6">
-          <AnimatedBox animation="scaleIn" delay={200} className="relative rounded-3xl overflow-hidden max-w-6xl mx-auto">
+          <div className="relative rounded-3xl overflow-hidden max-w-6xl mx-auto">
             <img 
               src={teamCollaborationImage}
               alt="Team Collaboration" 
               className="w-full h-[500px] object-cover"
             />
-            
-          </AnimatedBox>
+          </div>
         </div>
       </section>
 
       {/* Why Choose Us */}
       <section className="py-24 bg-gradient-to-b from-background to-background/50">
         <div className="container mx-auto px-6">
-          <AnimatedBox animation="fadeInUp" delay={200} className="text-center mb-16">
+          <div className="text-center mb-16">
             <h2 className="text-5xl font-bold mb-6">
               <span className="bg-gradient-to-r from-secondary to-coral bg-clip-text text-transparent">
                 Why Choose Us
               </span>
             </h2>
-          </AnimatedBox>
+          </div>
 
-          <StaggeredAnimation className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto" staggerDelay={200}>
-            <AnimatedCard className="p-8" animation="scaleIn" delay={0}>
-              <div className="text-4xl font-bold text-accent mb-4 animate-float">20+</div>
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <GlassCard className="p-8">
+              <div className="text-4xl font-bold text-accent mb-4">20+</div>
               <h3 className="text-2xl font-bold mb-3">Years of Experience</h3>
               <p className="text-muted-foreground">
                 Combined experience in proposal management, cleared staffing, workforce deployment and software engineering.
               </p>
-            </AnimatedCard>
+            </GlassCard>
 
-            <AnimatedCard className="p-8" animation="scaleIn" delay={200}>
-              <div className="text-4xl font-bold text-secondary mb-4 animate-float" style={{ animationDelay: '0.5s' }}>100%</div>
+            <GlassCard className="p-8">
+              <div className="text-4xl font-bold text-secondary mb-4">100%</div>
               <h3 className="text-2xl font-bold mb-3">Tailor-Made Solutions</h3>
               <p className="text-muted-foreground">
                 Our services are not off-the-shelf — we align precisely with your business goals and operating model.
               </p>
-            </AnimatedCard>
+            </GlassCard>
 
-            <AnimatedCard className="p-8" animation="scaleIn" delay={400}>
-              <div className="text-4xl font-bold text-coral mb-4 animate-float" style={{ animationDelay: '1s' }}>$$$</div>
+            <GlassCard className="p-8">
+              <div className="text-4xl font-bold text-coral mb-4">$$$</div>
               <h3 className="text-2xl font-bold mb-3">Efficiency & Value</h3>
               <p className="text-muted-foreground">
                 Delivering high quality at competitive cost while maintaining rigorous standards.
               </p>
-            </AnimatedCard>
+            </GlassCard>
 
-            <AnimatedCard className="p-8" animation="scaleIn" delay={600}>
-              <div className="text-4xl font-bold text-accent-glow mb-4 animate-float" style={{ animationDelay: '1.5s' }}>✓</div>
+            <GlassCard className="p-8">
+              <div className="text-4xl font-bold text-accent-glow mb-4">✓</div>
               <h3 className="text-2xl font-bold mb-3">Values-Driven</h3>
               <p className="text-muted-foreground">
                 Integrity, Collaboration, Excellence and Flexibility guide every engagement.
               </p>
-            </AnimatedCard>
-          </StaggeredAnimation>
+            </GlassCard>
+          </div>
         </div>
       </section>
 
       {/* Client Bill of Rights */}
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <AnimatedBox animation="fadeInUp" delay={200} className="text-center mb-16">
+          <div className="text-center mb-16">
             <h2 className="text-5xl font-bold mb-6">
               <span className="bg-gradient-to-r from-accent to-coral bg-clip-text text-transparent">
                 Our Promise to You
               </span>
             </h2>
             <p className="text-xl text-muted-foreground">Client Bill of Rights</p>
-          </AnimatedBox>
+          </div>
 
-          <StaggeredAnimation className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto" staggerDelay={200}>
+          <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
             {principles.map((principle, index) => (
-              <AnimatedCard key={index} className="p-8 group" animation="fadeInUp" delay={index * 200}>
+              <GlassCard key={index} className="p-8 group">
                 <div className="flex items-start space-x-4">
-                  <div className="p-3 rounded-xl bg-gradient-to-br from-accent to-accent-glow group-hover:scale-110 transition-transform duration-300">
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-accent to-accent-glow group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
                     <principle.icon size={28} className="text-background" />
                   </div>
                   <div className="flex-1">
@@ -193,17 +233,17 @@ const About = () => {
                     </p>
                   </div>
                 </div>
-              </AnimatedCard>
+              </GlassCard>
             ))}
-          </StaggeredAnimation>
+          </div>
 
-          <AnimatedBox animation="fadeInUp" delay={800} className="mt-12 text-center">
-            <AnimatedCard className="p-8 max-w-3xl mx-auto">
+          <div className="mt-12 text-center">
+            <GlassCard className="p-8 max-w-3xl mx-auto">
               <p className="text-lg text-foreground/90 italic">
                 "We are committed to delivering a standout client experience, one rooted in responsiveness, transparency and real results."
               </p>
-            </AnimatedCard>
-          </AnimatedBox>
+            </GlassCard>
+          </div>
         </div>
       </section>
 
@@ -239,18 +279,18 @@ const About = () => {
       {/* CTA Section */}
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <AnimatedCard className="p-16 text-center" animation="scaleIn" delay={200}>
+          <GlassCard className="p-16 text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Join Us in Shaping the Future</h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               Partner with a team that's committed to your success.
             </p>
             <Link to="/contact">
-              <Button size="lg" className="bg-gradient-to-r from-coral to-secondary hover:shadow-glow text-lg px-12 py-6 group animate-glow">
+              <Button size="lg" className="bg-gradient-to-r from-coral to-secondary hover:shadow-glow text-lg px-12 py-6 group">
                 Get in Touch
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-          </AnimatedCard>
+          </GlassCard>
         </div>
       </section>
 
