@@ -182,7 +182,7 @@ const Navigation = () => {
             <Link to="/contact">
               <Button
                 size="lg"
-                className="bg-[#FF5722] hover:bg-[#FF5722]/90 text-white transition-all duration-300 hover:scale-105 px-6"
+                className="bg-[#18cb96] hover:bg-[#18cb96]/90 text-white transition-all duration-300 hover:scale-105 px-6"
               >
                 LET'S TALK
               </Button>
@@ -249,7 +249,7 @@ const Navigation = () => {
               <Link to="/contact" onClick={() => setIsOpen(false)}>
                 <Button
                   size="lg"
-                  className="w-full bg-[#FF5722] hover:bg-[#FF5722]/90 text-white py-3 mt-4"
+                  className="w-full bg-[#18cb96] hover:bg-[#18cb96]/90 text-white py-3 mt-4"
                 >
                   LET'S TALK
                 </Button>
