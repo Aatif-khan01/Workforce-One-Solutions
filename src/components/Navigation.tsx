@@ -75,22 +75,9 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           <Link
             to="/"
-            className="hover:scale-105 transition-transform duration-300 flex items-center gap-3"
+            className="hover:scale-105 transition-transform duration-300"
           >
-            <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-              <div className="grid grid-cols-3 gap-0.5 w-6 h-6">
-                <div className="bg-black rounded-sm"></div>
-                <div className="bg-black rounded-sm"></div>
-                <div className="bg-black rounded-sm"></div>
-                <div className="bg-black rounded-sm"></div>
-                <div className="bg-black rounded-sm"></div>
-                <div className="bg-black rounded-sm"></div>
-                <div className="bg-black rounded-sm"></div>
-                <div className="bg-black rounded-sm"></div>
-                <div className="bg-black rounded-sm"></div>
-              </div>
-            </div>
-            <img src={logo} alt="Company logo" className="h-8 w-auto" />
+            <img src={logo} alt="Company logo" className="h-10 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
