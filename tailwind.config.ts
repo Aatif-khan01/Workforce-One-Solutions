@@ -123,7 +123,35 @@ export default {
       backdropBlur: {
         xs: "2px",
       },
+      transformStyle: {
+        '3d': 'preserve-3d',
+      },
+      backfaceVisibility: {
+        hidden: 'hidden',
+      },
+      perspective: {
+        '1000': '1000px',
+      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function({ addUtilities }: any) {
+      const newUtilities = {
+        '.transform-style-3d': {
+          'transform-style': 'preserve-3d',
+        },
+        '.backface-hidden': {
+          'backface-visibility': 'hidden',
+        },
+        '.perspective-1000': {
+          perspective: '1000px',
+        },
+        '.rotate-y-180': {
+          transform: 'rotateY(180deg)',
+        },
+      }
+      addUtilities(newUtilities)
+    },
+  ],
 } satisfies Config;
