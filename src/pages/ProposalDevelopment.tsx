@@ -4,6 +4,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScheduleMeetingSection from "@/components/ScheduleMeetingSection";
 import GlassCard from "@/components/GlassCard";
+import FlipCard from "@/components/FlipCard";
 import ImageGridInfo from "@/components/ImageGridInfo";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-proposal.jpg";
@@ -18,26 +19,36 @@ const ProposalDevelopment = () => {
       icon: Target,
       title: "Capture Planning & Strategy",
       description: "Opportunity analysis, competitor intelligence, win themes, and proposal roadmap.",
+      backContent: "We analyze market opportunities, assess competition, develop strategic win themes, and create comprehensive proposal roadmaps to maximize your success rate.",
+      gradient: "from-accent to-accent-glow",
     },
     {
       icon: Pen,
       title: "Proposal Writing & Content",
       description: "Technical volumes, management plans, past performance and capability statements.",
+      backContent: "Our expert writers craft compelling technical volumes, comprehensive management plans, and persuasive past performance narratives that showcase your capabilities.",
+      gradient: "from-secondary to-coral",
     },
     {
       icon: Palette,
       title: "Graphics & Design",
       description: "Professional layouts, infographics, charts, and brand-aligned visuals.",
+      backContent: "Transform complex data into stunning visuals with our professional design team. We create infographics, charts, and layouts that enhance readability and impact.",
+      gradient: "from-coral to-accent",
     },
     {
       icon: CheckSquare,
       title: "Compliance Review & QA",
       description: "Section-by-section compliance mapping, Red/Pink/Gold team reviews.",
+      backContent: "Ensure 100% compliance through rigorous section-by-section mapping and multi-level team reviews, eliminating risk and maximizing evaluation scores.",
+      gradient: "from-accent-glow to-secondary",
     },
     {
       icon: Calendar,
       title: "Project Management",
       description: "Timeline management, resource allocation, collaboration and submission support.",
+      backContent: "We orchestrate every aspect of proposal development with meticulous timeline management, strategic resource allocation, and seamless submission coordination.",
+      gradient: "from-secondary to-accent",
     },
   ];
 
@@ -56,7 +67,6 @@ const ProposalDevelopment = () => {
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
           <img src={heroImage} alt="Proposal Development" className="w-full h-full object-cover" />
-          
         </div>
         
         <div className="container mx-auto px-6 relative z-10">
@@ -102,7 +112,6 @@ const ProposalDevelopment = () => {
               alt="Business Meeting" 
               className="w-full h-[500px] object-cover"
             />
-            
           </div>
         </div>
       </section>
@@ -120,13 +129,14 @@ const ProposalDevelopment = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {services.map((service, index) => (
-              <GlassCard key={index} className="p-8 group">
-                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent to-accent-glow flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <service.icon size={32} className="text-background" />
-                </div>
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-accent transition-colors">{service.title}</h3>
-                <p className="text-muted-foreground">{service.description}</p>
-              </GlassCard>
+              <FlipCard
+                key={index}
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                backContent={service.backContent}
+                gradient={service.gradient}
+              />
             ))}
           </div>
         </div>
