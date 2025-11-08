@@ -85,12 +85,6 @@ const Home = () => {
           />
         </div>
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <AnimatedBox animation="fadeInUp" delay={50}>
-              <div className="flex justify-center">
-                <img src={logo} alt="Workforce One Solutions" className="h-24 md:h-36 w-auto" />
-              </div>
             </AnimatedBox>
             <AnimatedBox animation="fadeInUp" delay={100}>
               <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
