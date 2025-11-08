@@ -14,6 +14,9 @@ const Navigation = () => {
   const location = useLocation();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
+  // Check if we're on the home page
+  const isHomePage = location.pathname === "/";
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -60,13 +63,42 @@ const Navigation = () => {
     visible: { opacity: 1, y: 0 },
   };
 
+  // Determine text color based on page and scroll state
+  const getTextColor = () => {
+    if (isHomePage && !isScrolled) {
+      return "text-white";
+    }
+    return "text-foreground";
+  };
+
+  const getHoverTextColor = () => {
+    if (isHomePage && !isScrolled) {
+      return "hover:text-white";
+    }
+    return "hover:text-accent";
+  };
+
+  const getActiveTextColor = () => {
+    if (isHomePage && !isScrolled) {
+      return "text-white";
+    }
+    return "text-accent";
+  };
+
+  const getUnderlineColor = () => {
+    if (isHomePage && !isScrolled) {
+      return "bg-white";
+    }
+    return "bg-gradient-to-r from-accent to-accent-glow";
+  };
+
   return (
     <motion.nav
       initial={{ y: 0 }}
       animate={{ y: isVisible ? 0 : -100 }}
       transition={{ duration: 0.3 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+        isScrolled || !isHomePage
           ? "bg-background/95 backdrop-blur-xl shadow-lg"
           : "bg-transparent"
       }`}
@@ -94,8 +126,8 @@ const Navigation = () => {
                   className={`relative text-sm font-medium transition-colors duration-300 group flex items-center ${
                     location.pathname === link.path || 
                     (link.path === "/services" && location.pathname.startsWith("/services"))
-                      ? "text-white"
-                      : "text-white/90 hover:text-white"
+                      ? getActiveTextColor()
+                      : `${getTextColor()} ${getHoverTextColor()}`
                   }`}
                 >
                   {link.label}
@@ -108,7 +140,7 @@ const Navigation = () => {
                     />
                   )}
                   <span
-                    className={`absolute -bottom-1 left-0 w-full h-0.5 bg-white transition-transform duration-300 origin-left ${
+                    className={`absolute -bottom-1 left-0 w-full h-0.5 ${getUnderlineColor()} transition-transform duration-300 origin-left ${
                       location.pathname === link.path ||
                       (link.path === "/services" && location.pathname.startsWith("/services"))
                         ? "scale-x-100"
@@ -148,7 +180,11 @@ const Navigation = () => {
               </div>
             ))}
             <div className="flex items-center gap-3">
-              <button className="p-2 text-white hover:text-white/80 transition-colors">
+              <button className={`p-2 transition-colors ${
+                isHomePage && !isScrolled 
+                  ? "text-white hover:text-white/80" 
+                  : "text-foreground hover:text-accent"
+              }`}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <circle cx="11" cy="11" r="8"/>
                   <path d="m21 21-4.35-4.35"/>
@@ -168,7 +204,11 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-white hover:text-white/80 transition-colors"
+            className={`md:hidden p-2 transition-colors ${
+              isHomePage && !isScrolled 
+                ? "text-white hover:text-white/80" 
+                : "text-foreground hover:text-accent"
+            }`}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
