@@ -94,12 +94,10 @@ const Home = () => {
             </AnimatedBox>
             <AnimatedBox animation="fadeInUp" delay={100}>
               <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-                Bridge the gap between opportunity and execution
               </p>
             </AnimatedBox>
             <AnimatedBox animation="fadeInUp" delay={150}>
               <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
-                A next-generation talent and technology partner built for businesses that want to grow faster and smarter. We specialize in Proposal Development, Cleared Recruitment, Workforce Staffing, and Software Development.
               </p>
             </AnimatedBox>
             <AnimatedBox animation="fadeInUp" delay={50}>
