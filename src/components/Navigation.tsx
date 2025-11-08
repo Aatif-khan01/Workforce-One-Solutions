@@ -67,17 +67,30 @@ const Navigation = () => {
       transition={{ duration: 0.3 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-xl shadow-xl border-b border-border/50"
-          : "bg-background/80 backdrop-blur-md border-b border-border/30"
+          ? "bg-background/95 backdrop-blur-xl shadow-lg"
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link
             to="/"
-            className="hover:scale-105 transition-transform duration-300"
+            className="hover:scale-105 transition-transform duration-300 flex items-center gap-3"
           >
-            <img src={logo} alt="Company logo" className="h-10 w-auto" />
+            <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
+              <div className="grid grid-cols-3 gap-0.5 w-6 h-6">
+                <div className="bg-black rounded-sm"></div>
+                <div className="bg-black rounded-sm"></div>
+                <div className="bg-black rounded-sm"></div>
+                <div className="bg-black rounded-sm"></div>
+                <div className="bg-black rounded-sm"></div>
+                <div className="bg-black rounded-sm"></div>
+                <div className="bg-black rounded-sm"></div>
+                <div className="bg-black rounded-sm"></div>
+                <div className="bg-black rounded-sm"></div>
+              </div>
+            </div>
+            <img src={logo} alt="Company logo" className="h-8 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -94,8 +107,8 @@ const Navigation = () => {
                   className={`relative text-sm font-medium transition-colors duration-300 group flex items-center ${
                     location.pathname === link.path || 
                     (link.path === "/services" && location.pathname.startsWith("/services"))
-                      ? "text-accent"
-                      : "text-foreground hover:text-accent"
+                      ? "text-white"
+                      : "text-white/90 hover:text-white"
                   }`}
                 >
                   {link.label}
@@ -108,7 +121,7 @@ const Navigation = () => {
                     />
                   )}
                   <span
-                    className={`absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-accent to-accent-glow transition-transform duration-300 origin-left ${
+                    className={`absolute -bottom-1 left-0 w-full h-0.5 bg-white transition-transform duration-300 origin-left ${
                       location.pathname === link.path ||
                       (link.path === "/services" && location.pathname.startsWith("/services"))
                         ? "scale-x-100"
@@ -147,20 +160,28 @@ const Navigation = () => {
                 )}
               </div>
             ))}
-            <Link to="/contact">
-              <Button
-                size="lg"
-                className="bg-black hover:bg-black/80 hover:shadow-lg text-white transition-all duration-300 hover:scale-105"
-              >
-                Get Started
-              </Button>
-            </Link>
+            <div className="flex items-center gap-3">
+              <button className="p-2 text-white hover:text-white/80 transition-colors">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="11" cy="11" r="8"/>
+                  <path d="m21 21-4.35-4.35"/>
+                </svg>
+              </button>
+              <Link to="/contact">
+                <Button
+                  size="lg"
+                  className="bg-[#FF5722] hover:bg-[#FF5722]/90 text-white transition-all duration-300 hover:scale-105 px-6"
+                >
+                  LET'S TALK
+                </Button>
+              </Link>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-foreground hover:text-accent transition-colors"
+            className="md:hidden p-2 text-white hover:text-white/80 transition-colors"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -174,7 +195,7 @@ const Navigation = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden mt-4 pb-4 space-y-2"
+              className="md:hidden mt-4 pb-4 space-y-2 bg-background/95 backdrop-blur-xl rounded-lg p-4"
             >
               {navLinks.map((link) => (
                 <div key={link.path}>
@@ -213,9 +234,9 @@ const Navigation = () => {
               <Link to="/contact" onClick={() => setIsOpen(false)}>
                 <Button
                   size="lg"
-                  className="w-full bg-black hover:bg-black/80 hover:shadow-lg text-white py-3 mt-4"
+                  className="w-full bg-[#FF5722] hover:bg-[#FF5722]/90 text-white py-3 mt-4"
                 >
-                  Get Started
+                  LET'S TALK
                 </Button>
               </Link>
             </motion.div>
