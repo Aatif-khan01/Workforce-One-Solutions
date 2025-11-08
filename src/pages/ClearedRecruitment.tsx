@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import { Shield, Users, Search, CheckCircle, Award, ArrowRight, Target } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -12,23 +13,226 @@ import gallerySecurity from "@/assets/gallery-security.jpg";
 import galleryInterview from "@/assets/gallery-interview.jpg";
 import galleryPartnership from "@/assets/gallery-partnership.jpg";
 
+// Simple Icon Flip Card Component
+const IconFlipCard = ({ 
+  icon: Icon, 
+  title, 
+  description,
+  backContent,
+  gradient = "from-accent to-secondary"
+}: { 
+  icon: any;
+  title: string;
+  description?: string;
+  backContent?: string;
+  gradient?: string;
+}) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  return (
+    <div 
+      className="relative h-[200px] perspective-1000"
+      onMouseEnter={() => setIsFlipped(true)}
+      onMouseLeave={() => setIsFlipped(false)}
+    >
+      <div 
+        className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${
+          isFlipped ? 'rotate-y-180' : ''
+        }`}
+      >
+        {/* Front Side */}
+        <div className="absolute inset-0 backface-hidden">
+          <div className="h-full w-full p-6 rounded-2xl border border-glass-border bg-glass/50 backdrop-blur-sm shadow-lg text-center flex flex-col items-center justify-center">
+            <Icon className="w-12 h-12 mb-4 text-accent" />
+            <h3 className="text-lg font-bold">{title}</h3>
+            {description && <p className="text-sm text-muted-foreground mt-2">{description}</p>}
+          </div>
+        </div>
+
+        {/* Back Side */}
+        <div className="absolute inset-0 backface-hidden rotate-y-180">
+          <div className={`h-full w-full p-6 rounded-2xl bg-gradient-to-br ${gradient} shadow-lg flex flex-col justify-center items-center text-center`}>
+            <Icon className="w-10 h-10 mb-3 text-background" />
+            <h3 className="text-lg font-bold mb-3 text-background">{title}</h3>
+            <p className="text-background/90 text-sm leading-relaxed">
+              {backContent || description || "Learn more about our services"}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Process Step Flip Card
+const ProcessFlipCard = ({ 
+  icon: Icon, 
+  title, 
+  description,
+  backContent,
+  iconColor = "text-accent"
+}: { 
+  icon: any;
+  title: string;
+  description: string;
+  backContent?: string;
+  iconColor?: string;
+}) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  // Map icon color to gradient
+  const getGradient = () => {
+    if (iconColor.includes('accent')) return 'from-accent to-accent-glow';
+    if (iconColor.includes('secondary')) return 'from-secondary to-coral';
+    if (iconColor.includes('coral')) return 'from-coral to-accent';
+    return 'from-accent-glow to-secondary';
+  };
+
+  return (
+    <div 
+      className="relative h-[240px] perspective-1000"
+      onMouseEnter={() => setIsFlipped(true)}
+      onMouseLeave={() => setIsFlipped(false)}
+    >
+      <div 
+        className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${
+          isFlipped ? 'rotate-y-180' : ''
+        }`}
+      >
+        {/* Front Side */}
+        <div className="absolute inset-0 backface-hidden">
+          <div className="h-full w-full p-8 rounded-2xl border border-glass-border bg-glass/50 backdrop-blur-sm shadow-lg">
+            <Icon className={`w-16 h-16 mb-6 ${iconColor}`} />
+            <h3 className="text-xl font-bold mb-3">{title}</h3>
+            <p className="text-muted-foreground">{description}</p>
+          </div>
+        </div>
+
+        {/* Back Side */}
+        <div className="absolute inset-0 backface-hidden rotate-y-180">
+          <div className={`h-full w-full p-8 rounded-2xl bg-gradient-to-br ${getGradient()} shadow-lg flex flex-col justify-center`}>
+            <Icon className="w-14 h-14 mb-4 text-background" />
+            <h3 className="text-xl font-bold mb-3 text-background">{title}</h3>
+            <p className="text-background/90 text-sm leading-relaxed">
+              {backContent || description}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Role Flip Card
+const RoleFlipCard = ({ 
+  role,
+  backContent
+}: { 
+  role: string;
+  backContent?: string;
+}) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  return (
+    <div 
+      className="relative h-[100px] perspective-1000"
+      onMouseEnter={() => setIsFlipped(true)}
+      onMouseLeave={() => setIsFlipped(false)}
+    >
+      <div 
+        className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${
+          isFlipped ? 'rotate-y-180' : ''
+        }`}
+      >
+        {/* Front Side */}
+        <div className="absolute inset-0 backface-hidden">
+          <div className="h-full w-full p-6 rounded-2xl border border-glass-border bg-glass/50 backdrop-blur-sm shadow-lg flex items-center space-x-4 group">
+            <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-accent to-accent-glow flex items-center justify-center flex-shrink-0">
+              <CheckCircle size={24} className="text-background" />
+            </div>
+            <span className="text-lg font-semibold">{role}</span>
+          </div>
+        </div>
+
+        {/* Back Side */}
+        <div className="absolute inset-0 backface-hidden rotate-y-180">
+          <div className="h-full w-full p-6 rounded-2xl bg-gradient-to-br from-secondary to-coral shadow-lg flex items-center justify-center text-center">
+            <p className="text-background font-medium">
+              {backContent || `Specialized ${role.toLowerCase()} recruitment`}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const ClearedRecruitment = () => {
   const clearanceLevels = [
-    "Secret",
-    "Top Secret",
-    "Top Secret/SCI",
-    "Full-Scope Polygraph",
-    "Counterintelligence Polygraph",
-    "Public Trust",
+    { 
+      name: "Secret", 
+      backContent: "Basic level clearance for access to classified information that could cause damage to national security if disclosed."
+    },
+    { 
+      name: "Top Secret", 
+      backContent: "Higher level clearance for exceptionally grave damage protection. Requires extensive background investigation."
+    },
+    { 
+      name: "Top Secret/SCI", 
+      backContent: "Sensitive Compartmented Information access. Specialized intelligence sources and methods protection."
+    },
+    { 
+      name: "Full-Scope Polygraph", 
+      backContent: "Comprehensive polygraph examination covering all aspects of security and background for the highest sensitivity positions."
+    },
+    { 
+      name: "Counterintelligence Polygraph", 
+      backContent: "Focused polygraph for positions involving counterintelligence operations and national security matters."
+    },
+    { 
+      name: "Public Trust", 
+      backContent: "Position of public trust requiring reliability, trustworthiness, and good conduct for sensitive but unclassified work."
+    },
   ];
 
   const roles = [
-    "Cybersecurity Experts",
-    "Intelligence Analysts",
-    "Software Engineers",
-    "Systems Administrators",
-    "Project Managers",
-    "Technical Support Specialists",
+    { name: "Cybersecurity Experts", backContent: "Elite security professionals protecting critical infrastructure and classified systems" },
+    { name: "Intelligence Analysts", backContent: "Expert analysts processing and evaluating classified intelligence data" },
+    { name: "Software Engineers", backContent: "Cleared developers building secure mission-critical applications" },
+    { name: "Systems Administrators", backContent: "Professionals managing classified networks and secure IT infrastructure" },
+    { name: "Project Managers", backContent: "Leadership for sensitive government and defense programs" },
+    { name: "Technical Support Specialists", backContent: "Cleared support staff for classified systems and operations" },
+  ];
+
+  const processes = [
+    {
+      icon: Search,
+      title: "Needs Assessment",
+      description: "Understanding your specific requirements and project goals.",
+      backContent: "We conduct comprehensive consultations to understand clearance levels, technical skills, timeline requirements, and cultural fit for your organization.",
+      iconColor: "text-accent"
+    },
+    {
+      icon: Users,
+      title: "Candidate Sourcing",
+      description: "Utilizing our database and industry connections to find qualified candidates.",
+      backContent: "Our proprietary database of cleared professionals and extensive network enable rapid identification of candidates matching your exact requirements.",
+      iconColor: "text-secondary"
+    },
+    {
+      icon: CheckCircle,
+      title: "Screening & Vetting",
+      description: "Thorough background checks and interviews to ensure candidates meet all requirements.",
+      backContent: "Multi-stage evaluation including technical assessments, clearance verification, reference checks, and comprehensive security protocol validation.",
+      iconColor: "text-coral"
+    },
+    {
+      icon: Award,
+      title: "Placement & Onboarding",
+      description: "Facilitating smooth transitions for new hires with full security protocol compliance.",
+      backContent: "Seamless integration with security briefings, clearance transfers, and ongoing support to ensure immediate productivity in your environment.",
+      iconColor: "text-accent-glow"
+    },
   ];
 
   const industries = [
@@ -47,7 +251,6 @@ const ClearedRecruitment = () => {
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
           <img src={heroImage} alt="Cleared Recruitment" className="w-full h-full object-cover" />
-          
         </div>
         
         <div className="container mx-auto px-6 relative z-10">
@@ -116,10 +319,13 @@ const ClearedRecruitment = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {clearanceLevels.map((level, index) => (
-              <GlassCard key={index} className="p-6 text-center group">
-                <Shield className="w-12 h-12 mx-auto mb-4 text-accent group-hover:scale-110 transition-transform duration-300" />
-                <h3 className="text-lg font-bold">{level}</h3>
-              </GlassCard>
+              <IconFlipCard
+                key={index}
+                icon={Shield}
+                title={level.name}
+                backContent={level.backContent}
+                gradient="from-accent to-secondary"
+              />
             ))}
           </div>
         </div>
@@ -137,29 +343,16 @@ const ClearedRecruitment = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-            <GlassCard className="p-8">
-              <Search className="w-16 h-16 mb-6 text-accent" />
-              <h3 className="text-xl font-bold mb-3">Needs Assessment</h3>
-              <p className="text-muted-foreground">Understanding your specific requirements and project goals.</p>
-            </GlassCard>
-
-            <GlassCard className="p-8">
-              <Users className="w-16 h-16 mb-6 text-secondary" />
-              <h3 className="text-xl font-bold mb-3">Candidate Sourcing</h3>
-              <p className="text-muted-foreground">Utilizing our database and industry connections to find qualified candidates.</p>
-            </GlassCard>
-
-            <GlassCard className="p-8">
-              <CheckCircle className="w-16 h-16 mb-6 text-coral" />
-              <h3 className="text-xl font-bold mb-3">Screening & Vetting</h3>
-              <p className="text-muted-foreground">Thorough background checks and interviews to ensure candidates meet all requirements.</p>
-            </GlassCard>
-
-            <GlassCard className="p-8">
-              <Award className="w-16 h-16 mb-6 text-accent-glow" />
-              <h3 className="text-xl font-bold mb-3">Placement & Onboarding</h3>
-              <p className="text-muted-foreground">Facilitating smooth transitions for new hires with full security protocol compliance.</p>
-            </GlassCard>
+            {processes.map((process, index) => (
+              <ProcessFlipCard
+                key={index}
+                icon={process.icon}
+                title={process.title}
+                description={process.description}
+                backContent={process.backContent}
+                iconColor={process.iconColor}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -177,12 +370,11 @@ const ClearedRecruitment = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {roles.map((role, index) => (
-              <GlassCard key={index} className="p-6 flex items-center space-x-4 group">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-accent to-accent-glow flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <CheckCircle size={24} className="text-background" />
-                </div>
-                <span className="text-lg font-semibold">{role}</span>
-              </GlassCard>
+              <RoleFlipCard
+                key={index}
+                role={role.name}
+                backContent={role.backContent}
+              />
             ))}
           </div>
         </div>
