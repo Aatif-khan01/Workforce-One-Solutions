@@ -8,60 +8,60 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Blue Shades and White Color System - Light Theme */
+    /* Dark and Black Color System - Light Theme */
     --background: 0 0% 100%;
-    --foreground: 210 100% 15%;
+    --foreground: 0 0% 10%;
     
     --card: 0 0% 100%;
-    --card-foreground: 210 100% 15%;
+    --card-foreground: 0 0% 10%;
     
     --popover: 0 0% 100%;
-    --popover-foreground: 210 100% 15%;
+    --popover-foreground: 0 0% 10%;
     
-    /* Bright Blue Primary */
-    --primary: 195 100% 45%;
+    /* Dark Gray Primary */
+    --primary: 0 0% 15%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 195 100% 60%;
+    --primary-glow: 0 0% 30%;
     
-    /* Light Blue Secondary */
-    --secondary: 207 68% 75%;
-    --secondary-foreground: 210 100% 15%;
+    /* Medium Gray Secondary */
+    --secondary: 0 0% 40%;
+    --secondary-foreground: 0 0% 100%;
     
-    --muted: 207 40% 92%;
-    --muted-foreground: 210 40% 35%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 40%;
     
-    /* Bright Blue Accent */
-    --accent: 195 100% 45%;
+    /* Black Accent */
+    --accent: 0 0% 20%;
     --accent-foreground: 0 0% 100%;
-    --accent-glow: 195 100% 60%;
+    --accent-glow: 0 0% 35%;
     
-    /* Coral CTA */
-    --coral: 195 100% 45%;
+    /* Dark CTA */
+    --coral: 0 0% 15%;
     --coral-foreground: 0 0% 100%;
     
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 207 30% 85%;
+    --border: 0 0% 85%;
     --input: 0 0% 100%;
-    --ring: 195 100% 45%;
+    --ring: 0 0% 20%;
     
     --radius: 1rem;
     
     /* Glass Effect */
     --glass-bg: 0 0% 100%;
-    --glass-border: 207 30% 85%;
+    --glass-border: 0 0% 85%;
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(195, 100%, 45%), hsl(195, 100%, 60%));
-    --gradient-accent: linear-gradient(135deg, hsl(195, 100%, 45%), hsl(207, 68%, 75%));
-    --gradient-warm: linear-gradient(135deg, hsl(207, 68%, 95%), hsl(0, 0%, 100%));
-    --gradient-hero: linear-gradient(135deg, hsl(207, 90%, 97%) 0%, hsl(195, 80%, 95%) 50%, hsl(195, 70%, 92%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(0, 0%, 15%), hsl(0, 0%, 30%));
+    --gradient-accent: linear-gradient(135deg, hsl(0, 0%, 20%), hsl(0, 0%, 40%));
+    --gradient-warm: linear-gradient(135deg, hsl(0, 0%, 95%), hsl(0, 0%, 100%));
+    --gradient-hero: linear-gradient(135deg, hsl(0, 0%, 97%) 0%, hsl(0, 0%, 95%) 50%, hsl(0, 0%, 92%) 100%);
     
     /* Shadows */
-    --shadow-glow: 0 0 40px hsl(195 100% 45% / 0.3);
-    --shadow-elevation: 0 20px 60px -15px hsl(207 40% 40% / 0.2);
-    --shadow-glass: 0 8px 32px 0 hsl(207 40% 60% / 0.15);
+    --shadow-glow: 0 0 40px hsl(0 0% 20% / 0.3);
+    --shadow-elevation: 0 20px 60px -15px hsl(0 0% 40% / 0.2);
+    --shadow-glass: 0 8px 32px 0 hsl(0 0% 60% / 0.15);
     
     /* Animation */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
