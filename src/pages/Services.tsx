@@ -86,7 +86,7 @@ const Services = () => {
     <div className="min-h-screen">
       <Navigation />
       
-      {/* Hero Section - Split Layout with Hexagons Stacked on Left */}
+      {/* Hero Section - Honeycomb Pattern */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20 bg-gradient-to-b from-background to-background/50">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-3 gap-12 items-center max-w-7xl mx-auto">
@@ -119,27 +119,29 @@ const Services = () => {
               </div>
             </div>
 
-            {/* Center - Hexagonal Icons All Stacked Left */}
+            {/* Center - Honeycomb Pattern */}
             <div className="flex justify-center items-center">
-              <div className="relative w-40 h-[600px]">
-                {/* Top - Proposal Development */}
-                <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-xl">
-                  <FileText size={40} className="text-white" />
+              <div className="relative w-80 h-96">
+                {/* Top Row - Offset Right */}
+                {/* Top Left - Proposal Development */}
+                <div className="absolute top-0 left-16 w-28 h-28 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-xl">
+                  <FileText size={36} className="text-white" />
                 </div>
 
-                {/* Second - Staffing */}
-                <div className="absolute top-[140px] left-0 w-32 h-32 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-xl">
-                  <Briefcase size={40} className="text-white" />
+                {/* Top Right - Workforce Staffing */}
+                <div className="absolute top-0 right-16 w-28 h-28 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-xl">
+                  <Briefcase size={36} className="text-white" />
                 </div>
 
-                {/* Third - Cleared Recruitment */}
-                <div className="absolute top-[280px] left-0 w-32 h-32 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-xl">
-                  <Users size={40} className="text-white" />
+                {/* Bottom Row - Offset Left */}
+                {/* Bottom Left - Cleared Recruitment */}
+                <div className="absolute bottom-0 left-16 w-28 h-28 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-xl">
+                  <Users size={36} className="text-white" />
                 </div>
 
-                {/* Bottom - Software Development */}
-                <div className="absolute top-[420px] left-0 w-32 h-32 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-xl">
-                  <Code size={40} className="text-white" />
+                {/* Bottom Right - Software Development */}
+                <div className="absolute bottom-0 right-16 w-28 h-28 bg-gradient-to-br from-emerald-500 to-[#18cb96] clip-hexagon flex items-center justify-center transform hover:scale-110 transition-transform duration-300 shadow-xl">
+                  <Code size={36} className="text-white" />
                 </div>
               </div>
             </div>
