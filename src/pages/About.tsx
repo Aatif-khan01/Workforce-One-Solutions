@@ -51,7 +51,6 @@ const About = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
             {/* Left Side - Image */}
             <div className="relative">
-              <div className="absolute -left-20 top-0 w-64 h-full bg-gradient-to-r from-purple-500 via-pink-500 to-purple-600 rounded-r-3xl opacity-20" />
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img 
                   src={heroImage} 
@@ -91,7 +90,7 @@ const About = () => {
                           cx="48"
                           cy="48"
                           r="40"
-                          stroke={index === 0 ? "url(#gradient1)" : "url(#gradient2)"}
+                          stroke="url(#greenGradient)"
                           strokeWidth="6"
                           fill="none"
                           strokeDasharray={`${(parseInt(stat.value) / 100) * 251.2} 251.2`}
@@ -99,18 +98,14 @@ const About = () => {
                           className="transition-all duration-1000"
                         />
                         <defs>
-                          <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor="#a855f7" />
-                            <stop offset="100%" stopColor="#ec4899" />
-                          </linearGradient>
-                          <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor="#ec4899" />
-                            <stop offset="100%" stopColor="#f97316" />
+                          <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#10b981" />
+                            <stop offset="100%" stopColor="#18cb96" />
                           </linearGradient>
                         </defs>
                       </svg>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-2xl font-bold bg-gradient-to-br from-purple-500 to-pink-500 bg-clip-text text-transparent">
+                        <span className="text-2xl font-bold bg-gradient-to-br from-emerald-500 to-[#18cb96] bg-clip-text text-transparent">
                           {stat.value}%
                         </span>
                       </div>
