@@ -71,7 +71,7 @@ const About = () => {
                 </p>
               </div>
 
-              {/* Stats - Stacked on All Screens */}
+              {/* Stats - Stacked Vertically */}
               <div className="flex flex-col gap-4 pt-4">
                 {stats.map((stat, index) => (
                   <div key={index} className="bg-background rounded-2xl p-4 shadow-lg border border-border">
