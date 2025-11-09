@@ -109,8 +109,7 @@ const Home = () => {
               <Link to="/services" className="flex-1">
                 <Button
                   size="lg"
-                  variant="outline"
-                  className="w-full text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-foreground transition-colors"
+                  className="w-full bg-black text-white text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 hover:bg-gray-900 transition-colors"
                 >
                   Explore Services
                 </Button>
