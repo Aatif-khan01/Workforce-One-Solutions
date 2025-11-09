@@ -88,16 +88,13 @@ const ProposalDevelopment = () => {
     <div className="min-h-screen">
       <Navigation />
       
-      {/* Hero Section */}
+      {/* Hero Section - Icon Removed */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
           <img src={heroImage} alt="Proposal Development" className="w-full h-full object-cover" />
         </div>
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <div className="inline-block p-4 rounded-2xl bg-gradient-to-br from-accent to-accent-glow mb-4">
-              <FileText size={48} className="text-background" />
-            </div>
             <h1 className="text-6xl md:text-7xl font-bold text-white drop-shadow-lg">
               Proposal Development
             </h1>
