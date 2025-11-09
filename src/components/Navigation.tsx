@@ -115,8 +115,8 @@ const Navigation = () => {
             </Link>
           )}
 
-          {/* Desktop Navigation */}
-          <div className={`hidden md:flex items-center space-x-8 ${isHomePage ? 'mx-auto' : 'ml-auto'}`}>
+          {/* Desktop Navigation - Always aligned to the right */}
+          <div className="hidden md:flex items-center space-x-8 ml-auto">
             {navLinks.map((link) => (
               <div
                 key={link.path}
