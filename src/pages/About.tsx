@@ -67,7 +67,9 @@ const About = () => {
                   About us
                 </h1>
                 <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-                  Founded to help organisations navigate today's fast-moving business and technology landscape, Workforce One Solutions is a trusted partner for enterprises that demand speed, expertise and results. We specialize in Proposal Development, Cleared Recruitment, Flexible Staffing, and Custom Software Development, all under one roof.
+                  Workforce One Solutions was founded with a clear purpose that is to empower organizations to succeed in today’s fast-paced and ever-evolving business and technology landscape through talent and innovation. As a trusted partner to both federal contractors and commercial enterprises, we bring together proven expertise, agility, and a results-driven solutions.<br /><br />
+                  Our diverse range of services include Proposal Development, Cleared Recruitment, Flexible Staffing Solutions, and Custom Software Development that are designed to help our clients build stronger teams, streamline operations, and achieve mission-critical objectives with efficiency and precision.<br /><br />
+                  At Workforce One Solutions, we pride ourselves on being more than just a service provider. We’re a strategic partner committed to innovation, measurable impact and delivering excellence in every engagement.
                 </p>
               </div>
 
@@ -129,25 +131,22 @@ const About = () => {
         </div>
       </section>
 
-      {/* Story Section */}
+      {/* Story Section (remove previous story and replace with only your new content) */}
       <section className="py-16 md:py-24 scroll-smooth">
         <div className="container mx-auto px-4 sm:px-6">
           <GlassCard className="p-6 sm:p-8 md:p-12 max-w-5xl mx-auto">
             <h2 className="text-3xl sm:text-4xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
               Our Story
             </h2>
-            <div className="space-y-4 md:space-y-6 text-base sm:text-lg text-foreground/90 leading-relaxed">
+            <div className="space-y-6 text-base sm:text-lg text-foreground/90 leading-relaxed">
               <p>
-                Founded to help organisations navigate today's fast-moving business and technology landscape, <span className="text-accent font-semibold">Workforce One Solutions</span> is a trusted partner for enterprises that demand speed, expertise and results.
+                Workforce One Solutions was founded with a clear purpose that is to empower organizations to succeed in today’s fast-paced and ever-evolving business and technology landscape through talent and innovation. As a trusted partner to both federal contractors and commercial enterprises, we bring together proven expertise, agility, and a results-driven solutions.
               </p>
               <p>
-                We specialize in Proposal Development, Cleared Recruitment, Flexible Staffing, and Custom Software Development, all under one roof. Our mission is to enable your success: we bring together human insight, operational discipline and emerging technology so that you can focus on growth and mission-critical work.
+                Our diverse range of services include Proposal Development, Cleared Recruitment, Flexible Staffing Solutions, and Custom Software Development that are designed to help our clients build stronger teams, streamline operations, and achieve mission-critical objectives with efficiency and precision.
               </p>
               <p>
-                Over the years, we have supported a broad spectrum of clients, from large enterprises and government contractors to disruptive startups, delivering solutions that help them win contracts, secure high-performing teams and build software that scales.
-              </p>
-              <p>
-                We are proud of our record: delivering excellence while upholding the highest standards of service, integrity and quality. We partner with cutting-edge technology platforms, deploy rigorous processes and maintain a committed team of professionals who understand how to turn potential into performance.
+                At Workforce One Solutions, we pride ourselves on being more than just a service provider. We’re a strategic partner committed to innovation, measurable impact and delivering excellence in every engagement.
               </p>
             </div>
           </GlassCard>
