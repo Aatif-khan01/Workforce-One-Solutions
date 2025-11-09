@@ -7,7 +7,6 @@ import GlassCard from "@/components/GlassCard";
 import ImageGridInfo from "@/components/ImageGridInfo";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-about.jpg";
-import teamCollaborationImage from "@/assets/team-collaboration.jpg";
 import galleryPartnership from "@/assets/gallery-partnership.jpg";
 import galleryOfficeView from "@/assets/gallery-office-view.jpg";
 import galleryCreativeTeam from "@/assets/gallery-creative-team.jpg";
@@ -36,112 +35,32 @@ const About = () => {
     },
   ];
 
-  const stats = [
-    { value: "10+", label: "Years of Expertise", percentage: 50 },
-    { value: "100%", label: "Tailored Solutions", percentage: 100 },
-  ];
-
   return (
     <div className="min-h-screen">
       <Navigation />
       
-      {/* Hero Section - Mobile Optimized with Image First */}
+      {/* Hero Section - Only image and about intro text */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden pt-20 bg-gradient-to-b from-background to-background/50">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center max-w-7xl mx-auto">
-            {/* Left Side - Image (First on mobile) */}
-            <div className="relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                <img 
-                  src={heroImage} 
-                  alt="About Us" 
-                  className="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover"
-                />
-              </div>
+          <div className="max-w-7xl mx-auto">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              <img 
+                src={heroImage} 
+                alt="About Us" 
+                className="w-full h-[500px] object-cover"
+              />
             </div>
 
-            {/* Right Side - Content */}
-            <div className="space-y-6 md:space-y-8">
-              <div className="space-y-4 md:space-y-6">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
-                  About us
-                </h1>
-                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-                  Workforce One Solutions was founded with a clear purpose that is to empower organizations to succeed in today’s fast-paced and ever-evolving business and technology landscape through talent and innovation. As a trusted partner to both federal contractors and commercial enterprises, we bring together proven expertise, agility, and a results-driven solutions.<br /><br />
-                  Our diverse range of services include Proposal Development, Cleared Recruitment, Flexible Staffing Solutions, and Custom Software Development that are designed to help our clients build stronger teams, streamline operations, and achieve mission-critical objectives with efficiency and precision.<br /><br />
-                  At Workforce One Solutions, we pride ourselves on being more than just a service provider. We’re a strategic partner committed to innovation, measurable impact and delivering excellence in every engagement.
-                </p>
-              </div>
-
-              {/* Stats - FIXED Mobile SVG */}
-              <div className="flex flex-col gap-4 pt-4">
-                {stats.map((stat, index) => (
-                  <div key={index} className="bg-background rounded-2xl p-4 shadow-lg border border-border">
-                    <div className="flex items-center gap-4">
-                      {/* Mobile-Responsive SVG Circle */}
-                      <div className="relative flex-shrink-0">
-                        <svg className="w-20 h-20 transform -rotate-90" viewBox="0 0 80 80">
-                          {/* Background Circle */}
-                          <circle
-                            cx="40"
-                            cy="40"
-                            r="32"
-                            stroke="currentColor"
-                            strokeWidth="6"
-                            fill="none"
-                            className="text-muted-foreground/10"
-                          />
-                          {/* Progress Circle */}
-                          <circle
-                            cx="40"
-                            cy="40"
-                            r="32"
-                            stroke="url(#greenGradient)"
-                            strokeWidth="6"
-                            fill="none"
-                            strokeDasharray={`${(stat.percentage / 100) * 201} 201`}
-                            strokeLinecap="round"
-                            className="transition-all duration-1000"
-                          />
-                          <defs>
-                            <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                              <stop offset="0%" stopColor="#10b981" />
-                              <stop offset="100%" stopColor="#18cb96" />
-                            </linearGradient>
-                          </defs>
-                        </svg>
-                        {/* Centered Text */}
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <span className="text-lg font-bold bg-gradient-to-br from-emerald-500 to-[#18cb96] bg-clip-text text-transparent">
-                            {stat.value}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <p className="font-bold text-foreground text-base">
-                          {stat.label}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+            <div className="mt-8 max-w-4xl mx-auto text-center">
+              <h1 className="text-6xl font-bold text-foreground">About us</h1>
+              <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+                Workforce One Solutions was founded with a clear purpose that is to empower organizations to succeed in today’s fast-paced and ever-evolving business and technology landscape through talent and innovation. As a trusted partner to both federal contractors and commercial enterprises, we bring together proven expertise, agility, and a results-driven solutions.
+                <br /><br />
+                Our diverse range of services include Proposal Development, Cleared Recruitment, Flexible Staffing Solutions, and Custom Software Development that are designed to help our clients build stronger teams, streamline operations, and achieve mission-critical objectives with efficiency and precision.
+                <br /><br />
+                At Workforce One Solutions, we pride ourselves on being more than just a service provider. We’re a strategic partner committed to innovation, measurable impact and delivering excellence in every engagement.
+              </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Story Section REMOVED */}
-
-      {/* Team Collaboration Image Section */}
-      <section className="py-12 md:py-16 relative overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="relative rounded-3xl overflow-hidden max-w-6xl mx-auto">
-            <img 
-              src={teamCollaborationImage}
-              alt="Team Collaboration" 
-              className="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover"
-            />
           </div>
         </div>
       </section>
@@ -159,29 +78,12 @@ const About = () => {
 
           <div className="grid sm:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
             <GlassCard className="p-6 md:p-8">
-              <div className="text-3xl md:text-4xl font-bold text-accent mb-3 md:mb-4">10+</div>
-              <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3">Years of Experience</h3>
-              <p className="text-sm md:text-base text-muted-foreground">
-                Combined experience in proposal management, cleared staffing, workforce deployment and software engineering.
-              </p>
-            </GlassCard>
-
-            <GlassCard className="p-6 md:p-8">
-              <div className="text-3xl md:text-4xl font-bold text-secondary mb-3 md:mb-4">100%</div>
-              <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3">Tailor-Made Solutions</h3>
-              <p className="text-sm md:text-base text-muted-foreground">
-                Our services are not off-the-shelf — we align precisely with your business goals and operating model.
-              </p>
-            </GlassCard>
-
-            <GlassCard className="p-6 md:p-8">
               <div className="text-3xl md:text-4xl font-bold text-coral mb-3 md:mb-4">$$$</div>
               <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3">Efficiency & Value</h3>
               <p className="text-sm md:text-base text-muted-foreground">
                 Delivering high quality at competitive cost while maintaining rigorous standards.
               </p>
             </GlassCard>
-
             <GlassCard className="p-6 md:p-8">
               <div className="text-3xl md:text-4xl font-bold text-accent-glow mb-3 md:mb-4">✓</div>
               <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3">Values-Driven</h3>
