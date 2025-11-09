@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FileText, Target, Pen, Palette, CheckSquare, Calendar, ArrowRight, Lightbulb, Users as UsersIcon, Trophy } from "lucide-react";
 import Navigation from "@/components/Navigation";
@@ -86,27 +87,27 @@ const ProposalDevelopment = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
           <img src={heroImage} alt="Proposal Development" className="w-full h-full object-cover" />
         </div>
-        
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <div className="inline-block p-4 rounded-2xl bg-gradient-to-br from-accent to-accent-glow mb-4">
               <FileText size={48} className="text-background" />
             </div>
-            <h1 className="text-6xl md:text-7xl font-bold">
-              <span className="bg-gradient-to-r from-accent via-accent-glow to-secondary bg-clip-text text-transparent">
-                Proposal Development
-              </span>
+            {/* Main Title White with Drop Shadow */}
+            <h1 className="text-6xl md:text-7xl font-bold text-white drop-shadow-lg">
+              Proposal Development
             </h1>
-            <p className="text-2xl md:text-3xl font-semibold text-foreground">
+            {/* Subtitle White */}
+            <p className="text-2xl md:text-3xl font-semibold text-white">
               Craft. Compete. Win.
             </p>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            {/* Paragraph White with Opacity */}
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
               Winning proposals don't happen by chance, they're the result of research, strategy, storytelling, and flawless execution.
             </p>
           </div>
@@ -117,10 +118,10 @@ const ProposalDevelopment = () => {
       <section className="py-16 scroll-smooth">
         <div className="container mx-auto px-6">
           <GlassCard className="p-12 max-w-5xl mx-auto">
-            <p className="text-lg text-foreground/90 leading-relaxed mb-6">
+            <p className="text-lg text-white/90 leading-relaxed mb-6">
               At Workforce One Solutions, we help you transform business opportunities into winning proposals that set you apart from competitors. Our Proposal Development division combines deep domain expertise, compliance precision, and creative storytelling to help clients win government, defence, and commercial contracts.
             </p>
-            <p className="text-lg text-foreground/90 leading-relaxed">
+            <p className="text-lg text-white/90 leading-relaxed">
               We partner with you through every stage, from capture strategy and content creation to reviews and final production, ensuring your proposal reflects excellence, credibility, and value.
             </p>
           </GlassCard>
@@ -144,13 +145,10 @@ const ProposalDevelopment = () => {
       <section className="py-24">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
-                Our Core Services
-              </span>
+            <h2 className="text-5xl font-bold mb-6 text-white">
+              Our Core Services
             </h2>
           </div>
-
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {services.map((service, index) => (
               <FlipCard
@@ -170,13 +168,10 @@ const ProposalDevelopment = () => {
       <section className="py-24 bg-gradient-to-b from-background/50 to-background">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-secondary to-coral bg-clip-text text-transparent">
-                Our 4-Phase Process
-              </span>
+            <h2 className="text-5xl font-bold mb-6 text-white">
+              Our 4-Phase Process
             </h2>
           </div>
-
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {phases.map((phase, index) => (
               <PhaseFlipCard
@@ -196,38 +191,36 @@ const ProposalDevelopment = () => {
       <section className="py-24">
         <div className="container mx-auto px-6">
           <GlassCard className="p-12 max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold mb-8 text-center">
-              <span className="bg-gradient-to-r from-accent to-coral bg-clip-text text-transparent">
+            <h2 className="text-4xl font-bold mb-8 text-center text-white">
                 Why Choose Our Proposal Services
-              </span>
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  <p className="text-foreground/90">Deep expertise in government and commercial contracting</p>
+                  <p className="text-white/90">Deep expertise in government and commercial contracting</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  <p className="text-foreground/90">Proven track record of winning proposals</p>
+                  <p className="text-white/90">Proven track record of winning proposals</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  <p className="text-foreground/90">Comprehensive compliance and quality assurance</p>
+                  <p className="text-white/90">Comprehensive compliance and quality assurance</p>
                 </div>
               </div>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0" />
-                  <p className="text-foreground/90">Strategic approach with data-driven insights</p>
+                  <p className="text-white/90">Strategic approach with data-driven insights</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0" />
-                  <p className="text-foreground/90">Professional design and visual presentation</p>
+                  <p className="text-white/90">Professional design and visual presentation</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0" />
-                  <p className="text-foreground/90">Full project management and submission support</p>
+                  <p className="text-white/90">Full project management and submission support</p>
                 </div>
               </div>
             </div>
@@ -268,8 +261,8 @@ const ProposalDevelopment = () => {
       <section className="py-24">
         <div className="container mx-auto px-6">
           <GlassCard className="p-16 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Win Your Next Contract?</h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Ready to Win Your Next Contract?</h2>
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Let's craft a proposal that stands out and delivers results.
             </p>
             <Link to="/contact">
@@ -288,58 +281,6 @@ const ProposalDevelopment = () => {
   );
 };
 
-// Phase Flip Card Component for the numbered phases
-const PhaseFlipCard = ({ 
-  number, 
-  title, 
-  description, 
-  backContent,
-  gradient = "from-accent to-secondary"
-}: { 
-  number: string;
-  title: string;
-  description: string;
-  backContent?: string;
-  gradient?: string;
-}) => {
-  const [isFlipped, setIsFlipped] = useState(false);
-
-  return (
-    <div 
-      className="relative h-[280px] perspective-1000"
-      onMouseEnter={() => setIsFlipped(true)}
-      onMouseLeave={() => setIsFlipped(false)}
-    >
-      <div 
-        className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${
-          isFlipped ? 'rotate-y-180' : ''
-        }`}
-      >
-        {/* Front Side */}
-        <div className="absolute inset-0 backface-hidden">
-          <div className="h-full w-full p-8 rounded-2xl border border-glass-border bg-glass/50 backdrop-blur-sm shadow-lg text-center">
-            <div className="text-6xl font-bold text-accent/20 mb-4">{number}</div>
-            <h3 className="text-xl font-bold mb-3">{title}</h3>
-            <p className="text-sm text-muted-foreground">{description}</p>
-          </div>
-        </div>
-
-        {/* Back Side */}
-        <div className="absolute inset-0 backface-hidden rotate-y-180">
-          <div className={`h-full w-full p-8 rounded-2xl bg-gradient-to-br ${gradient} shadow-lg flex flex-col justify-center items-center text-center`}>
-            <div className="text-5xl font-bold text-background/30 mb-3">{number}</div>
-            <h3 className="text-xl font-bold mb-4 text-background">{title}</h3>
-            <p className="text-background/90 text-sm leading-relaxed">
-              {backContent || description}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-// Add useState import at the top
-import { useState } from "react";
+// ...Rest of your PhaseFlipCard component as you already have...
 
 export default ProposalDevelopment;
