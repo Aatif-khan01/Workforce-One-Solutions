@@ -76,7 +76,7 @@ const Home = () => {
     <div className="min-h-screen">
       <Navigation />
 
-      {/* Hero Section - Responsive Images */}
+      {/* Hero Section - No Text, Just Image and Buttons */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20">
         <div className="absolute inset-0 z-0">
           {/* Mobile Image */}
@@ -91,23 +91,6 @@ const Home = () => {
             alt="Hero Background"
             className="hidden md:block w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
-        </div>
-
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
-            <AnimatedBox animation="fadeInUp" delay={100}>
-              <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white leading-tight">
-                Workforce One Solutions
-              </h1>
-            </AnimatedBox>
-
-            <AnimatedBox animation="fadeInUp" delay={150}>
-              <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
-                Through Talent and Innovation
-              </p>
-            </AnimatedBox>
-          </div>
         </div>
 
         {/* Buttons positioned at the bottom */}
@@ -136,7 +119,7 @@ const Home = () => {
           </AnimatedBox>
         </div>
 
-        <div className="absolute bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
           <div className="w-6 h-10 rounded-full border-2 border-white flex items-start justify-center p-2">
             <div className="w-1 h-3 bg-white rounded-full animate-pulse" />
           </div>
