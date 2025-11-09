@@ -93,11 +93,11 @@ const Home = () => {
           />
         </div>
 
-        {/* Buttons positioned at the bottom */}
+        {/* Buttons placed horizontally at the bottom */}
         <div className="absolute bottom-20 sm:bottom-24 left-1/2 transform -translate-x-1/2 z-20 w-full px-4 sm:px-6">
           <AnimatedBox animation="fadeInUp" delay={50}>
-            <div className="flex flex-col gap-3 sm:gap-4 justify-center max-w-lg mx-auto">
-              <Link to="/contact" className="w-full">
+            <div className="flex flex-row gap-4 justify-center max-w-lg mx-auto">
+              <Link to="/contact" className="flex-1">
                 <Button 
                   size="lg" 
                   className="w-full group bg-[#18cb96] hover:bg-[#18cb96]/90 hover:shadow-lg text-white text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6"
@@ -106,7 +106,7 @@ const Home = () => {
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
-              <Link to="/services" className="w-full">
+              <Link to="/services" className="flex-1">
                 <Button
                   size="lg"
                   variant="outline"
