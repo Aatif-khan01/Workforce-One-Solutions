@@ -131,27 +131,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Story Section (remove previous story and replace with only your new content) */}
-      <section className="py-16 md:py-24 scroll-smooth">
-        <div className="container mx-auto px-4 sm:px-6">
-          <GlassCard className="p-6 sm:p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
-              Our Story
-            </h2>
-            <div className="space-y-6 text-base sm:text-lg text-foreground/90 leading-relaxed">
-              <p>
-                Workforce One Solutions was founded with a clear purpose that is to empower organizations to succeed in today’s fast-paced and ever-evolving business and technology landscape through talent and innovation. As a trusted partner to both federal contractors and commercial enterprises, we bring together proven expertise, agility, and a results-driven solutions.
-              </p>
-              <p>
-                Our diverse range of services include Proposal Development, Cleared Recruitment, Flexible Staffing Solutions, and Custom Software Development that are designed to help our clients build stronger teams, streamline operations, and achieve mission-critical objectives with efficiency and precision.
-              </p>
-              <p>
-                At Workforce One Solutions, we pride ourselves on being more than just a service provider. We’re a strategic partner committed to innovation, measurable impact and delivering excellence in every engagement.
-              </p>
-            </div>
-          </GlassCard>
-        </div>
-      </section>
+      {/* Story Section REMOVED */}
 
       {/* Team Collaboration Image Section */}
       <section className="py-12 md:py-16 relative overflow-hidden">
