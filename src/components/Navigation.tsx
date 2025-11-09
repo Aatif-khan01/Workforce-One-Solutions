@@ -105,15 +105,18 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link
-            to="/"
-            className="hover:scale-105 transition-transform duration-300"
-          >
-            <img src={logo} alt="Company logo" className="h-10 w-auto" />
-          </Link>
+          {/* Logo - Hidden on homepage, shown on other pages */}
+          {!isHomePage && (
+            <Link
+              to="/"
+              className="hover:scale-105 transition-transform duration-300"
+            >
+              <img src={logo} alt="Company logo" className="h-10 w-auto" />
+            </Link>
+          )}
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className={`hidden md:flex items-center space-x-8 ${isHomePage ? 'mx-auto' : 'ml-auto'}`}>
             {navLinks.map((link) => (
               <div
                 key={link.path}
@@ -196,7 +199,7 @@ const Navigation = () => {
               isHomePage && !isScrolled 
                 ? "text-white hover:text-white/80" 
                 : "text-foreground hover:text-accent"
-            }`}
+            } ${isHomePage ? 'ml-auto' : ''}`}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
