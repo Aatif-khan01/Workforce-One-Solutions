@@ -159,7 +159,7 @@ const About = () => {
 
           <div className="grid sm:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
             <GlassCard className="p-6 md:p-8">
-              <div className="text-3xl md:text-4xl font-bold text-accent mb-3 md:mb-4">20+</div>
+              <div className="text-3xl md:text-4xl font-bold text-accent mb-3 md:mb-4">10+</div>
               <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3">Years of Experience</h3>
               <p className="text-sm md:text-base text-muted-foreground">
                 Combined experience in proposal management, cleared staffing, workforce deployment and software engineering.
