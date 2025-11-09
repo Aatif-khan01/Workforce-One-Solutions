@@ -67,7 +67,9 @@ const About = () => {
                   About us
                 </h1>
                 <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-                 Founded to help organisations navigate today's fast-moving business and technology landscape, Workforce One Solutions is a trusted partner for enterprises that demand speed, expertise and results. We specialize in Proposal Development, Cleared Recruitment, Flexible Staffing, and Custom Software Development, all under one roof.
+                  Workforce One Solutions was founded with a clear purpose that is to empower organizations to succeed in today’s fast-paced and ever-evolving business and technology landscape through talent and innovation. As a trusted partner to both federal contractors and commercial enterprises, we bring together proven expertise, agility, and a results-driven solutions.<br /><br />
+                  Our diverse range of services include Proposal Development, Cleared Recruitment, Flexible Staffing Solutions, and Custom Software Development that are designed to help our clients build stronger teams, streamline operations, and achieve mission-critical objectives with efficiency and precision.<br /><br />
+                  At Workforce One Solutions, we pride ourselves on being more than just a service provider. We’re a strategic partner committed to innovation, measurable impact and delivering excellence in every engagement.
                 </p>
               </div>
 
