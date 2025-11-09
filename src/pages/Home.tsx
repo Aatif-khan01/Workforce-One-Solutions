@@ -12,6 +12,7 @@ import ClientLogos from "@/components/ClientLogos";
 import { Button } from "@/components/ui/button";
 
 import heroImage from "@/assets/hero-home.jpg";
+import heroMobileImage from "@/assets/hero-mbhome.jpg";
 import clientSuccessImage from "@/assets/client-success.jpg";
 import galleryTechWork from "@/assets/gallery-tech-work-1.jpg";
 import galleryBuilding from "@/assets/gallery-building-1.jpg";
@@ -75,45 +76,58 @@ const Home = () => {
     <div className="min-h-screen">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      {/* Hero Section - Responsive Images */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20">
         <div className="absolute inset-0 z-0">
+          {/* Mobile Image */}
+          <img
+            src={heroMobileImage}
+            alt="Hero Background Mobile"
+            className="md:hidden w-full h-full object-cover object-center"
+          />
+          {/* Desktop Image */}
           <img
             src={heroImage}
             alt="Hero Background"
-            className="w-full h-full object-cover"
+            className="hidden md:block w-full h-full object-cover object-center"
           />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
         </div>
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+          <div className="max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
             <AnimatedBox animation="fadeInUp" delay={100}>
-              <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-              </p>
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white leading-tight">
+                Workforce One Solutions
+              </h1>
             </AnimatedBox>
 
             <AnimatedBox animation="fadeInUp" delay={150}>
-              <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+                Through Talent and Innovation
               </p>
             </AnimatedBox>
           </div>
         </div>
 
         {/* Buttons positioned at the bottom */}
-        <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 z-20 w-full px-6">
+        <div className="absolute bottom-20 sm:bottom-24 left-1/2 transform -translate-x-1/2 z-20 w-full px-4 sm:px-6">
           <AnimatedBox animation="fadeInUp" delay={50}>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
-              <Link to="/contact" className="flex-1">
-                <Button size="lg" className="w-full group bg-[#18cb96] hover:bg-[#18cb96]/90 hover:shadow-lg text-white text-lg px-8 py-6">
+            <div className="flex flex-col gap-3 sm:gap-4 justify-center max-w-lg mx-auto">
+              <Link to="/contact" className="w-full">
+                <Button 
+                  size="lg" 
+                  className="w-full group bg-[#18cb96] hover:bg-[#18cb96]/90 hover:shadow-lg text-white text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6"
+                >
                   Get Started
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
-              <Link to="/services" className="flex-1">
+              <Link to="/services" className="w-full">
                 <Button
                   size="lg"
                   variant="outline"
-                  className="w-full text-lg px-8 py-6 border-2 border-accent text-accent hover:bg-accent hover:text-background transition-colors"
+                  className="w-full text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-foreground transition-colors"
                 >
                   Explore Services
                 </Button>
@@ -122,9 +136,9 @@ const Home = () => {
           </AnimatedBox>
         </div>
 
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 rounded-full border-2 border-accent flex items-start justify-center p-2">
-            <div className="w-1 h-3 bg-accent rounded-full animate-pulse" />
+        <div className="absolute bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 rounded-full border-2 border-white flex items-start justify-center p-2">
+            <div className="w-1 h-3 bg-white rounded-full animate-pulse" />
           </div>
         </div>
       </section>
