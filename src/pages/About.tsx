@@ -71,30 +71,33 @@ const About = () => {
                 </p>
               </div>
 
-              {/* Stats - Stacked Vertically */}
+              {/* Stats - FIXED Mobile SVG */}
               <div className="flex flex-col gap-4 pt-4">
                 {stats.map((stat, index) => (
                   <div key={index} className="bg-background rounded-2xl p-4 shadow-lg border border-border">
                     <div className="flex items-center gap-4">
+                      {/* Mobile-Responsive SVG Circle */}
                       <div className="relative flex-shrink-0">
-                        <svg className="w-20 h-20 sm:w-24 sm:h-24 transform -rotate-90">
+                        <svg className="w-20 h-20 transform -rotate-90" viewBox="0 0 80 80">
+                          {/* Background Circle */}
                           <circle
-                            cx="48"
-                            cy="48"
-                            r="40"
+                            cx="40"
+                            cy="40"
+                            r="32"
                             stroke="currentColor"
                             strokeWidth="6"
                             fill="none"
                             className="text-muted-foreground/10"
                           />
+                          {/* Progress Circle */}
                           <circle
-                            cx="48"
-                            cy="48"
-                            r="40"
+                            cx="40"
+                            cy="40"
+                            r="32"
                             stroke="url(#greenGradient)"
                             strokeWidth="6"
                             fill="none"
-                            strokeDasharray={`${(stat.percentage / 100) * 251.2} 251.2`}
+                            strokeDasharray={`${(stat.percentage / 100) * 201} 201`}
                             strokeLinecap="round"
                             className="transition-all duration-1000"
                           />
@@ -105,14 +108,15 @@ const About = () => {
                             </linearGradient>
                           </defs>
                         </svg>
+                        {/* Centered Text */}
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <span className="text-xl sm:text-2xl font-bold bg-gradient-to-br from-emerald-500 to-[#18cb96] bg-clip-text text-transparent">
+                          <span className="text-lg font-bold bg-gradient-to-br from-emerald-500 to-[#18cb96] bg-clip-text text-transparent">
                             {stat.value}
                           </span>
                         </div>
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="font-bold text-foreground text-base sm:text-lg">
+                        <p className="font-bold text-foreground text-base">
                           {stat.label}
                         </p>
                       </div>
