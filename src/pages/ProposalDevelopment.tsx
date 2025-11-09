@@ -87,7 +87,7 @@ const ProposalDevelopment = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
-
+      
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
@@ -98,15 +98,12 @@ const ProposalDevelopment = () => {
             <div className="inline-block p-4 rounded-2xl bg-gradient-to-br from-accent to-accent-glow mb-4">
               <FileText size={48} className="text-background" />
             </div>
-            {/* Main Title White with Drop Shadow */}
             <h1 className="text-6xl md:text-7xl font-bold text-white drop-shadow-lg">
               Proposal Development
             </h1>
-            {/* Subtitle White */}
             <p className="text-2xl md:text-3xl font-semibold text-white">
               Craft. Compete. Win.
             </p>
-            {/* Paragraph White with Opacity */}
             <p className="text-xl text-white/90 max-w-3xl mx-auto">
               Winning proposals don't happen by chance, they're the result of research, strategy, storytelling, and flawless execution.
             </p>
@@ -192,7 +189,7 @@ const ProposalDevelopment = () => {
         <div className="container mx-auto px-6">
           <GlassCard className="p-12 max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold mb-8 text-center text-white">
-                Why Choose Our Proposal Services
+              Why Choose Our Proposal Services
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-4">
@@ -281,6 +278,56 @@ const ProposalDevelopment = () => {
   );
 };
 
-// ...Rest of your PhaseFlipCard component as you already have...
+// ---- Helper (Flip) Component for the phase cards ----
+
+const PhaseFlipCard = ({ 
+  number, 
+  title, 
+  description, 
+  backContent,
+  gradient = "from-accent to-secondary"
+}: { 
+  number: string;
+  title: string;
+  description: string;
+  backContent?: string;
+  gradient?: string;
+}) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  return (
+    <div 
+      className="relative h-[280px] perspective-1000"
+      onMouseEnter={() => setIsFlipped(true)}
+      onMouseLeave={() => setIsFlipped(false)}
+    >
+      <div 
+        className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${
+          isFlipped ? 'rotate-y-180' : ''
+        }`}
+      >
+        {/* Front Side */}
+        <div className="absolute inset-0 backface-hidden">
+          <div className="h-full w-full p-8 rounded-2xl border border-glass-border bg-glass/50 backdrop-blur-sm shadow-lg text-center">
+            <div className="text-6xl font-bold text-accent/20 mb-4">{number}</div>
+            <h3 className="text-xl font-bold mb-3">{title}</h3>
+            <p className="text-sm text-muted-foreground">{description}</p>
+          </div>
+        </div>
+
+        {/* Back Side */}
+        <div className="absolute inset-0 backface-hidden rotate-y-180">
+          <div className={`h-full w-full p-8 rounded-2xl bg-gradient-to-br ${gradient} shadow-lg flex flex-col justify-center items-center text-center`}>
+            <div className="text-5xl font-bold text-background/30 mb-3">{number}</div>
+            <h3 className="text-xl font-bold mb-4 text-background">{title}</h3>
+            <p className="text-background/90 text-sm leading-relaxed">
+              {backContent || description}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default ProposalDevelopment;
