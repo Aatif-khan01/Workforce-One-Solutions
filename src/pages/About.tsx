@@ -7,6 +7,7 @@ import GlassCard from "@/components/GlassCard";
 import ImageGridInfo from "@/components/ImageGridInfo";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-about.jpg";
+import teamCollaborationImage from "@/assets/team-collaboration.jpg";
 import galleryPartnership from "@/assets/gallery-partnership.jpg";
 import galleryOfficeView from "@/assets/gallery-office-view.jpg";
 import galleryCreativeTeam from "@/assets/gallery-creative-team.jpg";
@@ -36,27 +37,27 @@ const About = () => {
   ];
 
   const stats = [
-    { value: "20+", label: "Years of Experience", percentage: 50 },
-    { value: "100%", label: "Tailor-Made Solutions", percentage: 100 },
-    { value: "$$$", label: "Efficiency & Value", percentage: 75 },
-    { value: "✓", label: "Values-Driven", percentage: 90 },
+    { value: "10+", label: "Years of Expertise", percentage: 50 },
+    { value: "100%", label: "Tailored Solutions", percentage: 100 },
   ];
 
   return (
     <div className="min-h-screen">
       <Navigation />
       
-      {/* Hero Section */}
+      {/* Hero Section - Mobile Optimized with Image First */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden pt-20 bg-gradient-to-b from-background to-background/50">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center max-w-7xl mx-auto">
-            {/* Left Side - Image */}
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              <img 
-                src={heroImage} 
-                alt="About Us" 
-                className="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover"
-              />
+            {/* Left Side - Image (First on mobile) */}
+            <div className="relative">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <img 
+                  src={heroImage} 
+                  alt="About Us" 
+                  className="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover"
+                />
+              </div>
             </div>
 
             {/* Right Side - Content */}
@@ -72,13 +73,15 @@ const About = () => {
                 </p>
               </div>
 
-              {/* Stats Section - kept */}
+              {/* Stats - FIXED Mobile SVG */}
               <div className="flex flex-col gap-4 pt-4">
-                {stats.slice(0, 2).map((stat, index) => (
+                {stats.map((stat, index) => (
                   <div key={index} className="bg-background rounded-2xl p-4 shadow-lg border border-border">
                     <div className="flex items-center gap-4">
+                      {/* Mobile-Responsive SVG Circle */}
                       <div className="relative flex-shrink-0">
                         <svg className="w-20 h-20 transform -rotate-90" viewBox="0 0 80 80">
+                          {/* Background Circle */}
                           <circle
                             cx="40"
                             cy="40"
@@ -88,6 +91,7 @@ const About = () => {
                             fill="none"
                             className="text-muted-foreground/10"
                           />
+                          {/* Progress Circle */}
                           <circle
                             cx="40"
                             cy="40"
@@ -106,6 +110,7 @@ const About = () => {
                             </linearGradient>
                           </defs>
                         </svg>
+                        {/* Centered Text */}
                         <div className="absolute inset-0 flex items-center justify-center">
                           <span className="text-lg font-bold bg-gradient-to-br from-emerald-500 to-[#18cb96] bg-clip-text text-transparent">
                             {stat.value}
@@ -126,7 +131,20 @@ const About = () => {
         </div>
       </section>
 
-      {/* Removed team collaboration image section */}
+      {/* Story Section REMOVED */}
+
+      {/* Team Collaboration Image Section */}
+      <section className="py-12 md:py-16 relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="relative rounded-3xl overflow-hidden max-w-6xl mx-auto">
+            <img 
+              src={teamCollaborationImage}
+              alt="Team Collaboration" 
+              className="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover"
+            />
+          </div>
+        </div>
+      </section>
 
       {/* Why Choose Us */}
       <section className="py-16 md:py-24 bg-gradient-to-b from-background to-background/50">
@@ -141,12 +159,29 @@ const About = () => {
 
           <div className="grid sm:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
             <GlassCard className="p-6 md:p-8">
+              <div className="text-3xl md:text-4xl font-bold text-accent mb-3 md:mb-4">20+</div>
+              <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3">Years of Experience</h3>
+              <p className="text-sm md:text-base text-muted-foreground">
+                Combined experience in proposal management, cleared staffing, workforce deployment and software engineering.
+              </p>
+            </GlassCard>
+
+            <GlassCard className="p-6 md:p-8">
+              <div className="text-3xl md:text-4xl font-bold text-secondary mb-3 md:mb-4">100%</div>
+              <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3">Tailor-Made Solutions</h3>
+              <p className="text-sm md:text-base text-muted-foreground">
+                Our services are not off-the-shelf — we align precisely with your business goals and operating model.
+              </p>
+            </GlassCard>
+
+            <GlassCard className="p-6 md:p-8">
               <div className="text-3xl md:text-4xl font-bold text-coral mb-3 md:mb-4">$$$</div>
               <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3">Efficiency & Value</h3>
               <p className="text-sm md:text-base text-muted-foreground">
                 Delivering high quality at competitive cost while maintaining rigorous standards.
               </p>
             </GlassCard>
+
             <GlassCard className="p-6 md:p-8">
               <div className="text-3xl md:text-4xl font-bold text-accent-glow mb-3 md:mb-4">✓</div>
               <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3">Values-Driven</h3>
