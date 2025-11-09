@@ -45,12 +45,12 @@ const About = () => {
     <div className="min-h-screen">
       <Navigation />
       
-      {/* Hero Section - Mobile Optimized */}
+      {/* Hero Section - Mobile Optimized with Image First */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden pt-20 bg-gradient-to-b from-background to-background/50">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center max-w-7xl mx-auto">
-            {/* Left Side - Image */}
-            <div className="relative order-2 md:order-1">
+            {/* Left Side - Image (First on mobile) */}
+            <div className="relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img 
                   src={heroImage} 
@@ -61,7 +61,7 @@ const About = () => {
             </div>
 
             {/* Right Side - Content */}
-            <div className="space-y-6 md:space-y-8 order-1 md:order-2">
+            <div className="space-y-6 md:space-y-8">
               <div className="space-y-4 md:space-y-6">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
                   About us
@@ -71,26 +71,26 @@ const About = () => {
                 </p>
               </div>
 
-              {/* Stats - Mobile Optimized */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+              {/* Stats - Stacked on All Screens */}
+              <div className="flex flex-col gap-4 pt-4">
                 {stats.map((stat, index) => (
-                  <div key={index} className="bg-background rounded-2xl p-4 sm:p-6 shadow-lg border border-border">
-                    <div className="flex items-center gap-3 sm:gap-4">
+                  <div key={index} className="bg-background rounded-2xl p-4 shadow-lg border border-border">
+                    <div className="flex items-center gap-4">
                       <div className="relative flex-shrink-0">
                         <svg className="w-20 h-20 sm:w-24 sm:h-24 transform -rotate-90">
                           <circle
-                            cx={window.innerWidth < 640 ? "40" : "48"}
-                            cy={window.innerWidth < 640 ? "40" : "48"}
-                            r={window.innerWidth < 640 ? "32" : "40"}
+                            cx="48"
+                            cy="48"
+                            r="40"
                             stroke="currentColor"
                             strokeWidth="6"
                             fill="none"
                             className="text-muted-foreground/10"
                           />
                           <circle
-                            cx={window.innerWidth < 640 ? "40" : "48"}
-                            cy={window.innerWidth < 640 ? "40" : "48"}
-                            r={window.innerWidth < 640 ? "32" : "40"}
+                            cx="48"
+                            cy="48"
+                            r="40"
                             stroke="url(#greenGradient)"
                             strokeWidth="6"
                             fill="none"
@@ -111,8 +111,8 @@ const About = () => {
                           </span>
                         </div>
                       </div>
-                      <div className="min-w-0">
-                        <p className="font-bold text-foreground text-sm sm:text-base md:text-lg break-words">
+                      <div className="min-w-0 flex-1">
+                        <p className="font-bold text-foreground text-base sm:text-lg">
                           {stat.label}
                         </p>
                       </div>
