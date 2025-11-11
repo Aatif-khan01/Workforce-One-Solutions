@@ -88,27 +88,14 @@ const ProposalDevelopment = () => {
     <div className="min-h-screen">
       <Navigation />
       
-      {/* Hero Section */}
+      {/* Hero Section - Image Only, No Text */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
           <img src={heroImage} alt="Proposal Development" className="w-full h-full object-cover" />
         </div>
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-6">
-            <h1 className="text-6xl md:text-7xl font-bold text-white drop-shadow-lg">
-              Proposal Development
-            </h1>
-            <p className="text-2xl md:text-3xl font-semibold text-white">
-              Craft. Compete. Win.
-            </p>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto">
-              Winning proposals don't happen by chance, they're the result of research, strategy, storytelling, and flawless execution.
-            </p>
-          </div>
-        </div>
       </section>
 
-      {/* Introduction - Changed text to dark */}
+      {/* Introduction */}
       <section className="py-16 scroll-smooth">
         <div className="container mx-auto px-6">
           <GlassCard className="p-12 max-w-5xl mx-auto">
@@ -185,7 +172,7 @@ const ProposalDevelopment = () => {
         </div>
       </section>
 
-      {/* Why Choose Us - Changed text to dark */}
+      {/* Why Choose Us */}
       <section className="py-24">
         <div className="container mx-auto px-6">
           <GlassCard className="p-12 max-w-4xl mx-auto">
@@ -257,7 +244,7 @@ const ProposalDevelopment = () => {
         reverse={true}
       />
 
-      {/* CTA - Changed text to dark */}
+      {/* CTA */}
       <section className="py-24">
         <div className="container mx-auto px-6">
           <GlassCard className="p-16 text-center">
