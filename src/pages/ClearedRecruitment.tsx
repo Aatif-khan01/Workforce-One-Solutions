@@ -246,29 +246,10 @@ const ClearedRecruitment = () => {
     <div className="min-h-screen">
       <Navigation />
       
-      {/* Hero Section */}
+      {/* Hero Section - Image Only, No Text or Icon */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
-          <img src={heroImage} alt="Cleared Recruitment" className="w-full h-full object-cover" />
-        </div>
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in-up">
-            <div className="inline-block p-4 rounded-2xl bg-gradient-to-br from-secondary to-coral mb-4">
-              <Shield size={48} className="text-background" />
-            </div>
-            <h1 className="text-6xl md:text-7xl font-bold">
-              <span className="bg-gradient-to-r from-secondary via-coral to-accent bg-clip-text text-transparent">
-                Cleared Recruitment
-              </span>
-            </h1>
-            <p className="text-2xl md:text-3xl font-semibold text-foreground">
-              Securing Talent for Sensitive Missions
-            </p>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We understand the critical importance of having the right people in the right roles, especially for positions requiring security clearances.
-            </p>
-          </div>
+          <img src={heroImage} alt="Cleared Recruitment" className="w-full h-full object-cover object-center" />
         </div>
       </section>
 
