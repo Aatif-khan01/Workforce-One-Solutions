@@ -67,7 +67,7 @@ const About = () => {
                 </h1>
                 <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                   Workforce One Solutions was founded with a clear purpose that is to empower
-                  organizations to succeed in today’s fast-paced and ever-evolving business and
+                  organizations to succeed in today's fast-paced and ever-evolving business and
                   technology landscape through talent and innovation. As a trusted partner to both
                   federal contractors and commercial enterprises, we bring together proven expertise,
                   agility, and a results-driven solutions.<br /><br />
@@ -76,7 +76,7 @@ const About = () => {
                   help our clients build stronger teams, streamline operations, and achieve mission-critical
                   objectives with efficiency and precision.<br /><br />
                   At Workforce One Solutions, we pride ourselves on being more than just a service
-                  provider. We’re a strategic partner committed to innovation, measurable impact and
+                  provider. We're a strategic partner committed to innovation, measurable impact and
                   delivering excellence in every engagement.
                 </p>
               </div>
@@ -190,7 +190,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Image Grid Info Section */}
+      {/* Image Grid Info Section - Added 4th Core Value */}
       <ImageGridInfo
         images={[
           { src: galleryPartnership, alt: "Business partnership", label: "Our Culture" },
@@ -217,6 +217,12 @@ const About = () => {
             icon: <Rocket size={24} className="text-background" />,
             content:
               "We embrace change and continuously evolve our methods, tools, and approaches to stay ahead of industry trends and deliver cutting-edge solutions.",
+          },
+          {
+            title: "Excellence & Quality",
+            icon: <Award size={24} className="text-background" />,
+            content:
+              "We are committed to delivering exceptional results with precision and integrity, ensuring every solution reflects our highest standards of quality.",
           },
         ]}
         reverse={true}
