@@ -192,14 +192,10 @@ const Navigation = () => {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Always Black */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden p-2 transition-colors ${
-              isHomePage && !isScrolled 
-                ? "text-white hover:text-white/80" 
-                : "text-foreground hover:text-accent"
-            } ${isHomePage ? 'ml-auto' : ''}`}
+            className={`md:hidden p-2 transition-colors text-black hover:text-black/80 ${isHomePage ? 'ml-auto' : ''}`}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
