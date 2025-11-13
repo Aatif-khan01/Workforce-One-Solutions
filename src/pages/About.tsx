@@ -181,7 +181,7 @@ const About = () => {
 
           <div className="mt-8 md:mt-12 text-center">
             <GlassCard className="p-6 md:p-8 max-w-3xl mx-auto">
-              <p className="text-base md:text-lg text-foreground/90 italic">
+              <p className="text-base md:text-lg text-foreground italic">
                 "We are committed to delivering a standout client experience, one rooted in
                 responsiveness, transparency and real results."
               </p>

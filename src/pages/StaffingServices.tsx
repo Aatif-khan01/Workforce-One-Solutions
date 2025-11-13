@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Briefcase, Zap, Users, Target, Shield, ArrowRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import ScheduleMeetingSection from "@/components/ScheduleMeetingSection";
+import ClientLogos from "@/components/ClientLogos";
 import GlassCard from "@/components/GlassCard";
 import ImageGridInfo from "@/components/ImageGridInfo";
 import { Button } from "@/components/ui/button";
@@ -14,30 +14,20 @@ import galleryOfficeView from "@/assets/gallery-office-view.jpg";
 import galleryConsultation from "@/assets/gallery-consultation.jpg";
 
 // Benefit Flip Card Component
-const BenefitFlipCard = ({ 
-  icon: Icon, 
-  title, 
+const BenefitFlipCard = ({
+  icon: Icon,
+  title,
   description,
   backContent
-}: { 
+}: {
   icon: any;
   title: string;
   description: string;
   backContent?: string;
 }) => {
   const [isFlipped, setIsFlipped] = useState(false);
-
-  return (
-    <div 
-      className="relative h-[240px] perspective-1000"
-      onMouseEnter={() => setIsFlipped(true)}
-      onMouseLeave={() => setIsFlipped(false)}
-    >
-      <div 
-        className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${
-          isFlipped ? 'rotate-y-180' : ''
-        }`}
-      >
+  return <div className="relative h-[240px] perspective-1000" onMouseEnter={() => setIsFlipped(true)} onMouseLeave={() => setIsFlipped(false)}>
+      <div className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
         {/* Front Side */}
         <div className="absolute inset-0 backface-hidden">
           <div className="h-full w-full p-8 rounded-2xl border border-glass-border bg-glass/50 backdrop-blur-sm shadow-lg text-center flex flex-col items-center">
@@ -60,18 +50,17 @@ const BenefitFlipCard = ({
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
 
 // Process Step Flip Card
-const ProcessStepFlipCard = ({ 
-  number, 
-  title, 
+const ProcessStepFlipCard = ({
+  number,
+  title,
   description,
   backContent,
   numberColor = "text-accent/20"
-}: { 
+}: {
   number: string;
   title: string;
   description: string;
@@ -87,18 +76,8 @@ const ProcessStepFlipCard = ({
     if (numberColor.includes('coral')) return 'from-coral to-accent';
     return 'from-accent-glow to-secondary';
   };
-
-  return (
-    <div 
-      className="relative h-[240px] perspective-1000"
-      onMouseEnter={() => setIsFlipped(true)}
-      onMouseLeave={() => setIsFlipped(false)}
-    >
-      <div 
-        className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${
-          isFlipped ? 'rotate-y-180' : ''
-        }`}
-      >
+  return <div className="relative h-[240px] perspective-1000" onMouseEnter={() => setIsFlipped(true)} onMouseLeave={() => setIsFlipped(false)}>
+      <div className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
         {/* Front Side */}
         <div className="absolute inset-0 backface-hidden">
           <div className="h-full w-full p-8 rounded-2xl border border-glass-border bg-glass/50 backdrop-blur-sm shadow-lg flex flex-col">
@@ -119,98 +98,77 @@ const ProcessStepFlipCard = ({
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 const StaffingServices = () => {
-  const benefits = [
-    { 
-      icon: Zap, 
-      title: "Speed & Scalability", 
-      description: "High-velocity sourcing with a deep talent pool including security-cleared professionals",
-      backContent: "Our extensive network and streamlined processes enable rapid deployment of qualified professionals. We maintain a ready pool of pre-vetted, security-cleared talent for immediate placement."
-    },
-    { 
-      icon: Target, 
-      title: "Quality & Fit", 
-      description: "Assessed for technical skills, cultural alignment, clearance status, and project readiness",
-      backContent: "Every candidate undergoes comprehensive evaluation including technical assessments, behavioral interviews, cultural fit analysis, and security clearance verification to ensure optimal placement success."
-    },
-    { 
-      icon: Users, 
-      title: "Flexible Delivery", 
-      description: "Contract staff, direct hire, hybrid arrangements or managed team solutions",
-      backContent: "We offer multiple engagement models tailored to your needs: short-term contracts, long-term placements, project-based teams, or fully managed workforce solutions with complete oversight."
-    },
-    { 
-      icon: Shield, 
-      title: "End-to-End Management", 
-      description: "Onboarding, compliance, workforce analytics and performance tracking",
-      backContent: "Complete lifecycle management from onboarding through offboarding, including compliance monitoring, performance analytics, timesheet management, and continuous optimization of your workforce."
-    },
-  ];
-
-  const solutions = [
-    {
-      title: "Cleared Recruitment & Deployment",
-      description: "For government, defence, or high-sensitivity commercial projects with required security clearances.",
-      features: ["Active-clearance mapping", "Rapid deployment", "Ongoing clearance management", "Full compliance"],
-      gradient: "from-accent to-accent-glow",
-    },
-    {
-      title: "Project & Contract Staffing",
-      description: "When you have an upcoming project, surge requirement, or short-term initiative.",
-      features: ["Rapid sourcing of specialists", "Flexible contract terms", "Onboarding & monitoring", "Budget-friendly models"],
-      gradient: "from-secondary to-coral",
-    },
-    {
-      title: "Long-Term & Direct Hire",
-      description: "For strategic hires or building your core workforce aligned to your growth.",
-      features: ["Full lifecycle recruitment", "Talent-mapping support", "Cultural integration", "Retention-focused"],
-      gradient: "from-coral to-secondary",
-    },
-    {
-      title: "Managed Team Solutions",
-      description: "We build, manage and optimize the team on your behalf with full governance.",
-      features: ["Fully managed teams", "Performance KPIs", "Delivery oversight", "Global roll-outs"],
-      gradient: "from-accent-glow to-accent",
-    },
-  ];
-
-  const processes = [
-    {
-      number: "01",
-      title: "Discovery & Planning",
-      description: "Understanding business objectives, project timelines, required competencies, and budget.",
-      backContent: "We conduct in-depth consultations to understand your organizational goals, project scope, timeline constraints, technical requirements, budget parameters, and cultural considerations to develop optimal staffing strategies.",
-      numberColor: "text-accent/20"
-    },
-    {
-      number: "02",
-      title: "Talent Sourcing",
-      description: "Using proprietary talent network and cleared-candidate databases to identify potential candidates.",
-      backContent: "Leveraging our extensive database of pre-qualified candidates, industry networks, and active sourcing strategies to identify professionals who match your specific technical, clearance, and cultural requirements.",
-      numberColor: "text-secondary/20"
-    },
-    {
-      number: "03",
-      title: "Selection & Onboarding",
-      description: "Reference checks, clearance verification, contract negotiation, and seamless onboarding.",
-      backContent: "Comprehensive vetting including reference verification, security clearance validation, skills assessment, followed by streamlined contract negotiation and structured onboarding to ensure immediate productivity.",
-      numberColor: "text-coral/20"
-    },
-    {
-      number: "04",
-      title: "Deployment & Tracking",
-      description: "Performance monitoring, timesheet management, and workforce analytics.",
-      backContent: "Ongoing management with real-time performance tracking, automated timesheet processing, compliance monitoring, and detailed workforce analytics to optimize productivity and drive continuous improvement.",
-      numberColor: "text-accent-glow/20"
-    },
-  ];
-
-  return (
-    <div className="min-h-screen">
+  const benefits = [{
+    icon: Zap,
+    title: "Speed & Scalability",
+    description: "High-velocity sourcing with a deep talent pool including security-cleared professionals",
+    backContent: "Our extensive network and streamlined processes enable rapid deployment of qualified professionals. We maintain a ready pool of pre-vetted, security-cleared talent for immediate placement."
+  }, {
+    icon: Target,
+    title: "Quality & Fit",
+    description: "Assessed for technical skills, cultural alignment, clearance status, and project readiness",
+    backContent: "Every candidate undergoes comprehensive evaluation including technical assessments, behavioral interviews, cultural fit analysis, and security clearance verification to ensure optimal placement success."
+  }, {
+    icon: Users,
+    title: "Flexible Delivery",
+    description: "Contract staff, direct hire, hybrid arrangements or managed team solutions",
+    backContent: "We offer multiple engagement models tailored to your needs: short-term contracts, long-term placements, project-based teams, or fully managed workforce solutions with complete oversight."
+  }, {
+    icon: Shield,
+    title: "End-to-End Management",
+    description: "Onboarding, compliance, workforce analytics and performance tracking",
+    backContent: "Complete lifecycle management from onboarding through offboarding, including compliance monitoring, performance analytics, timesheet management, and continuous optimization of your workforce."
+  }];
+  const solutions = [{
+    title: "Cleared Recruitment & Deployment",
+    description: "For government, defence, or high-sensitivity commercial projects with required security clearances.",
+    features: ["Active-clearance mapping", "Rapid deployment", "Ongoing clearance management", "Full compliance"],
+    gradient: "from-accent to-accent-glow"
+  }, {
+    title: "Project & Contract Staffing",
+    description: "When you have an upcoming project, surge requirement, or short-term initiative.",
+    features: ["Rapid sourcing of specialists", "Flexible contract terms", "Onboarding & monitoring", "Budget-friendly models"],
+    gradient: "from-secondary to-coral"
+  }, {
+    title: "Long-Term & Direct Hire",
+    description: "For strategic hires or building your core workforce aligned to your growth.",
+    features: ["Full lifecycle recruitment", "Talent-mapping support", "Cultural integration", "Retention-focused"],
+    gradient: "from-coral to-secondary"
+  }, {
+    title: "Managed Team Solutions",
+    description: "We build, manage and optimize the team on your behalf with full governance.",
+    features: ["Fully managed teams", "Performance KPIs", "Delivery oversight", "Global roll-outs"],
+    gradient: "from-accent-glow to-accent"
+  }];
+  const processes = [{
+    number: "01",
+    title: "Discovery & Planning",
+    description: "Understanding business objectives, project timelines, required competencies, and budget.",
+    backContent: "We conduct in-depth consultations to understand your organizational goals, project scope, timeline constraints, technical requirements, budget parameters, and cultural considerations to develop optimal staffing strategies.",
+    numberColor: "text-accent/20"
+  }, {
+    number: "02",
+    title: "Talent Sourcing",
+    description: "Using proprietary talent network and cleared-candidate databases to identify potential candidates.",
+    backContent: "Leveraging our extensive database of pre-qualified candidates, industry networks, and active sourcing strategies to identify professionals who match your specific technical, clearance, and cultural requirements.",
+    numberColor: "text-secondary/20"
+  }, {
+    number: "03",
+    title: "Selection & Onboarding",
+    description: "Reference checks, clearance verification, contract negotiation, and seamless onboarding.",
+    backContent: "Comprehensive vetting including reference verification, security clearance validation, skills assessment, followed by streamlined contract negotiation and structured onboarding to ensure immediate productivity.",
+    numberColor: "text-coral/20"
+  }, {
+    number: "04",
+    title: "Deployment & Tracking",
+    description: "Performance monitoring, timesheet management, and workforce analytics.",
+    backContent: "Ongoing management with real-time performance tracking, automated timesheet processing, compliance monitoring, and detailed workforce analytics to optimize productivity and drive continuous improvement.",
+    numberColor: "text-accent-glow/20"
+  }];
+  return <div className="min-h-screen">
       <Navigation />
       
       {/* Hero Section */}
@@ -233,7 +191,7 @@ const StaffingServices = () => {
               Agile Talent. Strategic Deployment. Sustainable Growth.
             </p>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Access to the right people — at the right time — is a competitive advantage. Our staffing services deliver the talent, flexibility and strategic alignment your organisation needs to scale with confidence.
+              Access to the right people, at the right time, is a competitive advantage. Our staffing services deliver the talent, flexibility and strategic alignment your organisation needs to scale with confidence.
             </p>
           </div>
         </div>
@@ -251,15 +209,7 @@ const StaffingServices = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-            {benefits.map((benefit, index) => (
-              <BenefitFlipCard
-                key={index}
-                icon={benefit.icon}
-                title={benefit.title}
-                description={benefit.description}
-                backContent={benefit.backContent}
-              />
-            ))}
+            {benefits.map((benefit, index) => <BenefitFlipCard key={index} icon={benefit.icon} title={benefit.title} description={benefit.description} backContent={benefit.backContent} />)}
           </div>
         </div>
       </section>
@@ -268,11 +218,7 @@ const StaffingServices = () => {
       <section className="py-16 relative overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="relative rounded-3xl overflow-hidden max-w-6xl mx-auto">
-            <img 
-              src={diverseTeamImage}
-              alt="Diverse Team" 
-              className="w-full h-[500px] object-cover"
-            />
+            <img src={diverseTeamImage} alt="Diverse Team" className="w-full h-[500px] object-cover" />
           </div>
         </div>
       </section>
@@ -289,21 +235,19 @@ const StaffingServices = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {solutions.map((solution, index) => (
-              <GlassCard key={index} className="p-8 animate-scale-in" style={{ animationDelay: `${index * 0.15}s` }}>
+            {solutions.map((solution, index) => <GlassCard key={index} className="p-8 animate-scale-in" style={{
+            animationDelay: `${index * 0.15}s`
+          }}>
                 <div className={`w-full h-2 rounded-full bg-gradient-to-r ${solution.gradient} mb-6`} />
                 <h3 className="text-2xl font-bold mb-4">{solution.title}</h3>
                 <p className="text-muted-foreground mb-6">{solution.description}</p>
                 <div className="space-y-2">
-                  {solution.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center space-x-2">
+                  {solution.features.map((feature, idx) => <div key={idx} className="flex items-center space-x-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-accent" />
                       <span className="text-sm text-foreground/80">{feature}</span>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
-              </GlassCard>
-            ))}
+              </GlassCard>)}
           </div>
         </div>
       </section>
@@ -320,16 +264,7 @@ const StaffingServices = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-            {processes.map((process, index) => (
-              <ProcessStepFlipCard
-                key={index}
-                number={process.number}
-                title={process.title}
-                description={process.description}
-                backContent={process.backContent}
-                numberColor={process.numberColor}
-              />
-            ))}
+            {processes.map((process, index) => <ProcessStepFlipCard key={index} number={process.number} title={process.title} description={process.description} backContent={process.backContent} numberColor={process.numberColor} />)}
           </div>
         </div>
       </section>
@@ -347,29 +282,29 @@ const StaffingServices = () => {
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  <p className="text-foreground/90">Access to a rich talent pool including cleared professionals</p>
+                  <p className="text-foreground">Access to a rich talent pool including cleared professionals</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  <p className="text-foreground/90">Flexible delivery models tailored to your needs</p>
+                  <p className="text-foreground">Flexible delivery models tailored to your needs</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  <p className="text-foreground/90">End-to-end workforce management and support</p>
+                  <p className="text-foreground">End-to-end workforce management and support</p>
                 </div>
               </div>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0" />
-                  <p className="text-foreground/90">Rapid deployment when opportunities arise</p>
+                  <p className="text-foreground">Rapid deployment when opportunities arise</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0" />
-                  <p className="text-foreground/90">Quality-focused candidate assessment</p>
+                  <p className="text-foreground">Quality-focused candidate assessment</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0" />
-                  <p className="text-foreground/90">Aligned with your business strategy</p>
+                  <p className="text-foreground">Aligned with your business strategy</p>
                 </div>
               </div>
             </div>
@@ -378,33 +313,29 @@ const StaffingServices = () => {
       </section>
 
       {/* Image Grid Info Section */}
-      <ImageGridInfo
-        images={[
-          { src: galleryCreativeTeam, alt: "Dynamic team collaboration", label: "Flexible Staffing" },
-          { src: galleryOfficeView, alt: "Professional workspace" },
-          { src: galleryConsultation, alt: "Staffing consultation" },
-        ]}
-        title="Staffing That Scales"
-        subtitle="Flexible Talent Solutions"
-        sections={[
-          {
-            title: "Rapid Deployment",
-            icon: <Zap size={24} className="text-background" />,
-            content: "When you need talent fast, we deliver. Our extensive network and streamlined onboarding processes enable us to place qualified professionals quickly, minimizing disruption to your operations.",
-          },
-          {
-            title: "Quality Assurance",
-            icon: <Shield size={24} className="text-background" />,
-            content: "Every candidate is thoroughly vetted for technical skills, cultural fit, and professional experience. We guarantee the quality of our placements and provide ongoing support to ensure success.",
-          },
-          {
-            title: "Strategic Partnership",
-            icon: <Target size={24} className="text-background" />,
-            content: "We're not just a staffing vendor—we're your strategic talent partner. We take time to understand your business, culture, and goals to deliver staffing solutions that drive long-term success.",
-          },
-        ]}
-        reverse={true}
-      />
+      <ImageGridInfo images={[{
+      src: galleryCreativeTeam,
+      alt: "Dynamic team collaboration",
+      label: "Flexible Staffing"
+    }, {
+      src: galleryOfficeView,
+      alt: "Professional workspace"
+    }, {
+      src: galleryConsultation,
+      alt: "Staffing consultation"
+    }]} title="Staffing That Scales" subtitle="Flexible Talent Solutions" sections={[{
+      title: "Rapid Deployment",
+      icon: <Zap size={24} className="text-background" />,
+      content: "When you need talent fast, we deliver. Our extensive network and streamlined onboarding processes enable us to place qualified professionals quickly, minimizing disruption to your operations."
+    }, {
+      title: "Quality Assurance",
+      icon: <Shield size={24} className="text-background" />,
+      content: "Every candidate is thoroughly vetted for technical skills, cultural fit, and professional experience. We guarantee the quality of our placements and provide ongoing support to ensure success."
+    }, {
+      title: "Strategic Partnership",
+      icon: <Target size={24} className="text-background" />,
+      content: "We're not just a staffing vendor—we're your strategic talent partner. We take time to understand your business, culture, and goals to deliver staffing solutions that drive long-term success."
+    }]} reverse={true} />
 
       {/* CTA */}
       <section className="py-24">
@@ -424,10 +355,8 @@ const StaffingServices = () => {
         </div>
       </section>
 
-      <ScheduleMeetingSection />
+      <ClientLogos />
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default StaffingServices;

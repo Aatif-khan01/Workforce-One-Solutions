@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FileText, Target, Pen, Palette, CheckSquare, Calendar, ArrowRight, Lightbulb, Users as UsersIcon, Trophy } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import ScheduleMeetingSection from "@/components/ScheduleMeetingSection";
+import ClientLogos from "@/components/ClientLogos";
 import GlassCard from "@/components/GlassCard";
 import FlipCard from "@/components/FlipCard";
 import ImageGridInfo from "@/components/ImageGridInfo";
@@ -99,10 +99,10 @@ const ProposalDevelopment = () => {
       <section className="py-16 scroll-smooth">
         <div className="container mx-auto px-6">
           <GlassCard className="p-12 max-w-5xl mx-auto">
-            <p className="text-lg text-foreground/90 leading-relaxed mb-6">
+            <p className="text-lg text-foreground leading-relaxed mb-6">
               At Workforce One Solutions, we help you transform business opportunities into winning proposals that set you apart from competitors. Our Proposal Development division combines deep domain expertise, compliance precision, and creative storytelling to help clients win government, defence, and commercial contracts.
             </p>
-            <p className="text-lg text-foreground/90 leading-relaxed">
+            <p className="text-lg text-foreground leading-relaxed">
               We partner with you through every stage, from capture strategy and content creation to reviews and final production, ensuring your proposal reflects excellence, credibility, and value.
             </p>
           </GlassCard>
@@ -185,29 +185,29 @@ const ProposalDevelopment = () => {
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  <p className="text-foreground/90">Deep expertise in government and commercial contracting</p>
+                  <p className="text-foreground">Deep expertise in government and commercial contracting</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  <p className="text-foreground/90">Proven track record of winning proposals</p>
+                  <p className="text-foreground">Proven track record of winning proposals</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  <p className="text-foreground/90">Comprehensive compliance and quality assurance</p>
+                  <p className="text-foreground">Comprehensive compliance and quality assurance</p>
                 </div>
               </div>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0" />
-                  <p className="text-foreground/90">Strategic approach with data-driven insights</p>
+                  <p className="text-foreground">Strategic approach with data-driven insights</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0" />
-                  <p className="text-foreground/90">Professional design and visual presentation</p>
+                  <p className="text-foreground">Professional design and visual presentation</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0" />
-                  <p className="text-foreground/90">Full project management and submission support</p>
+                  <p className="text-foreground">Full project management and submission support</p>
                 </div>
               </div>
             </div>
@@ -262,7 +262,7 @@ const ProposalDevelopment = () => {
         </div>
       </section>
 
-      <ScheduleMeetingSection />
+      <ClientLogos />
       <Footer />
     </div>
   );

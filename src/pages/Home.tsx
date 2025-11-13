@@ -10,7 +10,6 @@ import StatCounter from "@/components/StatCounter";
 import ImageGridInfo from "@/components/ImageGridInfo";
 import ClientLogos from "@/components/ClientLogos";
 import { Button } from "@/components/ui/button";
-
 import heroImage from "@/assets/hero-home.jpg";
 import heroMobileImage from "@/assets/hero-mbhome.jpg";
 import clientSuccessImage from "@/assets/client-success.jpg";
@@ -21,76 +20,64 @@ import serviceProposal from "@/assets/service-proposal.jpg";
 import serviceRecruitment from "@/assets/service-recruitment.jpg";
 import serviceStaffing from "@/assets/service-staffing.jpg";
 import serviceSoftware from "@/assets/service-software.jpg";
-
 const Home = () => {
-  const services = [
-    {
-      icon: FileText,
-      title: "Strategic Proposal Development",
-      description: "From government bids to corporate contracts, we help you craft proposals that win.",
-      link: "/services/proposal",
-      gradient: "from-accent to-accent-glow",
-      image: serviceProposal,
-    },
-    {
-      icon: Users,
-      title: "Cleared Recruitment",
-      description: "We specialize in sourcing and vetting security-cleared professionals for sensitive projects.",
-      link: "/services/recruitment",
-      gradient: "from-secondary to-coral",
-      image: serviceRecruitment,
-    },
-    {
-      icon: Briefcase,
-      title: "Workforce Staffing",
-      description: "Flexible staffing built for today's evolving business needs.",
-      link: "/services/staffing",
-      gradient: "from-coral to-secondary",
-      image: serviceStaffing,
-    },
-    {
-      icon: Code,
-      title: "Software Development",
-      description: "We build scalable, secure, and high-performance software solutions tailored to your organization.",
-      link: "/services/software",
-      gradient: "from-accent-glow to-accent",
-      image: serviceSoftware,
-    },
-  ];
-
-  const stats = [
-    { value: 500, suffix: "+", label: "Successful Proposals" },
-    { value: 1200, suffix: "+", label: "Professionals Recruited" },
-    { value: 50000, suffix: "+", label: "Hours Delivered" },
-    { value: 98, suffix: "%", label: "Client Retention" },
-  ];
-
-  const values = [
-    "Businesses grow faster when talent and strategy align.",
-    "Recruitment isn't about filling positions; it's about building capability.",
-    "Great proposals start with deep understanding and sharp storytelling.",
-    "You don't need more resources; you need the right ones.",
-  ];
-
-  return (
-    <div className="min-h-screen">
+  const services = [{
+    icon: FileText,
+    title: "Strategic Proposal Development",
+    description: "From government bids to corporate contracts, we help you craft proposals that win.",
+    link: "/services/proposal",
+    gradient: "from-accent to-accent-glow",
+    image: serviceProposal
+  }, {
+    icon: Users,
+    title: "Cleared Recruitment",
+    description: "We specialize in sourcing and vetting security-cleared professionals for sensitive projects.",
+    link: "/services/recruitment",
+    gradient: "from-secondary to-coral",
+    image: serviceRecruitment
+  }, {
+    icon: Briefcase,
+    title: "Workforce Staffing",
+    description: "Flexible staffing built for today's evolving business needs.",
+    link: "/services/staffing",
+    gradient: "from-coral to-secondary",
+    image: serviceStaffing
+  }, {
+    icon: Code,
+    title: "Software Development",
+    description: "We build scalable, secure, and high-performance software solutions tailored to your organization.",
+    link: "/services/software",
+    gradient: "from-accent-glow to-accent",
+    image: serviceSoftware
+  }];
+  const stats = [{
+    value: 500,
+    suffix: "+",
+    label: "Successful Proposals"
+  }, {
+    value: 1200,
+    suffix: "+",
+    label: "Professionals Recruited"
+  }, {
+    value: 50000,
+    suffix: "+",
+    label: "Hours Delivered"
+  }, {
+    value: 98,
+    suffix: "%",
+    label: "Client Retention"
+  }];
+  const values = ["Businesses grow faster when talent and strategy align.", "Recruitment isn't about filling positions; it's about building capability.", "Great proposals start with deep understanding and sharp storytelling.", "You don't need more resources; you need the right ones."];
+  return <div className="min-h-screen">
       <Navigation />
 
       {/* Hero Section - No Text, Just Image and Buttons */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20">
         <div className="absolute inset-0 z-0">
           {/* Mobile Image */}
-          <img
-            src={heroMobileImage}
-            alt="Hero Background Mobile"
-            className="md:hidden w-full h-full object-cover object-center"
-          />
+          <img src={heroMobileImage} alt="Hero Background Mobile" className="md:hidden w-full h-full object-cover object-center" />
           {/* Desktop Image */}
-          <img
-            src={heroImage}
-            alt="Hero Background"
-            className="hidden md:block w-full h-full object-cover object-center"
-          />
+          <img src={heroImage} alt="Hero Background" className="hidden md:block w-full h-full object-cover object-center" />
         </div>
 
         {/* Buttons placed horizontally at the bottom */}
@@ -98,19 +85,13 @@ const Home = () => {
           <AnimatedBox animation="fadeInUp" delay={50}>
             <div className="flex flex-row gap-4 justify-center max-w-lg mx-auto">
               <Link to="/contact" className="flex-1">
-                <Button 
-                  size="lg" 
-                  className="w-full group bg-[#18cb96] hover:bg-[#18cb96]/90 hover:shadow-lg text-white text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6"
-                >
+                <Button size="lg" className="w-full group bg-[#18cb96] hover:bg-[#18cb96]/90 hover:shadow-lg text-white text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6">
                   Get Started
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
               <Link to="/services" className="flex-1">
-                <Button
-                  size="lg"
-                  className="w-full bg-black text-white text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 hover:bg-gray-900 transition-colors"
-                >
+                <Button size="lg" className="w-full bg-black text-white text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 hover:bg-gray-900 transition-colors">
                   Explore Services
                 </Button>
               </Link>
@@ -128,14 +109,7 @@ const Home = () => {
       {/* Stats Section */}
       <section className="py-20 relative">
         <div className="container mx-auto px-6">
-          <StaggeredAnimation className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto" staggerDelay={50}>
-            {stats.map((stat, index) => (
-              <AnimatedCard key={index} className="p-6 text-center border border-accent/20" hover={false} animation="scaleIn">
-                <StatCounter end={stat.value} suffix={stat.suffix} />
-                <p className="text-muted-foreground mt-2 text-sm">{stat.label}</p>
-              </AnimatedCard>
-            ))}
-          </StaggeredAnimation>
+          
         </div>
       </section>
 
@@ -157,15 +131,10 @@ const Home = () => {
           </AnimatedBox>
 
           <StaggeredAnimation className="grid md:grid-cols-2 gap-8" staggerDelay={75}>
-            {services.map((service, index) => (
-              <Link key={index} to={service.link} className="group">
+            {services.map((service, index) => <Link key={index} to={service.link} className="group">
                 <AnimatedCard className="p-0 h-full overflow-hidden" animation="fadeInUp" delay={index * 50}>
                   <div className="relative h-64 overflow-hidden">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
+                    <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     <div className={`absolute top-6 left-6 w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
                       <service.icon size={28} className="text-white" />
                     </div>
@@ -181,8 +150,7 @@ const Home = () => {
                     </div>
                   </div>
                 </AnimatedCard>
-              </Link>
-            ))}
+              </Link>)}
           </StaggeredAnimation>
         </div>
       </section>
@@ -208,7 +176,9 @@ const Home = () => {
             </AnimatedCard>
 
             <AnimatedCard className="p-8" animation="fadeInUp" delay={50}>
-              <div className="text-5xl font-bold text-secondary mb-4 animate-float" style={{ animationDelay: '0.5s' }}>02</div>
+              <div className="text-5xl font-bold text-secondary mb-4 animate-float" style={{
+              animationDelay: '0.5s'
+            }}>02</div>
               <h3 className="text-2xl font-bold mb-4">Quality Over Quantity</h3>
               <p className="text-muted-foreground">
                 We deliver handpicked candidates, customized proposals, and software that aligns with your exact requirements. Every solution is crafted with precision and care.
@@ -216,7 +186,9 @@ const Home = () => {
             </AnimatedCard>
 
             <AnimatedCard className="p-8" animation="fadeInUp" delay={100}>
-              <div className="text-5xl font-bold text-coral mb-4 animate-float" style={{ animationDelay: '1s' }}>03</div>
+              <div className="text-5xl font-bold text-coral mb-4 animate-float" style={{
+              animationDelay: '1s'
+            }}>03</div>
               <h3 className="text-2xl font-bold mb-4">Building for the Future</h3>
               <p className="text-muted-foreground">
                 Today, we help you meet deadlines. Tomorrow, we help you expand into new markets and build a future-ready workforce equipped for tomorrow's challenges.
@@ -229,11 +201,7 @@ const Home = () => {
       {/* Success Stories Section */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img
-            src={clientSuccessImage}
-            alt="Client Success"
-            className="w-full h-full object-cover"
-          />
+          <img src={clientSuccessImage} alt="Client Success" className="w-full h-full object-cover" />
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
@@ -256,13 +224,17 @@ const Home = () => {
             </AnimatedCard>
 
             <AnimatedCard className="p-8 text-center" animation="scaleIn" delay={100}>
-              <div className="text-6xl mb-4 animate-bounce-in" style={{ animationDelay: '0.2s' }}>🚀</div>
+              <div className="text-6xl mb-4 animate-bounce-in" style={{
+              animationDelay: '0.2s'
+            }}>🚀</div>
               <h3 className="text-2xl font-bold mb-3">Rapid Deployment</h3>
               <p className="text-muted-foreground">Average placement time of 14 days for cleared professionals across all security levels</p>
             </AnimatedCard>
 
             <AnimatedCard className="p-8 text-center" animation="scaleIn" delay={150}>
-              <div className="text-6xl mb-4 animate-bounce-in" style={{ animationDelay: '0.4s' }}>💡</div>
+              <div className="text-6xl mb-4 animate-bounce-in" style={{
+              animationDelay: '0.4s'
+            }}>💡</div>
               <h3 className="text-2xl font-bold mb-3">Innovation Excellence</h3>
               <p className="text-muted-foreground">Developed mission-critical software platforms serving millions of users</p>
             </AnimatedCard>
@@ -280,44 +252,39 @@ const Home = () => {
               </span>
             </h2>
             <div className="space-y-6">
-              {values.map((value, index) => (
-                <AnimatedBox key={index} animation="fadeInLeft" delay={400 + (index * 150)} className="flex items-start space-x-4">
+              {values.map((value, index) => <AnimatedBox key={index} animation="fadeInLeft" delay={400 + index * 150} className="flex items-start space-x-4">
                   <CheckCircle className="text-accent flex-shrink-0 mt-1 animate-pulse-slow" size={24} />
-                  <p className="text-lg text-foreground/90">{value}</p>
-                </AnimatedBox>
-              ))}
+                  <p className="text-lg text-foreground">{value}</p>
+                </AnimatedBox>)}
             </div>
           </AnimatedCard>
         </div>
       </section>
 
       {/* Image Grid Info Section */}
-      <ImageGridInfo
-        images={[
-          { src: galleryTechWork, alt: "Professional working on technology", label: "What We Deliver" },
-          { src: galleryBuilding, alt: "Modern office building" },
-          { src: galleryTeam, alt: "Team collaboration" },
-        ]}
-        title="Workforce One Solution"
-        subtitle="Delivering Excellence in Every Engagement"
-        sections={[
-          {
-            title: "About Us",
-            icon: <Target size={24} className="text-background" />,
-            content: "We are a trusted partner for organizations seeking to win contracts, build high-performing teams, and develop custom software solutions. With expertise across proposal development, cleared recruitment, staffing, and technology, we deliver end-to-end solutions tailored to your mission.",
-          },
-          {
-            title: "Our Vision",
-            icon: <Zap size={24} className="text-background" />,
-            content: "To be recognized as the premier workforce solutions provider, known for our commitment to excellence, innovation, and measurable results that drive business success.",
-          },
-          {
-            title: "Our Mission",
-            icon: <Shield size={24} className="text-background" />,
-            content: "To bridge the gap between opportunity and execution by providing specialized talent, strategic insights, and technology solutions that empower our clients to achieve their objectives.",
-          },
-        ]}
-      />
+      <ImageGridInfo images={[{
+      src: galleryTechWork,
+      alt: "Professional working on technology",
+      label: "What We Deliver"
+    }, {
+      src: galleryBuilding,
+      alt: "Modern office building"
+    }, {
+      src: galleryTeam,
+      alt: "Team collaboration"
+    }]} title="Workforce One Solution" subtitle="Delivering Excellence in Every Engagement" sections={[{
+      title: "About Us",
+      icon: <Target size={24} className="text-background" />,
+      content: "We are a trusted partner for organizations seeking to win contracts, build high-performing teams, and develop custom software solutions. With expertise across proposal development, cleared recruitment, staffing, and technology, we deliver end-to-end solutions tailored to your mission."
+    }, {
+      title: "Our Vision",
+      icon: <Zap size={24} className="text-background" />,
+      content: "To be recognized as the premier workforce solutions provider, known for our commitment to excellence, innovation, and measurable results that drive business success."
+    }, {
+      title: "Our Mission",
+      icon: <Shield size={24} className="text-background" />,
+      content: "To bridge the gap between opportunity and execution by providing specialized talent, strategic insights, and technology solutions that empower our clients to achieve their objectives."
+    }]} />
 
       {/* CTA Section */}
       <section className="py-24 relative">
@@ -341,8 +308,6 @@ const Home = () => {
 
       <ScheduleMeetingSection />
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Home;

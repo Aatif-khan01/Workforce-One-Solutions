@@ -16,32 +16,28 @@ import strategicPlanningImage from "@/assets/strategic-planning.jpg";
 import galleryConsultation from "@/assets/gallery-consultation.jpg";
 import galleryPartnership from "@/assets/gallery-partnership.jpg";
 import galleryOfficeView from "@/assets/gallery-office-view.jpg";
-
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     service: "",
     source: "",
-    message: "",
+    message: ""
   });
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast.success("Thank you! We'll be in touch soon.", {
-      description: "Your message has been received.",
+      description: "Your message has been received."
     });
     setFormData({
       name: "",
       email: "",
       service: "",
       source: "",
-      message: "",
+      message: ""
     });
   };
-
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <Navigation />
       
       {/* Hero Section */}
@@ -63,7 +59,7 @@ const Contact = () => {
               </p>
             </AnimatedBox>
             <AnimatedBox animation="fadeInUp" delay={600}>
-              <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
+              <p className="text-lg text-foreground max-w-3xl mx-auto">
                 Have a question about our services, a project you're planning, or just want to explore how we can help you win, recruit, staff or build software? Let's talk.
               </p>
             </AnimatedBox>
@@ -75,11 +71,7 @@ const Contact = () => {
       <section className="py-16 relative overflow-hidden scroll-smooth">
         <div className="container mx-auto px-6">
           <AnimatedBox animation="scaleIn" delay={200} className="relative rounded-3xl overflow-hidden max-w-6xl mx-auto">
-            <img 
-              src={strategicPlanningImage}
-              alt="Strategic Planning" 
-              className="w-full h-[400px] object-cover"
-            />
+            <img src={strategicPlanningImage} alt="Strategic Planning" className="w-full h-[400px] object-cover" />
             <div className="absolute inset-0 flex items-center justify-center">
               <AnimatedCard className="p-8 max-w-2xl text-center" animation="fadeInUp" delay={400}>
                 <h3 className="text-3xl font-bold mb-4 text-foreground">Let's Start a Conversation</h3>
@@ -107,31 +99,26 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium mb-2 text-foreground">Your Name</label>
-                  <Input
-                    type="text"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="John Doe"
-                    required
-                    className="bg-glass/40 border-glass-border focus:border-accent"
-                  />
+                  <Input type="text" value={formData.name} onChange={e => setFormData({
+                  ...formData,
+                  name: e.target.value
+                })} placeholder="John Doe" required className="bg-glass/40 border-glass-border focus:border-accent" />
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium mb-2 text-foreground">Your Email</label>
-                  <Input
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="john@example.com"
-                    required
-                    className="bg-glass/40 border-glass-border focus:border-accent"
-                  />
+                  <Input type="email" value={formData.email} onChange={e => setFormData({
+                  ...formData,
+                  email: e.target.value
+                })} placeholder="john@example.com" required className="bg-glass/40 border-glass-border focus:border-accent" />
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium mb-2 text-foreground">Tell us about your requirement</label>
-                  <Select value={formData.service} onValueChange={(value) => setFormData({ ...formData, service: value })}>
+                  <Select value={formData.service} onValueChange={value => setFormData({
+                  ...formData,
+                  service: value
+                })}>
                     <SelectTrigger className="bg-glass/40 border-glass-border focus:border-accent">
                       <SelectValue placeholder="Select a service" />
                     </SelectTrigger>
@@ -147,7 +134,10 @@ const Contact = () => {
 
                 <div>
                   <label className="block text-sm font-medium mb-2 text-foreground">How did you hear about us?</label>
-                  <Select value={formData.source} onValueChange={(value) => setFormData({ ...formData, source: value })}>
+                  <Select value={formData.source} onValueChange={value => setFormData({
+                  ...formData,
+                  source: value
+                })}>
                     <SelectTrigger className="bg-glass/40 border-glass-border focus:border-accent">
                       <SelectValue placeholder="Select an option" />
                     </SelectTrigger>
@@ -162,21 +152,13 @@ const Contact = () => {
 
                 <div>
                   <label className="block text-sm font-medium mb-2 text-foreground">Project details / Message</label>
-                  <Textarea
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Tell us about your project..."
-                    rows={6}
-                    required
-                    className="bg-glass/40 border-glass-border focus:border-accent resize-none"
-                  />
+                  <Textarea value={formData.message} onChange={e => setFormData({
+                  ...formData,
+                  message: e.target.value
+                })} placeholder="Tell us about your project..." rows={6} required className="bg-glass/40 border-glass-border focus:border-accent resize-none" />
                 </div>
 
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full bg-gradient-to-r from-coral to-secondary hover:shadow-glow group animate-glow"
-                >
+                <Button type="submit" size="lg" className="w-full bg-gradient-to-r from-coral to-secondary hover:shadow-glow group animate-glow">
                   Send Message
                   <Send className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                 </Button>
@@ -200,7 +182,9 @@ const Contact = () => {
 
               <AnimatedCard className="p-8" animation="fadeInRight" delay={500}>
                 <div className="flex items-start space-x-4">
-                  <div className="p-3 rounded-xl bg-gradient-to-br from-secondary to-coral flex-shrink-0 animate-pulse-slow" style={{ animationDelay: '0.5s' }}>
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-secondary to-coral flex-shrink-0 animate-pulse-slow" style={{
+                  animationDelay: '0.5s'
+                }}>
                     <MapPin size={24} className="text-background" />
                   </div>
                   <div>
@@ -221,24 +205,11 @@ const Contact = () => {
                   Follow us on social media for updates, insights and new opportunities.
                 </p>
                 <div className="flex space-x-4">
-                  <a
-                    href="#"
-                    className="w-12 h-12 rounded-lg bg-glass/40 border border-glass-border hover:border-accent flex items-center justify-center transition-all hover:scale-110 animate-float"
-                  >
+                  <a href="#" className="w-12 h-12 rounded-lg bg-glass/40 border border-glass-border hover:border-accent flex items-center justify-center transition-all hover:scale-110 animate-float">
                     <span className="text-accent font-bold">in</span>
                   </a>
-                  <a
-                    href="#"
-                    className="w-12 h-12 rounded-lg bg-glass/40 border border-glass-border hover:border-accent flex items-center justify-center transition-all hover:scale-110 animate-float" style={{ animationDelay: '0.2s' }}
-                  >
-                    <span className="text-accent font-bold">f</span>
-                  </a>
-                  <a
-                    href="#"
-                    className="w-12 h-12 rounded-lg bg-glass/40 border border-glass-border hover:border-accent flex items-center justify-center transition-all hover:scale-110 animate-float" style={{ animationDelay: '0.4s' }}
-                  >
-                    <span className="text-accent font-bold">𝕏</span>
-                  </a>
+                  
+                  
                 </div>
               </AnimatedCard>
 
@@ -258,37 +229,32 @@ const Contact = () => {
       </section>
 
       {/* Image Grid Info Section */}
-      <ImageGridInfo
-        images={[
-          { src: galleryConsultation, alt: "Business consultation", label: "Expert Guidance" },
-          { src: galleryPartnership, alt: "Partnership collaboration" },
-          { src: galleryOfficeView, alt: "Professional environment" },
-        ]}
-        title="Why Connect With Us"
-        subtitle="Your Success Is Our Priority"
-        sections={[
-          {
-            title: "Responsive Communication",
-            icon: <MessageCircle size={24} className="text-background" />,
-            content: "We value your time and respond promptly to all inquiries. Our team is committed to providing clear, helpful communication throughout our engagement.",
-          },
-          {
-            title: "Flexible Scheduling",
-            icon: <Clock size={24} className="text-background" />,
-            content: "We work around your schedule for consultations and meetings. Whether you prefer phone, video, or in-person discussions, we accommodate your preferences.",
-          },
-          {
-            title: "Tailored Solutions",
-            icon: <CheckCircle size={24} className="text-background" />,
-            content: "Every client is unique. We take time to understand your specific needs and develop customized solutions that align with your goals and constraints.",
-          },
-        ]}
-      />
+      <ImageGridInfo images={[{
+      src: galleryConsultation,
+      alt: "Business consultation",
+      label: "Expert Guidance"
+    }, {
+      src: galleryPartnership,
+      alt: "Partnership collaboration"
+    }, {
+      src: galleryOfficeView,
+      alt: "Professional environment"
+    }]} title="Why Connect With Us" subtitle="Your Success Is Our Priority" sections={[{
+      title: "Responsive Communication",
+      icon: <MessageCircle size={24} className="text-background" />,
+      content: "We value your time and respond promptly to all inquiries. Our team is committed to providing clear, helpful communication throughout our engagement."
+    }, {
+      title: "Flexible Scheduling",
+      icon: <Clock size={24} className="text-background" />,
+      content: "We work around your schedule for consultations and meetings. Whether you prefer phone, video, or in-person discussions, we accommodate your preferences."
+    }, {
+      title: "Tailored Solutions",
+      icon: <CheckCircle size={24} className="text-background" />,
+      content: "Every client is unique. We take time to understand your specific needs and develop customized solutions that align with your goals and constraints."
+    }]} />
 
       <ScheduleMeetingSection />
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Contact;

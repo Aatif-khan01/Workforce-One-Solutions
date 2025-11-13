@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Shield, Users, Search, CheckCircle, Award, ArrowRight, Target } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import ScheduleMeetingSection from "@/components/ScheduleMeetingSection";
+import ClientLogos from "@/components/ClientLogos";
 import GlassCard from "@/components/GlassCard";
 import ImageGridInfo from "@/components/ImageGridInfo";
 import { Button } from "@/components/ui/button";
@@ -257,7 +257,7 @@ const ClearedRecruitment = () => {
       <section className="py-16 scroll-smooth">
         <div className="container mx-auto px-6">
           <GlassCard className="p-12 max-w-5xl mx-auto animate-fade-in">
-            <p className="text-lg text-foreground/90 leading-relaxed">
+            <p className="text-lg text-foreground leading-relaxed">
               Our Cleared Recruitment services are designed to help government contractors and agencies find qualified professionals with the necessary clearances to meet the demands of sensitive projects. Our extensive network and database, developed over years of experience, enable us to quickly identify and connect with candidates who meet your specific clearance requirements.
             </p>
           </GlassCard>
@@ -462,7 +462,7 @@ const ClearedRecruitment = () => {
         </div>
       </section>
 
-      <ScheduleMeetingSection />
+      <ClientLogos />
       <Footer />
     </div>
   );

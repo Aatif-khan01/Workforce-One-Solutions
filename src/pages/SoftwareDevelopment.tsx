@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Code, Smartphone, Globe, Cloud, Palette, TestTube, RefreshCw, Wrench, ArrowRight, Layers, Award, Rocket } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import ScheduleMeetingSection from "@/components/ScheduleMeetingSection";
+import ClientLogos from "@/components/ClientLogos";
 import ImageGridInfo from "@/components/ImageGridInfo";
 import GlassCard from "@/components/GlassCard";
 import { Button } from "@/components/ui/button";
@@ -251,7 +251,7 @@ const SoftwareDevelopment = () => {
       <section className="py-16 scroll-smooth">
         <div className="container mx-auto px-6">
           <GlassCard className="p-12 max-w-5xl mx-auto">
-            <p className="text-lg text-foreground/90 leading-relaxed">
+            <p className="text-lg text-foreground leading-relaxed">
               Whether you're looking to modernize legacy systems, develop new applications, or integrate advanced technologies, our team is equipped to turn your vision into reality. From concept to deployment, we provide end-to-end product engineering services, ensuring your software meets market demands and user expectations.
             </p>
           </GlassCard>
@@ -364,29 +364,29 @@ const SoftwareDevelopment = () => {
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  <p className="text-foreground/90">Expertise across industries including government contracting, healthcare, education</p>
+                  <p className="text-foreground">Expertise across industries including government contracting, healthcare, education</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  <p className="text-foreground/90">Proven track record of successful software solutions</p>
+                  <p className="text-foreground">Proven track record of successful software solutions</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  <p className="text-foreground/90">Client-centric approach tailored to your unique needs</p>
+                  <p className="text-foreground">Client-centric approach tailored to your unique needs</p>
                 </div>
               </div>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0" />
-                  <p className="text-foreground/90">Commitment to quality with ISO certifications</p>
+                  <p className="text-foreground">Commitment to quality with ISO certifications</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0" />
-                  <p className="text-foreground/90">Agile methodologies ensuring flexibility and continuous improvement</p>
+                  <p className="text-foreground">Agile methodologies ensuring flexibility and continuous improvement</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0" />
-                  <p className="text-foreground/90">Ongoing support and maintenance for long-term success</p>
+                  <p className="text-foreground">Ongoing support and maintenance for long-term success</p>
                 </div>
               </div>
             </div>
@@ -440,7 +440,7 @@ const SoftwareDevelopment = () => {
         </div>
       </section>
 
-      <ScheduleMeetingSection />
+      <ClientLogos />
       <Footer />
     </div>
   );

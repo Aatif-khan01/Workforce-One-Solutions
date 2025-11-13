@@ -232,7 +232,7 @@ const Services = () => {
                       {service.features.map((feature, idx) => (
                         <div key={idx} className="flex items-center space-x-2">
                           <Check size={14} className="text-accent flex-shrink-0 sm:w-4 sm:h-4" />
-                          <span className="text-xs sm:text-sm text-foreground/80">{feature}</span>
+                          <span className="text-xs sm:text-sm text-foreground">{feature}</span>
                         </div>
                       ))}
                     </div>
