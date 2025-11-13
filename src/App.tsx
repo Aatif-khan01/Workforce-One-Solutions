@@ -6,7 +6,8 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import PageTransition from "@/components/PageTransition";
 import ScrollToTop from "@/components/ScrollToTop";
-import { useScrollTop } from "@/hooks/use-scroll-top";
+import ContentProtection from "@/components/ContentProtection";
+import { useScrollTop } from "@/hook/use-scroll-top";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -49,6 +50,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <ContentProtection />
       <BrowserRouter>
         <AppRoutes />
         <ScrollToTop />
