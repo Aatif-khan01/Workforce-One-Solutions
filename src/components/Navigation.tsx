@@ -192,10 +192,14 @@ const Navigation = () => {
             </Link>
           </div>
 
-          {/* Mobile Menu Button - Always Black */}
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden p-2 transition-colors text-black hover:text-black/80 ${isHomePage ? 'ml-auto' : ''}`}
+            className={`md:hidden p-2 transition-colors ${
+              isHomePage && !isScrolled 
+                ? "text-white hover:text-white/80" 
+                : "text-foreground hover:text-accent"
+            } ${isHomePage ? 'ml-auto' : ''}`}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -233,10 +237,10 @@ const Navigation = () => {
                           to={service.path}
                           onClick={() => setIsOpen(false)}
                           className={`block py-2 px-4 text-sm rounded-lg transition-colors duration-200 ${
-                            location.pathname === service.path
-                              ? "text-accent bg-accent/10"
-                              : "text-foreground/80 hover:text-accent hover:bg-accent/5"
-                          }`}
+                              location.pathname === service.path
+                                ? "text-accent bg-accent/10"
+                                : "text-foreground hover:text-accent hover:bg-accent/5"
+                            }`}
                         >
                           {service.label}
                         </Link>

@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { motion } from "framer-motion";
-import { useAnimations } from "../hooks/use-animations";
+import { useAnimations } from "../hook/use-animations";
 
 interface AnimatedCardProps {
   children: ReactNode;

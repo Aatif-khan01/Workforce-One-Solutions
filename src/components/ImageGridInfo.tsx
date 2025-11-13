@@ -76,7 +76,7 @@ const ImageGridInfo = ({ images, title, subtitle, sections, reverse = false }: I
                       <h3 className="text-xl font-bold mb-2 text-accent">
                         {section.title}
                       </h3>
-                      <p className="text-foreground/80 leading-relaxed">
+                      <p className="text-foreground leading-relaxed">
                         {section.content}
                       </p>
                     </div>

@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
-import { Linkedin, Facebook, Twitter } from "lucide-react";
+import { Linkedin } from "lucide-react";
 import logo from "@/assets/WfOS-LOGO.png";
-
 const Footer = () => {
-  return (
-    <footer className="relative mt-24 bg-card/50 backdrop-blur-xl border-t border-glass-border">
+  return <footer className="relative mt-24 bg-card/50 backdrop-blur-xl border-t border-glass-border">
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
@@ -40,12 +38,8 @@ const Footer = () => {
               <a href="#" className="p-2 rounded-lg bg-glass/40 hover:bg-glass border border-glass-border hover:border-accent transition-all hover:scale-110">
                 <Linkedin size={20} className="text-accent" />
               </a>
-              <a href="#" className="p-2 rounded-lg bg-glass/40 hover:bg-glass border border-glass-border hover:border-accent transition-all hover:scale-110">
-                <Facebook size={20} className="text-accent" />
-              </a>
-              <a href="#" className="p-2 rounded-lg bg-glass/40 hover:bg-glass border border-glass-border hover:border-accent transition-all hover:scale-110">
-                <Twitter size={20} className="text-accent" />
-              </a>
+              
+              
             </div>
           </div>
         </div>
@@ -54,8 +48,6 @@ const Footer = () => {
           <p>&copy; 2025 Workforce One Solutions. All rights reserved.</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;

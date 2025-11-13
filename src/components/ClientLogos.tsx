@@ -1,3 +1,9 @@
+import Autoplay from "embla-carousel-autoplay";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 import client1 from "@/assets/clients/client-1.png";
 import client2 from "@/assets/clients/client-2.png";
 import client3 from "@/assets/clients/client-3.png";
@@ -15,52 +21,54 @@ const ClientLogos = () => {
     { src: client6, alt: "Aerospace Dynamics" },
   ];
 
+  const autoplayPlugin = Autoplay({
+    delay: 0,
+    stopOnInteraction: true,
+    stopOnMouseEnter: true,
+  });
+
   return (
-    <section className="py-16 overflow-hidden bg-gradient-to-b from-background/50 to-background">
+    <section className="py-20 overflow-hidden bg-white relative">
       {/* Section Header */}
-      <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold tracking-tight">Clients</h2>
-        <p className="text-lg text-muted-foreground mt-2">
-          Trusted by startups, creatives, and suits alike
-        </p>
+      <div className="text-center mb-12">
+        <div className="inline-flex items-center gap-2 px-6 py-3 bg-blue-900/10 rounded-full border border-blue-700/20 mb-6">
+          <span className="text-2xl">🤝</span>
+          <span className="text-sm font-semibold text-gray-900 tracking-wider uppercase">
+            Our Clients&apos; Partners
+          </span>
+        </div>
+        <h2 className="text-3xl md:text-4xl font-light text-gray-900">
+          Collaborating with Government Leaders
+        </h2>
       </div>
 
-      {/* Scrolling Client Logos */}
-      <div className="relative">
-        {/* Gradient Overlays for Fading Edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
-
-        {/* Continuous Scrolling Container */}
-        <div className="flex animate-scroll-continuous">
-          {/* First set of logos */}
-          {clients.map((client, index) => (
-            <div
-              key={`first-${index}`}
-              className="flex-shrink-0 mx-8 w-[280px] h-[120px] bg-background rounded-2xl flex items-center justify-center p-6 border border-border/40"
-            >
-              <img
-                src={client.src}
-                alt={client.alt}
-                className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-              />
-            </div>
-          ))}
-
-          {/* Duplicate set for seamless looping */}
-          {clients.map((client, index) => (
-            <div
-              key={`second-${index}`}
-              className="flex-shrink-0 mx-8 w-[280px] h-[120px] bg-background rounded-2xl flex items-center justify-center p-6 border border-border/40"
-            >
-              <img
-                src={client.src}
-                alt={client.alt}
-                className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-              />
-            </div>
-          ))}
-        </div>
+      {/* Carousel Container */}
+      <div className="container mx-auto px-4">
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+            dragFree: true,
+          }}
+          plugins={[autoplayPlugin]}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-4 [animation:scroll-continuous_30s_linear_infinite] hover:[animation-play-state:paused]">
+            {[...clients, ...clients, ...clients].map((client, index) => (
+              <CarouselItem key={index} className="pl-4 basis-auto">
+                <div className="flex items-center justify-center w-[140px] h-[140px] md:w-[160px] md:h-[160px] rounded-full overflow-hidden bg-white shadow-md border-2 border-blue-900/10">
+                  <img
+                    src={client.src}
+                    alt={client.alt}
+                    className="w-full h-full object-cover transition-all duration-300 hover:scale-105"
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
+                  />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
       </div>
     </section>
   );
